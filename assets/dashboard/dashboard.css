@@ -1,0 +1,774 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap');
+
+*{
+    margin: 0px;
+    box-sizing: border-box;
+    font-family: 'Inter';
+    
+}
+
+:root{
+    --var--primary-mokaru : #5640E6;
+}
+
+header{
+    background: linear-gradient(180.19deg, var(--main-color-select) 70.92%, rgba(111, 229, 255, 0) 246.86%);
+}
+.nav-desktop{
+    width: 100%;
+    height: 100%;
+}
+.nav-movil{
+display: none;
+}
+.cuenta{
+text-align: center;
+margin-top: 15px;
+}
+.profile-img-container figure{margin-bottom: 0;}
+.profile-img-container img{ border-radius: 50%; border: 1px solid white; background-color: var(--main-color-select);}
+
+.logo-container{
+text-align: center;
+padding-top: 15px;
+
+}
+
+.cuenta p{
+font-size: 15px;
+color: #FFFFFF;
+
+}
+
+.ctrl-panel{
+margin-top: 50px;
+}
+
+.ctrl-panel ul{
+list-style: none;
+padding: 0;
+}
+
+.ctrl-panel ul li{
+margin-top: 15px;
+cursor: pointer;
+display: flex;
+border-radius: 10px 0px 0px 10px;
+padding: 15px;
+
+}
+
+.ctrl-link{
+text-decoration: none;
+color: #FFFFFF;
+font-weight: 800;
+font-size: 17px;
+
+margin-top: auto;
+margin-bottom: auto;
+
+}
+
+
+ul li{
+transition: ease 0.3s;
+}
+
+
+ul li:hover{
+background-color: rgba(255, 255, 255, 0.25) ;
+}
+
+.ctrl-icon{
+margin-right: 10px;
+}
+
+
+.activo{
+background-color: rgba(255, 255, 255, 0.25); 
+
+}
+
+.separador{
+height: 1px;
+background-color: #FFFFFF;
+margin: 70px 10% 0 10%;
+}
+
+.salir{
+text-decoration: none;
+color: #FFFFFF;
+font-weight: 300;
+font-size: 17px;
+margin-left: 10px;
+line-height: 24px;
+}
+
+
+.otros{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+}
+
+.inactivo{
+
+color: rgba(255, 255, 255, 0.25);
+}
+
+.menu-icon{
+display: none;
+}
+
+
+/*LAYOUT*/
+
+.body-dashboard{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 15% auto;
+    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Ok_02-1.png');
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: bottom;
+    background-size: 600px;
+
+}
+.bienvenidos-mobile{
+    display: none;
+}
+.btn-block-mobil{
+    display:none;
+}
+.text-mobil{
+    display: none;
+}
+
+.circle p{
+    line-height: 45px;
+    text-align: center;
+    font-weight: 700;
+    color:  #FFFFFF;
+    font-size: 25px;
+}
+
+
+
+
+h1{
+    text-align: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+
+
+.grid{
+    display: grid;
+    grid-template-columns: auto auto ;
+    gap: 45px;
+    margin: 35px 45px;
+    
+}
+
+.Transacciones{
+    grid-row: 2 / 4 ;
+}
+
+/*BLOQUES*/
+
+.bloque{
+    margin: 5% 5% 0 5%;
+}
+
+.primary-block{
+    background: #FFFFFF;
+    box-shadow: 8px 13px 44px -6px #DFDBF7;
+    border-radius: 20px;
+}
+
+.balance-block{
+    background: rgba(147, 147, 147, 0.8);
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 20px;
+}
+.balance-block.active{
+    background-color: var(--main-color-select);
+}
+
+.btn-block{
+    background: #5640E6;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 20px;
+    border: none;
+    padding: 30px 60px;
+    font-size: 1.625em;
+    font-weight: 600;
+    color: #FFFFFF;
+    text-decoration: none;
+   
+}
+
+/**/
+
+
+
+/*CUADRO DE BIENVENIDA*/
+
+.Bienvenidos{
+    padding: 50px 30px
+}
+
+.Bienvenidos-txt{
+    
+    display: flex;
+    flex-direction:column ;
+    justify-content: space-around;
+    height:100% ;
+}
+
+.Bienvenidos-txt h3{
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.Bienvenidos-txt-t{
+    font-size: 25px;
+    font-weight: 500;
+}
+
+.Bienvenidos-txt-p{
+    font-weight: 800;
+    font-size: 23px;
+    color: #B9B9BC;
+}
+
+/**/
+
+.mensaje-not{
+    
+    font-weight: 600;
+    font-size: 20px;
+
+}
+
+.t-separador{
+    display: flex;
+    
+}
+
+.t-content{
+    display: flex;
+    
+}
+
+.positivo{
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #6ED69E;
+    font-weight: 800;
+    font-size: 18px;
+    
+}
+
+.notificacion p{
+    line-height: 45px;
+}
+
+.negativo{
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #D14F4F;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.pendiente{
+    margin-top: auto;
+    margin-bottom: auto;
+    color: #D19D4F;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+
+/*CUADRO DE BALANCE*/
+
+.Balance{
+    padding: 50px 30px
+}
+
+.Balance-txt{
+    
+    display: flex;
+    flex-direction:column ;
+    justify-content: space-around;
+    height:100% ;
+}
+
+.Balance-txt h3{
+    font-weight: 800;
+    font-size: 42px;
+    color: #FFFFFF;
+}
+
+.Balance-txt-t{
+    color: #FFFFFF;
+    font-weight: 800;
+    font-size: 45px;
+}
+
+.Balance-txt-p{
+    letter-spacing: 0.17em;
+    color: #020018;
+    opacity: 0.5;
+    font-weight: 900;
+    font-size: 12px;
+}
+
+/**/
+
+
+
+/*TRANSACCIONES*/
+
+.circle{
+    background-color: rgba(185, 185, 188, 1);
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    margin-right: 25px;
+    text-align: center;
+}
+
+
+.circle-red{
+    background-color:#F5DCDC;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    margin: auto 25px auto 0;
+    text-align: center;
+    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Vectordown.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
+
+.circle-green{
+    background-color: #DCF5E8;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    margin: auto 25px auto 0;
+    text-align: center;
+    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Vectorarrowup.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
+
+.circle-yellow{
+    background-color: #F5EDDC;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    margin: auto 25px auto 0;
+    text-align: center;
+    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Vectorright.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
+.Transacciones-txt{
+    margin: 30px 30px 10px 30px;
+    height: calc(100% - 60px);
+}
+
+.Transacciones-txt h3{
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(67, 67, 67, 1);
+}
+.transacciones-content{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.Transacciones-not{
+    margin-top: 28%;
+    display: flex;
+    
+}
+
+.circle{
+    background-color: rgba(185, 185, 188, 1);
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    margin-right: 25px;
+}
+.transacciones-content .mensaje-not{margin: 0;}
+.mensaje-not{
+    line-height: 45px;
+    font-weight: 800;
+    font-size: 20px;
+
+}
+/**/
+
+
+
+/*NOTIFICACIONES*/
+
+.Notificaciones-txt{
+    margin: 30px 30px 10px 30px;
+    height: calc(100% - 60px);
+}
+
+.Notificaciones-txt h3{
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(67, 67, 67, 1);
+}
+
+.notificacion{
+    margin-bottom: auto;
+    display: flex;
+    margin-top: 20px;
+    
+}
+.notificacion .notificacion-txt p{margin: 0;}
+/**/
+
+
+
+
+/******************************************************************************************************/
+
+@media (max-width: 1365px) {
+
+    .grid{
+     margin: 10px;
+     display: flex;
+     flex-direction: column;
+     gap: 30px;
+
+     background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-1.png');
+     background-position: center;
+     background-repeat: no-repeat;
+     background-size: contain;
+    }
+    
+    .Bienvenidos{
+        display: none;
+    }
+
+
+    .bienvenidos-mobile{
+        display: flex;
+   
+        justify-content: space-between;
+        margin: 20px 5% 0 5%;
+    }
+
+
+    .bienvenidos-mobile-perfil{
+        display: flex;
+        align-items: center;
+    }
+
+    .saludo-mobile{
+        margin-bottom: 0;
+        margin-left: 15px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 16px;
+        color: rgba(86, 64, 230, 1);
+
+    }
+
+    .options{
+        margin-top: auto;
+        margin-bottom: auto;
+      
+    }
+
+    .Perfil-img{
+        width: 60px;
+        height: 60px;
+    }
+
+ 
+    .primary-block{
+     background: #A7A7A7;
+    
+     border-radius: 20px;
+     margin: 0 5% 0 5%;
+    }
+ 
+    .balance-block{
+        background-color: rgba(147, 147, 147,);
+        margin: 0 5% 0 5%;
+        border-radius: 20px;
+    }
+    
+
+    .button{
+        display: none;
+    }
+
+    .Balance{
+        padding: 10px;
+    }
+    
+    .Balance-txt{
+        
+        display: flex;
+        flex-direction:column ;
+        margin: 0 auto 0 auto;
+        padding: 10px 12px;
+        height:100% ;
+    }
+    
+    .Balance-txt h3{
+        font-weight: 700;
+        font-size: 23px;
+        color: #FFFFFF;
+    }
+    
+    .Balance-txt-t{
+        color: #FFFFFF;
+        font-weight: 800;
+        font-size: 20px;
+        margin: 15px 0 15px 0;
+        
+    }
+    
+    .Balance-txt-p{
+        letter-spacing: 0.17em;
+        color: #FFFFFF;
+        opacity: 0.7;
+        font-weight: 800;
+        font-size: 10px;
+    }
+    
+
+    .logo{    width: 50%;
+        margin-top: 10px;
+        max-width: 150px;}
+
+    .body-dashboard{height: auto;grid-template-columns: 100%;}
+
+
+
+
+    .btn-block-mobil{
+        text-decoration: none;
+        background-color: #5640E6;
+        border-radius: 15px;
+        color: #FFFFFF;
+        margin: 0 5% 0 5%;
+        text-align: center;
+        padding: 8px 0;
+        
+        
+        
+    }
+
+    .text-mobil{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 900;
+        font-size: 11px;
+        text-align: center;
+        letter-spacing: 0.17em;
+        text-transform: uppercase;
+        margin: 0 20%;
+        color: #5640E6;
+
+        opacity: 0.5;
+    }
+
+
+
+
+
+
+    
+    .Transacciones-txt{
+        margin: 20px 0 20px 10%;
+        
+        
+        
+    }
+    
+    .Transacciones-txt h3{
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        
+    }
+    
+    .Transacciones-not{
+        margin-top: 28%;
+        display: flex;
+        margin-bottom: 20%;
+    
+        
+    }
+    
+    .circle{
+        background-color: #FFFFFF;
+        height: 30px;
+        width: 30px;
+        border-radius: 100%;
+        margin-right: 5px;
+        text-align: center;
+
+        
+    }
+    
+    .circle p{
+        line-height: 31px;
+        font-weight: 700;
+        color:  rgba(147, 147, 147);
+        font-size: 20px;
+    }
+    .mensaje-not{
+        line-height: 30px;
+        font-weight: 400;
+        font-size: 12px;
+        color: #FFFFFF;
+    
+    }
+    .Notificaciones-txt{
+        margin: 20px 0 20px 10%;
+        
+    
+        
+    }
+
+    .Notificaciones-txt h3{
+        font-weight: 500;
+        font-size: 20px;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        
+    }
+
+    .Notificaciones-not{
+        margin-top: 28%;
+        display: flex;
+        margin-bottom: 20%;
+    
+        
+    }
+
+    .Notificaciones{
+        margin-bottom: 75px;
+    }
+    
+    /* NAVEGACION */
+    
+    .nav-desktop{
+        display: none;
+    }
+    
+    .nav-movil{
+        position: fixed;
+        bottom: 0px;
+        display: block;
+        width: 100%;
+    }
+    .header-movil{
+        position: sticky;
+        
+        background-color: #FFFF;
+        width: 100%;
+        border-top: solid 3px var(--main-color-select);
+        font-family: 'Mulish', sans-serif;
+        z-index: 2;
+    }
+    
+    .movil-nav{
+        display: flex;
+        justify-content: space-around;
+        padding: 0;
+        margin-bottom: 0;
+        
+    }
+    
+    .movil-nav-li{
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0 10px 0 ;
+        
+    
+    }
+    
+    svg{
+        height: 25px;
+        
+        
+    }
+    
+    .logo-svg{
+        text-align: center;
+    }
+    
+    .movil-nav-li-a{
+        text-transform: uppercase;
+        font-size: 12px;
+        text-decoration: none;
+        color: #253046;
+        font-weight: 700;
+        opacity: 0.5;
+    }
+    
+    
+    
+    .sub-menu-movil{
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        font-family: 'Mulish', sans-serif;
+        z-index: 1;
+        bottom: 0;
+        background-color: var(--main-color-select);
+        transition: ease 0.5s;
+        border-radius: 20px 20px 0 0;
+        
+    }
+    
+    .show-sub-menu{
+        bottom: 67px;
+    }
+    
+    .movil-sub-nav-li-a{
+        text-transform: uppercase;
+        font-size: 10px;
+        text-decoration: none;
+        color: #FFFF;
+        font-weight: 700;
+        
+    }
+    
+  
+
+
+
+ }
+
+
+
+

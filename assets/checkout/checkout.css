@@ -1,0 +1,225 @@
+:root{
+    --gold_member: #C4A655;
+    --platinum_member: #3C4B5F;
+    --black_member: #020119;
+}
+
+.woocommerce{padding: 25px;}
+
+.pmpro_checkout_gateway-mokaru{    margin: 1.5% 5%; font-family: 'mulish';}
+
+header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%;  background-color: var(--main-color-select) ;}
+.btn-mokaru{border: 1px solid; border-radius: 15px;}
+#pmpro_checkout_box-checkout_boxes h3{display: none;}
+
+.tabs-checkout .enviar{
+    text-decoration: none;
+    border: solid 2px  var(--main-color-select);
+    padding: 15px 80px;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 10px;
+    color:  var(--main-color-select);
+    transition: ease 0.3s;
+    background-color: transparent;
+    margin-top: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.tabs-checkout .enviar:active,
+.tabs-checkout .enviar:hover{
+    background-color:  var(--main-color-select);
+    border-color:  var(--main-color-select);
+    color: #FFFF;
+}
+
+.billetera{margin-bottom: 20px;}
+.billetera a{
+    text-decoration: none;
+    color:  var(--main-color-select);
+    padding: 5px 25px ;
+    border:  var(--main-color-select) 1px solid;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    transition: ease 0.3s;
+}
+
+.billetera a:hover{color: #FFFF;background-color:  var(--main-color-select);}
+
+.btn-mokaru {
+    display: inline-block;
+    position: relative;
+    background-color:  transparent;
+    color:  var(--main-color-select);
+    border: 2px solid var(--main-color-select);
+    padding: 12px 20px;
+    font-size: 1.4rem;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .15);
+    overflow: hidden;
+    transition: ease-out 120ms 
+}
+.btn-mokaru:hover {
+    background-color:  var(--main-color-select);
+    color: white;
+}
+.btn-mokaru:active {
+    background-color:   var(--main-color-select);
+    color: white;
+}
+.btn-mokaru > i {
+    margin-right: 15px;
+}
+
+.tyc{display: flex; align-items: center;    }
+.tyc input{margin-right: 15px;}
+.tyc label{font-weight: 300;}
+/*IMG*/
+.form-file{margin-top: 35px; margin-bottom: 20px;}
+.frm_image, .frm_file{overflow: hidden;background-color: transparent; font-size: .8rem;
+    border: 1px solid transparent; color: #444; 
+    display: flex; align-items: center; justify-content: center; cursor: pointer;
+     position: relative; width: 100%; max-width: 250px;
+    overflow: hidden;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+}
+
+.frm_image.active, .frm_file.active{border-radius: 35px; height: 350px;}
+.frm_file.active .btn-mokaru{display: none;}
+#comprobante_div,.input_frm_hidden{position: absolute ; opacity:0;z-index:-100; height: 0; width: 0;}
+.frm_image figure, .frm_file figure{align-items: center; display: flex; height: 100%; justify-content: center; margin: 0 10px; overflow: hidden;}
+.frm_image figure figcaption, .frm_file figure figcaption{ margin-left: 20px;}
+.frm_image figure img, .frm_file figure img{max-width: 40px;}
+.frm_image::before{content: attr(data-message); color: #8E8E8E; position: absolute; top: 63%; left: 0; font-size: 1em; width: 100%; text-align: center;}
+
+
+.header-fixed.subheader-fixed.subheader-enabled .wrapper{padding-top: 0;}
+.subheader {display:-webkit-box; display:-ms-flexbox; display:flex;-webkit-box-align:center;-ms-flex-align:center; align-items:center;}
+.subheader .subheader-separator {display:block; width:12px; height:4px; border-radius:2px;}
+.subheader .subheader-separator.subheader-separator-ver {width:1px; height:22px;}
+.subheader.subheader-solid {border-top:1px solid #ebedf3; background-color:#fff;}
+
+.main-title{font-weight: 400; color: var(--main-color-select);}
+
+.tabs-checkout{color: #333;}
+
+.validacion{font-weight: 400;font-size: 1.2rem;color: var(--main-color-select);margin: 5% 0 1% 0;}
+.qr-figure img{border: 2px solid #333 !important;}
+
+
+
+.logo-mobile{
+display:none;
+}
+
+.img-container{
+margin: 10% ;
+}
+
+.img-container img{
+width: 100%;
+}
+
+.user{
+margin: 30% 10% 10% 10%;
+}
+
+.user h4{color: white;}
+
+.user h3{
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 500;
+font-size: 1.4375em;
+color: #FFFF;
+}
+
+.user p{
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 700;
+font-size: 1.3rem;
+color: #FFFF;
+margin-top: 50% ;
+}
+
+.salir{
+display: flex;
+text-decoration: none;
+}
+
+.salir-whrap{
+margin: 90% 10% 0 20%;
+}
+
+.salir p{
+font-family: 'Mulish';
+font-style: normal;
+font-weight: 700;
+font-size: 17px;
+line-height: 18px;
+color: #FFFF;
+margin-left: 20px;
+}
+
+
+.whrap{
+margin: 1.5% 5%;
+font-family: 'mulish';
+}
+
+.titulo{
+font-weight: 600;
+font-size: 2.5625em;
+text-align: left;
+color: var(--main-color-select);
+}
+
+
+.parrafo-1{
+font-weight: 400;
+font-size: 20px;
+margin-top: 5%;
+}
+
+.whrap-btn{
+display: flex;
+margin-top: 6%;
+}
+
+.whrap-btn a{
+text-decoration: none;
+border: solid 2px var(--main-color-select);
+padding: 12px;
+box-shadow: 8px 13px 44px -6px #DFDBF6;
+border-radius: 10px;
+color: var(--main-color-select);
+transition: ease 0.3s;
+}
+
+.whrap-btn a:hover{
+background-color: var(--main-color-select);
+color: #FFFF;
+}
+
+.whrap-btn p{
+margin: auto 0 auto 30px;
+}
+
+.bold{
+font-weight: 700;
+}
+
+.banco{
+width: 35%;
+margin-top: 20px;
+font-size: 14px;
+}
+
+
+
+
+
+
