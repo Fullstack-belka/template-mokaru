@@ -1,0 +1,320 @@
+
+header{
+    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-1.png');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position-x:center ;
+    background-position-y: bottom;
+    background-size: contain;
+}
+
+
+.cuentaWhrap{
+    margin: 0 7%;
+    padding: 15% 10%;
+    border-radius: 20px;
+    margin-top: 15%;
+    border: solid 1px #000000;
+    
+}
+
+.activeW{
+    background: var(--main-color-select);
+    color: #FFFF;
+    border: none;
+}
+
+.cuentaWhrap p{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 5%;
+}
+
+.topW{
+    margin-top:30% ;
+}
+
+.cuentaContainer p{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    margin-right: 10px;
+
+}
+
+
+.btnContainer{
+    margin: 7%;
+}
+
+.btn-atras{
+    font-family: 'Mulish';
+font-style: normal;
+font-weight: 500;
+font-size: 17px;
+color: #020119;
+display: flex;
+text-decoration: none;
+
+
+}
+
+.btn-atras p{
+    line-height: 14px;
+    margin-left: 10%;
+}
+
+
+/***********************/
+
+.infoSection{
+    display: flex;
+    justify-content: space-between;
+    margin: 1% 2% 1% 1%;
+}
+
+.infoText h1{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+}
+
+.infoText{
+    margin: auto 0;
+}
+
+.infoText p{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 31px;
+}
+
+
+.infoSection img{
+    height: 100px;
+}
+
+
+th, td{
+    padding: 10px;
+}
+
+
+
+table{
+    width: 100%;
+    text-align: left;
+}
+
+thead{
+   background-color: #d8d8d8;
+   border: 1px solid saddlebrown;
+}
+
+.whrap{
+    background: #FAFAFA;
+    border: 1px solid #000000;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 15px;
+    margin: 1% 2% 1% 1%;
+    padding: 2% 20% 5% 10%;
+    font-family: 'Mulish';
+    font-style: normal;
+}
+
+.tituloWhrap{
+    margin-bottom: 50px;
+    font-family: 'Mulish';
+    font-style: normal;
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.itemTitle{
+    font-weight: 700;
+}
+
+.itemR{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 8px;
+    padding: 7px 40px;
+    cursor: pointer;
+}
+
+
+.cerrar{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 8px;
+    padding: 7px 40px;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+@media (max-width: 902px) {
+    body{
+        display: block;
+        
+    }
+
+    header{
+        background-image: none;
+        height: auto;
+        
+    }
+    
+    
+    .cuentaWhrap{
+        margin: 0 7% ;
+        background: var(--main-color-select);
+        color: #FFFF;
+        padding: 15% 10%;
+        border-radius: 20px;
+        margin-top: 10%;
+    }
+    
+    .cuentaWhrap p{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 5%;
+    }
+    
+    
+    
+    .cuentaContainer p{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        margin-right: 10px;
+    
+    }
+    
+    
+    .btnContainer{
+        margin:7% 7% 0 7%;
+    }
+    
+    .btn-atras{
+        font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    color: #020119;
+    display: flex;
+    text-decoration: none;
+    
+    
+    }
+    
+    .btn-atras p{
+        line-height: 14px;
+        margin-left: 10%;
+    }
+
+
+
+
+
+
+    
+.infoSection{
+    display: block;
+    margin:10% 7%;
+}
+
+.infoText h1{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 36px;
+}
+
+.infoText{
+    margin: auto 0;
+}
+
+.infoText p{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 31px;
+}
+
+
+.infoSection img{
+  display: none;
+    
+}
+
+.whrap{
+    background: #FAFAFA;
+    border: 1px solid #000000;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 15px;
+    margin: 1% 7% 10% 7%;
+    padding: 1% 10%;
+    font-family: 'Mulish';
+    font-style: normal;
+    text-align: center;
+}
+
+.tituloWhrap{
+    margin-bottom: 50px;
+    font-family: 'Mulish';
+    font-style: normal;
+}
+
+.item{
+   display: block;
+    margin-top: 40px;
+}
+
+.itemTitle{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.itemR{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 8px;
+    padding: 7px 40px;
+    cursor: pointer;
+}
+
+
+.cerrar{
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 8px;
+    padding: 7px 40px;
+    font-weight: 500;
+    font-size: 20px;
+    margin-top: 50px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+
+}

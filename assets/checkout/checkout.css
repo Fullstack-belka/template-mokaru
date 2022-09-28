@@ -218,8 +218,10 @@ margin-top: 20px;
 font-size: 14px;
 }
 
+.info{padding: 20px;}
 
-
-
+.woocommerce-input-wrapper{
+    height: 60px; border-radius: 20px;
+}
 
 

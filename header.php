@@ -53,10 +53,13 @@ if(!is_user_logged_in()) {
 						<img src="<?php echo get_template_directory_uri(); ?>/assets/image/ok_icon.png" alt="Perfil">
 					</figure>
 				</div>
-				<?php if($member['status'] == 'active'){ ?>    
-					<p>Cuenta N-0000</p>
-				<?php } ?>    
-				<?= $member['code']  ?>
+				<p class="code">
+					<?php if($member['status'] == 'active'){ ?>    
+						<?= $member['code']  ?>
+						<?php }else{ ?>    
+							<p>Cuenta sin membresía</p>
+					<?php } ?>    
+				</p>
 			</div>	
 
 			<div class="ctrl-panel">
@@ -97,7 +100,7 @@ if(!is_user_logged_in()) {
 					</li>
 
 					<li>
-						<a href="/cerrar-sesion" class="salir">
+						<a href="/mi-cuenta/logout/" class="salir">
 						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
 						Salir</a>
 					</li>

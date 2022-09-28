@@ -28,9 +28,20 @@
 		wp_redirect( get_permalink(213) );		
 	}
 
+
 	foreach( WC()->cart->get_cart() as $cart_item ){
 		$product_id = $cart_item['product_id'];
 	}
+
+    $order_received = get_query_var('order-received');
+
+	if(!isset($product_id) && isset($order_received )){
+		$order = wc_get_order( $order_received );
+		foreach ( $order->get_items() as $item_id => $item ) {
+			$product_id = $item->get_product_id();
+		}
+	}
+
 	$level_id = get_post_meta( $product_id, '_membership_product_level', true );
 	
 

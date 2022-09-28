@@ -8,6 +8,9 @@
     
 }
 
+
+
+
 :root{
     --var--primary-mokaru : #5640E6;
 }
@@ -15,6 +18,12 @@
 header{
     background: linear-gradient(180.19deg, var(--main-color-select) 70.92%, rgba(111, 229, 255, 0) 246.86%);
 }
+
+.noShow{
+    display: none;
+}
+
+
 .nav-desktop{
     width: 100%;
     height: 100%;
@@ -25,7 +34,10 @@ display: none;
 .cuenta{
 text-align: center;
 margin-top: 15px;
+color: white;
 }
+
+.cuenta .code{ color: white; margin-top: 10px;}
 .profile-img-container figure{margin-bottom: 0;}
 .profile-img-container img{ border-radius: 50%; border: 1px solid white; background-color: var(--main-color-select);}
 
@@ -49,6 +61,8 @@ margin-top: 50px;
 list-style: none;
 padding: 0;
 }
+
+.ctrl-panel ul a:hover{ color: white;}
 
 .ctrl-panel ul li{
 margin-top: 15px;

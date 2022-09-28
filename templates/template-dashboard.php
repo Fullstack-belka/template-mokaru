@@ -152,7 +152,7 @@ get_header();
     </div>
     <?php if($member['status']  == 'inactive'){ ?>
         <div class="button">
-            <a class="btn-block" href="/activa-tu-cuenta">Activa tu cuenta Mōkaru</a>
+            <a class="btn-block" href="/activemos-tu-cuenta">Activa tu cuenta Mōkaru</a>
         </div>
     <?php } ?>
 

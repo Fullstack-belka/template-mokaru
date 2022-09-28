@@ -81,6 +81,8 @@ function mokaru_setup() {
 			)
 		)
 	);
+	// Set up the Woocomerce.
+	add_theme_support('woocommerce');
 
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
@@ -173,6 +175,10 @@ function custom_css() {
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/checkout/checkout.css',array(), '' );
 		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/checkout/checkout.js', array('jquery'), '', true); 
 	}
+	if ( is_page_template( 'templates/template-mi-cuenta.php' ) ) {
+		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/account/account.css',array(), '' );
+		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/account/account.js', array('jquery'), '', true); 
+	}
 	if ( is_page_template( 'templates/template-activa-tu-cuenta.php' ) ) {	
 		
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/activa_cuenta/activa_cuenta.css',array(), '' );
@@ -245,6 +251,8 @@ function hide_addiotional_info_checkout( $fields ) {
 	return $fields;
 }
 
+// Remove notification add to cart
+add_filter( 'wc_add_to_cart_message_html', '__return_false' );
 
 
 function quadlayers_subscribe_checkout( $checkout ) {
@@ -302,7 +310,6 @@ function get_color_membership( $id_member = null ){
 function member_plan() {
 
 	global $current_user;
-
 	global $member;
 	$member = [ 
 		'status' => 'inactive',
@@ -323,16 +330,7 @@ function member_plan() {
 		$level_id = $level->id;
 		$membership = $current_user->membership_level;
 
-		/*
-		//get the user meta.
-		//$approval_status = get_user_meta( $user_id, 'pmpro_approval_'.$level_id, true );
-		//$approval_status = get_user_meta( $user_id);
-		echo '<pre>';
-		print_r($level);
-		echo '</pre>';	
-		*/	
-
-		$member['code'] = 'TEST-'.$user->code ;
+		$member['code'] = $user->code ;
 		$member['level'] = $level;
 		$member['level']->name = strtolower($membership->name);			
 		$member['level']->color = get_color_membership($member['level']->id);
