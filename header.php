@@ -100,7 +100,7 @@ if(!is_user_logged_in()) {
 					</li>
 
 					<li>
-						<a href="/mi-cuenta/logout/" class="salir">
+						<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="salir">
 						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
 						Salir</a>
 					</li>

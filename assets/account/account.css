@@ -17,6 +17,7 @@ header{
     border: solid 1px #000000;
     
 }
+.cuentaWhrap:hover{ cursor: pointer;}
 
 .activeW{
     background: var(--main-color-select);

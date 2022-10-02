@@ -34,6 +34,7 @@ get_header('account');
             <p class="tituloWhrap"><strong>Informacion Personal:</strong></p>
 
             <?php 
+                //wc_get_template('/myaccount/my-account.php' ); 
                 wc_get_template('/myaccount/my-address.php' ); 
             ?>
 
@@ -62,7 +63,7 @@ get_header('account');
                 <p class="itemR">Ver Documentación</p>
             </div>
 
-            <button class="cerrar">Cerrar Sesión</button>
+            <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="cerrar">Cerrar Sesión</a>
 
         </div>
 
@@ -74,7 +75,7 @@ get_header('account');
             <p class="tituloWhrap"><strong>Facturas</strong></p>
             <?php 
             
-                if($order_id){
+                if(isset($order_id)){
                     wc_get_template( 'order/order-details.php', array(
                         'order_id' => $order_id
                     ) );
