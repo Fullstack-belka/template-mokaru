@@ -42,7 +42,7 @@ if(!is_user_logged_in()) {
 	<header >
 		<div class="nav-desktop">
 			<div class="logo-container">
-				<a href="/dashboard">
+				<a class="logo-a" href="/dashboard">
 					<img class="logo" src="http://mokaru.com.co/wp-content/uploads/2022/07/Logo123-e1657239855848.png" alt="Logo">
 				</a>
 			</div>
@@ -62,55 +62,62 @@ if(!is_user_logged_in()) {
 				</p>
 			</div>	
 
-			<div class="ctrl-panel">
-				<ul class="menu none" id="menu">
-					<li class="activo">
-						<a href="/dashboard" class="ctrl-link activo-1024">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/dashboard.png" alt="icon">
-							Inicio</a>
-					</li>
+			<div class="menuWrap">
+                    <ul class="menu" id="menu">
+                        <li >
+                            <a href="#" class="link-nav">
 
-					<li >
-						
-						<a href="#" class="ctrl-link inactivo">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/trending-up.png" alt="icon">
-							Mi retiro</a>
-					</li>
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/dashboard.png" alt="icon">
+                                <p class="ctrl-link activo-1024">Inicio</p>
+                            </a>
+                            
+                        </li>
+        
+                        <li >
+                            <a href="#" class="link-nav">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/trending-up.png" alt="icon">
+                                <p class="ctrl-link inactivo">Mi retiro</p>
+                            </a>
+                            
+                        </li>
+        
+                        <li class="">
 
-					<li class="">
-						<a href="#" class="ctrl-link inactivo">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/alcancia.png" alt="icon">
-							Alcancias</a>
-					</li>
+                            <a href="#" class="link-nav">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/alcancia.png" alt="icon">
+                            <p class="ctrl-link inactivo">Alcancias</p>
+                            </a>
+                        </li>
+        
+                        <li >
 
-					<li >
-						<a href="/mi-cuenta" class="ctrl-link">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/settings.png" alt="icon">
-							Cuenta</a>
-					</li>
-				</ul>
-
-				<div class="separador"></div>
-
-				<ul class="otros">
-					<li>
-						<a href="/ayuda" class="ctrl-link">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/help.png" alt="icon">
-							Ayuda</a>
-					</li>
-
-					<li>
-						<a href="/mi-cuenta/logout/" class="salir">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
-						Salir</a>
-					</li>
-				</ul>
-			
-			</div>
-
-			<div class="menu-icon" id="menubtn">   
-				<i class='bx bx-menu bx-lg' style='color:#ffffff'  ></i>
-			</div>
+                            <a href="#" class="link-nav">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/settings.png" alt="icon">
+                            <p class="ctrl-link">Cuenta</p>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                
+                    
+        
+                    <div class="separador"></div>
+                    <div class="navItem">
+                        <a href="#" class="link-nav">
+                            <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/help.png" alt="icon">
+                            <p class="ctrl-link">Ayuda</p>
+                        </a>
+                        
+                    </div>
+            
+                    <div class="navItem">
+                        <a href="#" class="link-nav">
+                            <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
+                            <p class="ctrl-link">Salir</p>
+                        </a>
+                        
+                    </div>
+                </div>
 		</div>            
 		<!--Nav movil-->
 		<div class="nav-movil">

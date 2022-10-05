@@ -8,7 +8,7 @@
 
 .pmpro_checkout_gateway-mokaru{    margin: 1.5% 5%; font-family: 'mulish';}
 
-header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%;  background-color: var(--main-color-select) ;}
+
 .btn-mokaru{border: 1px solid; border-radius: 15px;}
 #pmpro_checkout_box-checkout_boxes h3{display: none;}
 
@@ -109,119 +109,219 @@ header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-
 .qr-figure img{border: 2px solid #333 !important;}
 
 
+@media (min-width: 847px) {
+    header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%;  background-color: var(--main-color-select) ;}
+    .logo-mobile{
+        display: none;
+    }
 
-.logo-mobile{
-display:none;
-}
+    .toggle{
+        display: none;
+    }
 
-.img-container{
-margin: 10% ;
-}
+    header{
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        width: 250px;
+        z-index: 2;
+    }
 
-.img-container img{
-width: 100%;
-}
+    .logo{
+        width: 200px;
+        margin: 20px ;
+    }
 
-.user{
-margin: 30% 10% 10% 10%;
-}
+    .user h3{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.4375em;
+        color: #FFFF;
+        margin: 20px;
+        }
+        
+        .user p{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #FFFF;
+        margin: 50% 20px 0 20px;
+        }
 
-.user h4{color: white;}
+        .salir{
+            display: flex;
+            text-decoration: none;
 
-.user h3{
-font-family: 'Mulish';
-font-style: normal;
-font-weight: 500;
-font-size: 1.4375em;
-color: #FFFF;
-}
-
-.user p{
-font-family: 'Mulish';
-font-style: normal;
-font-weight: 700;
-font-size: 1.3rem;
-color: #FFFF;
-margin-top: 50% ;
-}
-
-.salir{
-display: flex;
-text-decoration: none;
-}
-
-.salir-whrap{
-margin: 90% 10% 0 20%;
-}
-
-.salir p{
-font-family: 'Mulish';
-font-style: normal;
-font-weight: 700;
-font-size: 17px;
-line-height: 18px;
-color: #FFFF;
-margin-left: 20px;
-}
-
-
-.whrap{
-margin: 1.5% 5%;
-font-family: 'mulish';
-}
-
-.titulo{
-font-weight: 600;
-font-size: 2.5625em;
-text-align: left;
-color: var(--main-color-select);
+            }
+            
+            .salir-whrap{
+            margin: 90% 10% 0 20%;
+           
+            }
+            
+            .salir p{
+            font-family: 'Mulish';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 17px;
+            line-height: 18px;
+            color: #FFFF;
+            margin-left: 20px;
+            }
 }
 
 
-.parrafo-1{
-font-weight: 400;
-font-size: 20px;
-margin-top: 5%;
+
+
+
+@media (max-width: 847px) {
+
+    .user-nav{
+        position: absolute;
+        height: calc(100vh - 70px);
+        width: 100%;
+        top: 70px;
+        background-color: #333;
+        background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%;  background-color: var(--main-color-select) ;
+    }
+
+    .nav_Novisible{
+        display: none;
+    }
+
+   .nav-mobile{
+    display: flex;
+    justify-content: space-between;
+   }
+
+    header{
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 70px;
+        width: 100%;
+        z-index: 2;
+        background-color: #333;
+    }
+
+    .toggle img{
+        width: 30px;
+        margin: 20px;
+    }
+
+
+    .logo{
+        display:none;
+        }
+        
+        
+        .img-container img{
+        width: 70px;
+        margin: 10px 20px;
+        }
+        
+        .user{
+        margin: 30% 10% 10% 10%;
+        }
+        
+        .user h4{color: white;}
+        
+        .user h3{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 1.4375em;
+        color: #FFFF;
+        }
+        
+        .user p{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 1.3rem;
+        color: #FFFF;
+        margin-top: 50% ;
+        }
+        
+        .salir{
+        display: flex;
+        text-decoration: none;
+        }
+        
+        .salir-whrap{
+        margin: 10% 10% 0 20%;
+        }
+        
+        .salir p{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 17px;
+        line-height: 18px;
+        color: #FFFF;
+        margin-left: 20px;
+        }
+        
+        
+        .whrap{
+        margin: 1.5% 5%;
+        font-family: 'mulish';
+        }
+        
+        .titulo{
+        font-weight: 600;
+        font-size: 2.5625em;
+        text-align: left;
+        color: var(--main-color-select);
+        }
+        
+        
+        .parrafo-1{
+        font-weight: 400;
+        font-size: 20px;
+        margin-top: 5%;
+        }
+        
+        .whrap-btn{
+        display: flex;
+        margin-top: 6%;
+        }
+        
+        .whrap-btn a{
+        text-decoration: none;
+        border: solid 2px var(--main-color-select);
+        padding: 12px;
+        box-shadow: 8px 13px 44px -6px #DFDBF6;
+        border-radius: 10px;
+        color: var(--main-color-select);
+        transition: ease 0.3s;
+        }
+        
+        .whrap-btn a:hover{
+        background-color: var(--main-color-select);
+        color: #FFFF;
+        }
+        
+        .whrap-btn p{
+        margin: auto 0 auto 30px;
+        }
+        
+        .bold{
+        font-weight: 700;
+        }
+        
+        .banco{
+        width: 35%;
+        margin-top: 20px;
+        font-size: 14px;
+        }
+        
+        .info{padding: 20px;}
+        
+        .woocommerce-input-wrapper{
+            height: 60px; border-radius: 20px;
+        }
 }
-
-.whrap-btn{
-display: flex;
-margin-top: 6%;
-}
-
-.whrap-btn a{
-text-decoration: none;
-border: solid 2px var(--main-color-select);
-padding: 12px;
-box-shadow: 8px 13px 44px -6px #DFDBF6;
-border-radius: 10px;
-color: var(--main-color-select);
-transition: ease 0.3s;
-}
-
-.whrap-btn a:hover{
-background-color: var(--main-color-select);
-color: #FFFF;
-}
-
-.whrap-btn p{
-margin: auto 0 auto 30px;
-}
-
-.bold{
-font-weight: 700;
-}
-
-.banco{
-width: 35%;
-margin-top: 20px;
-font-size: 14px;
-}
-
-.info{padding: 20px;}
-
-.woocommerce-input-wrapper{
-    height: 60px; border-radius: 20px;
-}
-
-

@@ -105,3 +105,15 @@ $m(document).on("click",".tab-button-back", function (event) {
     $m('#panel-opciones').fadeIn()
     $m('#button-atras').removeClass('tab-button-back')
  });
+
+
+const toggleNavi = document.getElementById('toggleNavCheckout')
+const menuCheckout = document.getElementById('menuMovilCheckout')
+
+toggleNavi.addEventListener("click", () => {
+    menuCheckout.classList.toggle('nav_Novisible')
+})
+
+toggle.addEventListener("click", () => {
+    Menu.classList.toggle('nav_Novisible')
+})

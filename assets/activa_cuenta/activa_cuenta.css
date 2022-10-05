@@ -9,130 +9,142 @@ header{background-color: rgba(86, 64, 230, 1);}
 .info-btn:hover{background-color: transparent !important}
 
 
+
 @media (min-width: 847px) {
 
-
-.img-container{
-    margin: 10% 10%;
+header{
+    position: absolute;
+    left: 0;
+    height: 100vh;
+    width: 200px;
 }
-
-.img-container img{
-    width: 100%;
-}
-
-
-.user-nombre{
-    font-family: 'Mulish', sans-serif;
-    color: #FFFF;
-    font-weight: 600;
-    font-size:1.625em;
-}
-
-.user-accion{
-    font-family: 'Mulish', sans-serif;
-    color: #FFFF;
-    font-weight: 600;
-    font-size:1em;  
-}
-
-.saludo-user{
-    margin: 50% 10% 0 10%;
-    
-}
-
-
-.cuentas{
-    margin-top: 20%;
-}
-
-
-.nav-rectangulo{
-    
-    margin: 0 3% 20px 3%;
-    display: flex;
-    padding: 10px 0;
-    border-radius: 6px;
-    cursor: pointer;
-    
-}
-
-.nav-rectangulo p{
-    line-height: 31px;
-    margin-left: 7%;
-    font-family: 'Mulish';
-    margin-bottom: 0;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 18PX;
-    line-height: 31px;
-}
-
-.mark{
-    width: 4%;
-    height: 31px;
-    margin-top: auto;
-    margin-bottom: auto;
-    
-    border-radius: 0px 5px 5px 0px;
-
-}
-
-.gold-rec{
-    background: rgba(196, 166, 85, 0.25);;
-}
-
-.black-rec{
-    
-    background: rgba(2, 0, 24, 0.2);
-}
-
-.platinum-rec{
-    background:rgba(161, 168, 206, 0.25);
-}
-.gold{
-    background-color: rgba(196, 166, 85, 1);
-}
-
-.black{
-    background: #020018;
-}
-.platinum{
-    background: #A1A8CE;
-}
-
-.gold-txt{
-    color: rgba(196, 166, 85, 1);
-}
-
-.platinum-txt{
-    color: #A1A8CE;
-}
-
-.black-txt{
-    color: #020018;
-}
-
-
-.salir-whrap{
    
-    margin: 40% 15% 0 15%;
+.activa-tu-cuenta-content{
+    margin-left: 200px;
 }
-
-.salir{
-   display: flex;
-   text-decoration: none;
-}
-
-.salir p{
-    line-height: 18px;
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 17px;
-    color: #FFFFFF;
-    margin-left: 15px;
-}
-
+    .img-container{
+        margin: 10% 10%;
+    }
+    
+    .img-container img{
+        width: 100%;
+    }
+    
+    #logoNava{
+        width: 150px;
+    }
+    .user-nombre{
+        font-family: 'Mulish', sans-serif;
+        color: #FFFF;
+        font-weight: 600;
+        font-size:1.625em;
+    }
+    
+    .user-accion{
+        font-family: 'Mulish', sans-serif;
+        color: #FFFF;
+        font-weight: 600;
+        font-size:1em;  
+    }
+    
+    .saludo-user{
+        margin: 50% 10% 0 10%;
+        
+    }
+    
+    
+    .cuentas{
+        margin-top: 20%;
+    }
+    
+    
+    .nav-rectangulo{
+        
+        margin: 0 3% 20px 3%;
+        display: flex;
+        padding: 10px 0;
+        border-radius: 6px;
+        cursor: pointer;
+        
+    }
+    
+    .nav-rectangulo p{
+        line-height: 31px;
+        margin-left: 7%;
+        font-family: 'Mulish';
+        margin-bottom: 0;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18PX;
+        
+    }
+    
+    .mark{
+        width: 4%;
+        height: 31px;
+        margin-top: auto;
+        margin-bottom: auto;
+        
+        border-radius: 0px 5px 5px 0px;
+    
+    }
+    
+    .gold-rec{
+        background: rgba(196, 166, 85, 0.25);;
+    }
+    
+    .black-rec{
+        
+        background: rgba(173, 173, 173, 0.2);
+    }
+    
+    .platinum-rec{
+        background:rgba(161, 168, 206, 0.25);
+    }
+    .gold{
+        background-color: rgba(196, 166, 85, 1);
+    }
+    
+    .black{
+        background: #020018;
+    }
+    .platinum{
+        background: #A1A8CE;
+    }
+    
+    .gold-txt{
+        color: rgba(196, 166, 85, 1);
+    }
+    
+    .platinum-txt{
+        color: #A1A8CE;
+    }
+    
+    .black-txt{
+        color: #020018;
+    }
+    
+    
+    .salir-whrap{
+       
+        margin: 40% 15% 0 15%;
+    }
+    
+    .salir{
+       display: flex;
+       text-decoration: none;
+    }
+    
+    .salir p{
+        line-height: 18px;
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 17px;
+        color: #FFFFFF;
+        margin-left: 15px;
+    }
+    
 
 /***/
 
@@ -173,6 +185,7 @@ header{background-color: rgba(86, 64, 230, 1);}
 
 .whrap h3{
     font-size: 1.4375em;
+    width: 85%;
 }
 
 .whrap-black p{
@@ -189,9 +202,8 @@ header{background-color: rgba(86, 64, 230, 1);}
 }
 
 .stamp{
-   position: fixed;
-   right: 6%;
-   top: 10%;
+  position: absolute;
+  right: 80px;
        
 }
 
@@ -212,7 +224,7 @@ header{background-color: rgba(86, 64, 230, 1);}
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
-    margin: 10% 5% 0 5%;
+    margin: 3% 5% 0 5%;
 }
 
 .enfasis{
@@ -287,10 +299,26 @@ header{background-color: rgba(86, 64, 230, 1);}
     display: none;
 }
 
+
 .toggle{
     display: none;
 }
 
+
+.whrap-gold p{
+    
+    font-size: 1.125em;
+}
+
+.whrap-platinum p{
+    
+    font-size: 1.125em;
+}
+
+.whrap-black p{
+    
+    font-size: 1.125em;
+}
 }
 
 
@@ -299,13 +327,16 @@ header{background-color: rgba(86, 64, 230, 1);}
 
 @media (max-width: 847px) {
     header{
-        background-color: rgba(86, 64, 230, 1);
-       
+        
+       position: absolute;
+       top:0;
+       width: 100%;
+       height: 70px;
         
     }
 
     .user-nav{
-        background-color: rgb(79, 60, 205);
+        
         height:100%;
         position: absolute;
         width: 100%;
@@ -341,6 +372,10 @@ header{background-color: rgba(86, 64, 230, 1);}
         line-height: 40px;
     }
 
+    .toggle img{
+        width: 30px;
+    }
+
 
     .user-accion{
         font-family: 'Mulish', sans-serif;
@@ -359,6 +394,10 @@ header{background-color: rgba(86, 64, 230, 1);}
         margin-top: 20%;
     }
     
+
+    .activa-tu-cuenta-content{
+        margin-top: 100px;
+    }
     
     .nav-rectangulo{
         
@@ -373,12 +412,11 @@ header{background-color: rgba(86, 64, 230, 1);}
     .nav-rectangulo p{
         line-height: 31px;
         margin-left: 7%;
-        margin-bottom: 0;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 700;
         font-size: 18PX;
-        line-height: 31px;
+        
     }
 
     .user-nombre{
@@ -394,6 +432,8 @@ header{background-color: rgba(86, 64, 230, 1);}
         font-weight: 600;
         font-size:1em;  
     }
+
+
     
     .mark{
         width: 4%;
@@ -411,7 +451,7 @@ header{background-color: rgba(86, 64, 230, 1);}
 
     .black-rec{
         
-        background: rgba(2, 0, 24, 0.2);
+        background: rgba(138, 138, 138, 0.2);
     }
 
     .platinum-rec{
@@ -430,26 +470,32 @@ header{background-color: rgba(86, 64, 230, 1);}
 
     .gold-txt{
         color: rgba(196, 166, 85, 1);
+        margin: 0;
     }
 
     .platinum-txt{
         color: #A1A8CE;
+        margin: 0;
     }
 
     .black-txt{
         color: #020018;
+        margin: 0;
     }
 
 
     .salir-whrap{
     
-        margin: 20px 15%  0 15%;
+        text-align: center;
+        
+        margin: 40px 0 0 40px;
         
     }
 
     .salir{
     display: flex;
     text-decoration: none;
+    margin: 0 auto;
     }
 
     .salir p{
@@ -460,6 +506,7 @@ header{background-color: rgba(86, 64, 230, 1);}
         font-size: 17px;
         color: #FFFFFF;
         margin-left: 15px;
+        text-align: center;
     }
 
 
@@ -467,6 +514,15 @@ header{background-color: rgba(86, 64, 230, 1);}
             display: none;
         }
 
+        .user-nav{
+        
+            height: 100vh;
+            background-color: #333;
+            position: absolute;
+            top:69px;
+            z-index: 4;
+            
+        }
 
 
 
@@ -517,6 +573,7 @@ header{background-color: rgba(86, 64, 230, 1);}
         
         .whrap-black p{
             font-size: 1.125em;
+            
             
         }
 

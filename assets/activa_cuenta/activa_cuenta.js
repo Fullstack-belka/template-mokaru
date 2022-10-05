@@ -24,3 +24,25 @@ document.getElementById('open').addEventListener("click", () => {
 document.getElementById('close').addEventListener("click", () => {
     document.getElementById('infoAdicional').classList.add('noShow')
 })
+
+
+const toggle = document.getElementById('toggleNav')
+const Menu = document.getElementById('menuMovil')
+
+
+
+toggle.addEventListener("click", () => {
+    Menu.classList.toggle('nav_Novisible')
+})
+
+goldAccount.addEventListener("click", () => {
+    Menu.classList.add('nav_Novisible')
+})
+
+platinumAccount.addEventListener("click", () => {
+    Menu.classList.add('nav_Novisible')
+})
+
+blackAccount.addEventListener("click", () => {
+    Menu.classList.add('nav_Novisible')
+})
