@@ -106,7 +106,12 @@ $m(document).on("click",".tab-button-back", function (event) {
     $m('#button-atras').removeClass('tab-button-back')
  });
 
+<<<<<<< HEAD
  const toggleNavi = document.getElementById('toggleNavCheckout')
+=======
+
+const toggleNavi = document.getElementById('toggleNavCheckout')
+>>>>>>> 951a41d38452ccde043cdc5f68242cdadebbd7dd
 const menuCheckout = document.getElementById('menuMovilCheckout')
 
 toggleNavi.addEventListener("click", () => {
@@ -116,4 +121,7 @@ toggleNavi.addEventListener("click", () => {
 toggle.addEventListener("click", () => {
     Menu.classList.toggle('nav_Novisible')
 })
+<<<<<<< HEAD
 
+=======
+>>>>>>> 951a41d38452ccde043cdc5f68242cdadebbd7dd

@@ -64,9 +64,8 @@ if(!is_user_logged_in()) {
 
 			<div class="menuWrap">
                     <ul class="menu" id="menu">
-                        <li >
+                        <li>
                             <a href="/dashboard" class="link-nav">
-
                                 <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/dashboard.png" alt="icon">
                                 <p class="ctrl-link activo-1024">Inicio</p>
                             </a>
@@ -90,7 +89,6 @@ if(!is_user_logged_in()) {
                         </li>
         
                         <li >
-
                             <a href="/mi-cuenta" class="link-nav">
                                 <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/settings.png" alt="icon">
                             <p class="ctrl-link">Cuenta</p>
@@ -98,26 +96,27 @@ if(!is_user_logged_in()) {
                             
                         </li>
                     </ul>
-                
-                    
-        
                     <div class="separador"></div>
                     <div class="navItem">
                         <a href="/ayuda" class="link-nav">
+                        <a href="#" class="link-nav">
                             <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/help.png" alt="icon">
                             <p class="ctrl-link">Ayuda</p>
                         </a>
-                        
-                    </div>
-            
+                    </div>            
                     <div class="navItem">
                         <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="link-nav">
                             <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
                             <p class="ctrl-link">Salir</p>
-                        </a>
-                        
+                        </a>                        
                     </div>
                 </div>
+					<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="salir">
+						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
+						Salir</a>                        
+                    </div>
+                </div>
+
 		</div>            
 		<!--Nav movil-->
 		<div class="nav-movil">

@@ -5,8 +5,246 @@
     margin: 0px;
     box-sizing: border-box;
     font-family: 'Inter';
+  
+}
+
+/*NAVBAR*/
+header{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    background: linear-gradient(180.19deg, #262626 70.92%, #00D1FF 246.86%);
+    font-family: 'mulish';
+}
+
+.logo-a{
+    margin: 0 auto;
+}
+.profile-img-container figure{margin-bottom: 0;}
+.profile-img-container img{ border-radius: 50%; border: 1px solid white; background-color: var(--main-color-select);}
+
+.cuenta{
+    color: #FFFFFF;
+    text-align: center;
     
 }
+
+
+
+.menu li {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    
+    
+    
+    
+}
+
+.nav-desktop{
+    display: flex;
+flex-direction: column;
+
+gap: 20px;
+    margin: 20px 25px;
+}
+
+
+.navItem p{
+    color: #FFFFFF;
+    font-size: 18px;
+    text-decoration: none;
+    line-height: 24px;
+    margin: auto 9px;
+}
+
+.navItem{
+    display: flex;
+    align-items: center;
+    
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+padding: 0;
+    margin: 20px 0 20px 20px;
+}
+
+.menuWrap{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+   
+}
+
+.separador{
+    width: 100%;
+    height: 1px;
+    background-color: aliceblue;
+}
+
+.link-nav{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    padding: 10px;
+    width: 100%;
+    
+   
+}
+
+.ctrl-link{
+    color: #FFFFFF;
+    font-size: 18px;
+    text-decoration: none;
+    line-height: 24px;
+    margin: auto 9px;
+}
+
+.cuenta .code{ color: white; margin-top: 10px;}
+.profile-img-container figure{margin-bottom: 0;}
+.profile-img-container img{ border-radius: 50%; border: 2px solid white; background-color: var(--main-color-select);}
+
+.link-nav:hover{
+    background: linear-gradient(90deg, rgba(55, 223, 245, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    
+    border-radius: 10px;
+}
+
+.linkActivo{
+    background: linear-gradient(90deg, rgba(55, 223, 245, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+    
+    border-radius: 10px;
+}
+
+
+
+
+
+
+.sub-menu_show{
+    bottom: 50px;
+}
+
+
+
+
+
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*NAV*/
+@media (min-width:1365px) {
+    .nav-movil{
+        display: none;
+    }
+}
+/**/
+
+@media(  max-width:1365px) {
+ 
+*{
+    margin: 0;
+
+}
+
+.nav-desktop{
+  display: none;
+}
+
+.nav-movil{
+  position: fixed;
+  bottom: 0px;
+  width: 100%;
+}
+.header-movil{
+    position: sticky;
+  
+    background-color: #FFFF;
+    width: 100%;
+    border-top: solid 3px #5640E6;
+    font-family: 'Mulish', sans-serif;
+    z-index: 2;
+}
+
+.movil-nav{
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+   
+}
+
+.movil-nav-li{
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 10px 0 ;
+   
+
+}
+
+svg{
+    height: 25px;
+   
+    
+}
+
+.logo-svg{
+    text-align: center;
+}
+
+.movil-nav-li-a{
+    text-transform: uppercase;
+    font-size: 12px;
+    text-decoration: none;
+    color: #253046;
+    font-weight: 700;
+    opacity: 0.5;
+}
+
+
+
+.sub-menu-movil{
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    font-family: 'Mulish', sans-serif;
+    z-index: 1;
+    bottom: 0;
+    background-color: #5640E6;
+    transition: ease 0.5s;
+    border-radius: 20px 20px 0 0;
+    
+}
+
+.show-sub-menu{
+    bottom: 67px;
+}
+
+.movil-sub-nav-li-a{
+    text-transform: uppercase;
+    font-size: 10px;
+    text-decoration: none;
+    color: #FFFF;
+    font-weight: 700;
+    
+}
+
+
+
+}
+
+/***********************************************************************************/
+
+
+
+
+
+/**/
 
 
 
@@ -15,138 +253,18 @@
     --var--primary-mokaru : #5640E6;
 }
 
-header{
-    background: linear-gradient(180.19deg, var(--main-color-select) 70.92%, rgba(111, 229, 255, 0) 246.86%);
-}
-
-.noShow{
-    display: none;
-}
-
-
-.nav-desktop{
-    width: 100%;
-    height: 100%;
-}
-.nav-movil{
-display: none;
-}
-.cuenta{
-text-align: center;
-margin-top: 15px;
-color: white;
-}
-
-.cuenta .code{ color: white; margin-top: 10px;}
-.profile-img-container figure{margin-bottom: 0;}
-.profile-img-container img{ border-radius: 50%; border: 2px solid white; background-color: var(--main-color-select);}
-
-.logo-container{
-text-align: center;
-padding-top: 15px;
-
-}
-
-.cuenta p{
-font-size: 15px;
-color: #FFFFFF;
-
-}
-
-.ctrl-panel{
-margin-top: 50px;
-}
-
-.ctrl-panel ul{
-list-style: none;
-padding: 0;
-}
-
-.ctrl-panel ul a:hover{ color: white;}
-
-.ctrl-panel ul li{
-margin-top: 15px;
-cursor: pointer;
-display: flex;
-border-radius: 10px 0px 0px 10px;
-padding: 15px;
-
-}
-
-.ctrl-link{
-text-decoration: none;
-color: #FFFFFF;
-font-weight: 800;
-font-size: 17px;
-
-margin-top: auto;
-margin-bottom: auto;
-
-}
-
-
-ul li{
-transition: ease 0.3s;
-}
-
-
-ul li:hover{
-background-color: rgba(255, 255, 255, 0.25) ;
-}
-
-.ctrl-icon{
-margin-right: 10px;
-}
-
-
-.activo{
-background-color: rgba(255, 255, 255, 0.25); 
-
-}
-
-.separador{
-height: 1px;
-background-color: #FFFFFF;
-margin: 70px 10% 0 10%;
-}
-
-.salir{
-text-decoration: none;
-color: #FFFFFF;
-font-weight: 300;
-font-size: 17px;
-margin-left: 10px;
-line-height: 24px;
-}
-
-
-.otros{
-display: flex;
-flex-direction: column;
-justify-content: space-between;
-}
-
-.inactivo{
-
-color: rgba(255, 255, 255, 0.25);
-}
-
-.menu-icon{
-display: none;
-}
-
 
 /*LAYOUT*/
 
 .body-dashboard{
-    height: 100vh;
-    display: grid;
-    grid-template-columns: 15% auto;
+ 
     background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Ok_02-1.png');
     background-repeat: no-repeat;
     background-position-x: right;
     background-position-y: bottom;
     background-size: 600px;
+    
+    
 
 }
 .bienvenidos-mobile{
@@ -182,7 +300,8 @@ h1{
     display: grid;
     grid-template-columns: auto auto ;
     gap: 45px;
-    margin: 35px 45px;
+    margin: 35px 45px 35px 300px;
+  
     
 }
 
@@ -221,7 +340,13 @@ h1{
     font-weight: 600;
     color: #FFFFFF;
     text-decoration: none;
+    transition: ease 0.3s;
    
+}
+.btn-block:hover{
+    background: #ffffff;
+    border: 1px solid #5640E6;
+    color: #5640E6;
 }
 
 /**/
@@ -718,7 +843,7 @@ h1{
         display: flex;
         justify-content: space-around;
         padding: 0;
-        margin-bottom: 0;
+        margin: 0;
         
     }
     
