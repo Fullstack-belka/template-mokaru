@@ -8,9 +8,18 @@
 
 .pmpro_checkout_gateway-mokaru{    margin: 1.5% 5%; font-family: 'mulish';}
 
-header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%;  background-color: var(--main-color-select) ;}
+header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%; display: none;  background-color: var(--main-color-select) ;}
 .btn-mokaru{border: 1px solid; border-radius: 15px;}
 #pmpro_checkout_box-checkout_boxes h3{display: none;}
+
+
+.info{padding: 20px;}
+
+
+
+.woocommerce form .form-row input.input-text,
+ .woocommerce form .form-row textarea{border: 1px solid transparent; border-bottom: 1px solid #b4b4b4;}
+
 
 .tabs-checkout .enviar{
     text-decoration: none;
@@ -218,7 +227,6 @@ margin-top: 20px;
 font-size: 14px;
 }
 
-.info{padding: 20px;}
 
 .woocommerce-input-wrapper{
     height: 60px; border-radius: 20px;

@@ -42,7 +42,7 @@ if(!is_user_logged_in()) {
 	<header >
 		<div class="nav-desktop">
 			<div class="logo-container">
-				<a href="/dashboard">
+				<a class="logo-a" href="/dashboard">
 					<img class="logo" src="http://mokaru.com.co/wp-content/uploads/2022/07/Logo123-e1657239855848.png" alt="Logo">
 				</a>
 			</div>
@@ -62,55 +62,62 @@ if(!is_user_logged_in()) {
 				</p>
 			</div>	
 
-			<div class="ctrl-panel">
-				<ul class="menu none" id="menu">
-					<li class="activo">
-						<a href="/dashboard" class="ctrl-link activo-1024">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/dashboard.png" alt="icon">
-							Inicio</a>
-					</li>
+			<div class="menuWrap">
+                    <ul class="menu" id="menu">
+                        <li >
+                            <a href="/dashboard" class="link-nav">
 
-					<li >
-						
-						<a href="#" class="ctrl-link inactivo">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/trending-up.png" alt="icon">
-							Mi retiro</a>
-					</li>
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/dashboard.png" alt="icon">
+                                <p class="ctrl-link activo-1024">Inicio</p>
+                            </a>
+                            
+                        </li>
+        
+                        <li >
+                            <a href="#" class="link-nav">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/trending-up.png" alt="icon">
+                                <p class="ctrl-link inactivo">Mi retiro</p>
+                            </a>
+                            
+                        </li>
+        
+                        <li class="">
 
-					<li class="">
-						<a href="#" class="ctrl-link inactivo">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/alcancia.png" alt="icon">
-							Alcancias</a>
-					</li>
+                            <a href="#" class="link-nav">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/alcancia.png" alt="icon">
+                            <p class="ctrl-link inactivo">Alcancias</p>
+                            </a>
+                        </li>
+        
+                        <li >
 
-					<li >
-						<a href="/mi-cuenta" class="ctrl-link">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/settings.png" alt="icon">
-							Cuenta</a>
-					</li>
-				</ul>
-
-				<div class="separador"></div>
-
-				<ul class="otros">
-					<li>
-						<a href="/ayuda" class="ctrl-link">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/help.png" alt="icon">
-							Ayuda</a>
-					</li>
-
-					<li>
-						<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="salir">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
-						Salir</a>
-					</li>
-				</ul>
-			
-			</div>
-
-			<div class="menu-icon" id="menubtn">   
-				<i class='bx bx-menu bx-lg' style='color:#ffffff'  ></i>
-			</div>
+                            <a href="/mi-cuenta" class="link-nav">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/settings.png" alt="icon">
+                            <p class="ctrl-link">Cuenta</p>
+                            </a>
+                            
+                        </li>
+                    </ul>
+                
+                    
+        
+                    <div class="separador"></div>
+                    <div class="navItem">
+                        <a href="/ayuda" class="link-nav">
+                            <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/help.png" alt="icon">
+                            <p class="ctrl-link">Ayuda</p>
+                        </a>
+                        
+                    </div>
+            
+                    <div class="navItem">
+                        <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="link-nav">
+                            <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
+                            <p class="ctrl-link">Salir</p>
+                        </a>
+                        
+                    </div>
+                </div>
 		</div>            
 		<!--Nav movil-->
 		<div class="nav-movil">
@@ -141,7 +148,7 @@ if(!is_user_logged_in()) {
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M25 12.5C25 12.9735 24.8354 13.4276 24.5424 13.7625C24.2494 14.0973 23.852 14.2854 23.4377 14.2854H5.33657L12.0452 21.9483C12.1905 22.1143 12.3057 22.3114 12.3843 22.5282C12.4629 22.7451 12.5034 22.9776 12.5034 23.2124C12.5034 23.4471 12.4629 23.6796 12.3843 23.8965C12.3057 24.1133 12.1905 24.3104 12.0452 24.4764C11.8999 24.6424 11.7275 24.7741 11.5377 24.8639C11.3479 24.9538 11.1445 25 10.9391 25C10.7336 25 10.5302 24.9538 10.3404 24.8639C10.1506 24.7741 9.9782 24.6424 9.83294 24.4764L0.458992 13.7641C0.313498 13.5982 0.198064 13.4012 0.119303 13.1843C0.0405411 12.9674 0 12.7348 0 12.5C0 12.2652 0.0405411 12.0326 0.119303 11.8157C0.198064 11.5988 0.313498 11.4018 0.458992 11.2359L9.83294 0.52359C10.1263 0.188341 10.5242 0 10.9391 0C11.3539 0 11.7518 0.188341 12.0452 0.52359C12.3386 0.858839 12.5034 1.31353 12.5034 1.78765C12.5034 2.26176 12.3386 2.71646 12.0452 3.05171L5.33657 10.7146H23.4377C23.852 10.7146 24.2494 10.9027 24.5424 11.2375C24.8354 11.5724 25 12.0265 25 12.5Z" fill="#253046"/>
 							</svg>
 						</div>
-						<a href="/logout" class="movil-nav-li-a">Salir</a>
+						<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="movil-nav-li-a">Salir</a>
 					</li>
 		
 				</ul>
