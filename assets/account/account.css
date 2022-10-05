@@ -8,7 +8,7 @@ header{
     background-size: contain;
 }
 
-
+.account-dashboard{grid-template-columns: 20% auto;}
 .cuentaWhrap{
     margin: 0 7%;
     padding: 15% 10%;
@@ -17,6 +17,7 @@ header{
     border: solid 1px #000000;
     
 }
+.cuentaWhrap:hover{ cursor: pointer;}
 
 .activeW{
     background: var(--main-color-select);

@@ -243,6 +243,8 @@ add_action( 'woocommerce_after_order_notes', 'quadlayers_subscribe_checkout' );
 
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
 
+remove_action( 'woocommerce_order_details_after_order_table', 'woocommerce_order_again_button' );
+
 // Remove Order Notes Field
 add_filter( 'woocommerce_checkout_fields' , 'hide_addiotional_info_checkout' );
 
@@ -318,6 +320,7 @@ function member_plan() {
 		'code' => '0'
 	];	
 	$member['level']->name = 'none';
+	$member['level']->initial_payment  = '0';
 	$member['level']->color = get_color_membership();
 
 	//mokaru_update_interest();

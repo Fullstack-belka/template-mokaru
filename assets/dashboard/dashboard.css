@@ -106,6 +106,9 @@ padding: 0;
     margin: auto 9px;
 }
 
+.cuenta .code{ color: white; margin-top: 10px;}
+.profile-img-container figure{margin-bottom: 0;}
+.profile-img-container img{ border-radius: 50%; border: 2px solid white; background-color: var(--main-color-select);}
 
 .link-nav:hover{
     background: linear-gradient(90deg, rgba(55, 223, 245, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
