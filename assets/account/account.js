@@ -7,6 +7,7 @@ const infoMiCuenta = document.getElementById('miCuenta')
 const infoMiMembresia = document.getElementById('miMembresia')
 const InfoFacturas = document.getElementById('facturas')
 
+var view = localStorage.getItem("View");
 
 miCuenta.addEventListener("click", () =>{
     miCuenta.classList.add("activeW")
@@ -16,6 +17,9 @@ miCuenta.addEventListener("click", () =>{
     infoMiCuenta.classList.remove("noShow")
     infoMiMembresia.classList.add("noShow")
     InfoFacturas.classList.add("noShow")
+
+    /*Guardando los datos en el LocalStorage*/
+    localStorage.setItem("View", 'miCuenta');
 })
 
 
@@ -27,6 +31,7 @@ Facturas.addEventListener("click", () =>{
     infoMiCuenta.classList.add("noShow")
     infoMiMembresia.classList.add("noShow")
     InfoFacturas.classList.remove("noShow")
+    localStorage.setItem("View", 'Facturas');
 })
 
 miMembresia.addEventListener("click", () =>{
@@ -37,4 +42,18 @@ miMembresia.addEventListener("click", () =>{
     infoMiCuenta.classList.add("noShow")
     infoMiMembresia.classList.remove("noShow")
     InfoFacturas.classList.add("noShow")
+
+    localStorage.setItem("View", 'miMembresia');
 })
+
+
+
+if( view == 'miCuenta'){
+    miCuenta.click();
+}
+if( view == 'Facturas'){
+    Facturas.click();    
+}
+if( view == 'miMembresia'){
+    miMembresia.click();
+}

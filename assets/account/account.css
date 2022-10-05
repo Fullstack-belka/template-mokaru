@@ -8,7 +8,7 @@ header{
     background-size: contain;
 }
 
-
+.account-dashboard{grid-template-columns: 20% auto;}
 .cuentaWhrap{
     margin: 0 7%;
     padding: 15% 10%;

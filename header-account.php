@@ -33,7 +33,7 @@
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page-dashboard" class="site body-dashboard level_<?=$member['level']->name?>">
+<div id="page-dashboard" class="site body-dashboard account-dashboard level_<?=$member['level']->name?>">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
 
 
