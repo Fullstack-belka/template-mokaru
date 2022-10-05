@@ -84,7 +84,6 @@ $m('#btn-depositar').click(function(){
     $m(".tab-pane").hide()
     $m('#panel-proveedor').hide()
     $m('#panel-depositar').fadeIn()
-    
     $m('#panel-validar').fadeIn()
     $m('#button-atras').addClass('tab-button-back')
 });
@@ -92,26 +91,19 @@ $m('#btn-proveedor').click(function(){
     $m(".tab-pane").hide()
     $m('#panel-depositar').hide()
     $m('#panel-proveedor').fadeIn()
-
     $m('#panel-validar').fadeIn()
     $m('#button-atras').addClass('tab-button-back')
 });
 
 
 $m(document).on("click",".tab-button-back", function (event) {
-
     event.preventDefault();
     $m(".tab-pane").hide();
     $m('#panel-opciones').fadeIn()
     $m('#button-atras').removeClass('tab-button-back')
  });
 
-<<<<<<< HEAD
- const toggleNavi = document.getElementById('toggleNavCheckout')
-=======
-
 const toggleNavi = document.getElementById('toggleNavCheckout')
->>>>>>> 951a41d38452ccde043cdc5f68242cdadebbd7dd
 const menuCheckout = document.getElementById('menuMovilCheckout')
 
 toggleNavi.addEventListener("click", () => {
@@ -121,7 +113,3 @@ toggleNavi.addEventListener("click", () => {
 toggle.addEventListener("click", () => {
     Menu.classList.toggle('nav_Novisible')
 })
-<<<<<<< HEAD
-
-=======
->>>>>>> 951a41d38452ccde043cdc5f68242cdadebbd7dd
