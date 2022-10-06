@@ -10,13 +10,14 @@
 
 /*NAVBAR*/
 header{
-    position: absolute;
+    position: fixed;
     left: 0px;
     top: 0px;
     height: 100vh;
     background: linear-gradient(180.19deg, #262626 70.92%, #00D1FF 246.86%);
     font-family: 'mulish';
 }
+.main_content{padding-left: 200px;}
 
 .logo-a{
     margin: 0 auto;
@@ -537,10 +538,9 @@ h1{
     display: flex;
     justify-content: space-between;
 }
+.Transacciones-txt h3{margin-bottom: 20px;}
 .Transacciones-not{
-    margin-top: 28%;
     display: flex;
-    
 }
 
 .circle{

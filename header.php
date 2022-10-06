@@ -54,6 +54,7 @@ if(!is_user_logged_in()) {
 					</figure>
 				</div>
 				<p class="code">
+					<?php //print_r($member); ?>
 					<?php if($member['status'] == 'active'){ ?>    
 						<?= $member['code']  ?>
 						<?php }else{ ?>    
@@ -98,7 +99,6 @@ if(!is_user_logged_in()) {
                     </ul>
                     <div class="separador"></div>
                     <div class="navItem">
-                        <a href="/ayuda" class="link-nav">
                         <a href="#" class="link-nav">
                             <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/help.png" alt="icon">
                             <p class="ctrl-link">Ayuda</p>
@@ -111,9 +111,7 @@ if(!is_user_logged_in()) {
                         </a>                        
                     </div>
                 </div>
-					<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="salir">
-						<img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/arrow-left.png" alt="icon">
-						Salir</a>                        
+                     
                     </div>
                 </div>
 

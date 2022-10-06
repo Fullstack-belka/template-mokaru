@@ -12,7 +12,7 @@ get_header('checkout');
 
 ?>
 
-    <div>
+    <div class="main_content">
         <?php the_content(); ?>
         <div class="info">
             <div class="validacion">Tiempo restante para hacer valida la activación - <span id="time-function"> 20:00 </span> min</div>
