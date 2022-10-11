@@ -170,7 +170,13 @@ function custom_css() {
 		wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
 		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
 	}
+	if ( is_page_template( 'templates/template-login.php' ) ) {
+		wp_enqueue_script( 'jqvalidate', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js', array('jquery'), '', true); 
+		wp_enqueue_script( 'jqadm', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js', array('jquery'), '', true); 
+		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/login/login.css',array(), '' );
+		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/login/login.js', array('jquery'), '', true); 
 
+	}
 	if ( is_page_template( 'templates/template-checkout-membresia.php' ) ) {
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/checkout/checkout.css',array(), '' );
 		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/checkout/checkout.js', array('jquery'), '', true); 
@@ -319,13 +325,25 @@ function member_plan() {
 		'total' => '0',
 		'code' => '0'
 	];	
-	$member['level']->name = 'none';
+	$member['level']->name = '';
 	$member['level']->initial_payment  = '0';
 	$member['level']->color = get_color_membership();
 
+	// NO ACTIVAR ESTA FUNCION - SOLO PARA PRUEBA
 	//mokaru_update_interest();
 
-	if(is_user_logged_in() && function_exists('pmpro_hasMembershipLevel') && pmpro_hasMembershipLevel())
+	if(is_user_logged_in())
+	{				
+		$user_id = $current_user->ID;
+		$user = mokaru_get_user($current_user->ID);
+		if($user){
+			$member['code'] = $user->code ;
+			$member['total'] =  $user->amount;
+			$member['status'] = $user->status;
+		}
+	}
+
+	if(function_exists('pmpro_hasMembershipLevel') && pmpro_hasMembershipLevel())
 	{				
 		$user_id = $current_user->ID;
 		$user = mokaru_get_user($current_user->ID);

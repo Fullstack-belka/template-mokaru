@@ -77,7 +77,7 @@ $checkout_page_url = $checkout_page_id ? get_permalink( $checkout_page_id ) : ''
         <?php }else{ ?>
             <div class="bloque">
                 <div class="whrap">
-                    <h2>Tu cuenta ya se encuentra activada</h2>
+                    <h2>Tu cuenta ya se encuentra en estado <?=$member['status']?></h2>
                 </div>
             </div>
         <?php } ?>

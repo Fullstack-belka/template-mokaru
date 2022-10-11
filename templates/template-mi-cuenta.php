@@ -13,10 +13,10 @@
 <?php
 get_header('account');
 ?>
-<div class="content">
+<div class="content main_content">
 
 
-    <div>
+    <div class="">
         <div class="infoSection">
             <div class="infoText">
                 <h1>Configuración</h1>
