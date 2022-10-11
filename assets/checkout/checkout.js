@@ -113,3 +113,35 @@ toggleNavi.addEventListener("click", () => {
 toggle.addEventListener("click", () => {
     Menu.classList.toggle('nav_Novisible')
 })
+
+
+
+
+const getRemainTime = deadline =>{
+    let now = new Date(),
+        remaintTime = (new Date(deadline) - now + 1000) / 1000,
+        remainSeconds = ('0' + Math.floor(remaintTime % 60)).slice(-2),
+        remainMinutes = ('0' + Math.floor(remaintTime / 60 % 60)).slice(-2);
+    return {
+        remaintTime,
+        remainMinutes,
+        remainSeconds
+    }
+};
+
+const countDown = () => {
+    const el = document.getElementById('clock')
+    const actualDate = new Date()
+    const dateMs = actualDate.getTime()
+    const addMls = 600000 * 2
+    const deadline = new Date(dateMs + addMls)
+
+    const timerUpdate = setInterval( () => {
+        let t = getRemainTime(deadline);
+        el.innerHTML = `${t.remainMinutes}m:${t.remainSeconds}s`;
+        if (t.remaintTime <= 1) {
+            clearInterval(timerUpdate)
+            el.innerHTML = `<h1>Hola</h1>`
+        }
+    }, 1000)
+};

@@ -45,7 +45,7 @@ if(!is_user_logged_in()) {
     <header>
         <div class="nav-mobile">
             <div class="img-container">
-                <img class="logo" id="logoNava" src="http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-2-1.png" alt="logo">
+				<img class="logo" id="logoNava" src="http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-2-1.png" alt="logo">
                 <img class="logo-mobile" src="http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-2.png" alt="logo-mobile">
             </div>
 
