@@ -9,11 +9,11 @@
  * @package Mokaru
  */
 
-
+/*
 if(!is_user_logged_in()) {
     wp_redirect( wp_login_url() );
 }
-
+*/
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>

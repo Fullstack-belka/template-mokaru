@@ -1,6 +1,6 @@
-const miCuenta = document.getElementById('btnMiCuenta')
-const miMembresia = document.getElementById('btnMiMembresia')
-const Facturas = document.getElementById('btnFacturas')
+var miCuenta = document.getElementById('btnMiCuenta')
+var miMembresia = document.getElementById('btnMiMembresia')
+var Facturas = document.getElementById('btnFacturas')
 
 
 const infoMiCuenta = document.getElementById('miCuenta')

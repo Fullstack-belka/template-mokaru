@@ -22,6 +22,11 @@
 	<?php wp_head();
 	global $member;
 	global $current_user;
+
+        
+    if(empty($member['level']->name) ){
+        $member['level']->name = 'No activa';
+    }
 	
 	?>
 	<style>
@@ -48,19 +53,18 @@
         </div>
         <div class="cuentaWhrap topW activeW" id="btnMiCuenta">
             <p>Mi Cuenta</p>
+            <?php if($member['status'] == 'active'){ ?>  
             <div class="cuentaContainer">
-                <p>Membresia Gold</p>
+                <p>Membresia <?= $member['level']->name ?></p>
             </div>
-            
+            <?php } ?>            
         </div>
-        <div class="cuentaWhrap" id="btnMiMembresia">
+    	   
+        <div class="cuentaWhrap <?= $member['status'] == 'active' ? '' : 'noShow'?>" id="btnMiMembresia">
             <p>Mi Membresia</p>
-            
-            
         </div>
+
         <div class="cuentaWhrap" id="btnFacturas">
             <p>Facturas</p>
-           
-            
         </div>
     </header>

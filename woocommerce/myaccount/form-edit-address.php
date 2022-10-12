@@ -47,6 +47,8 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 				<?php wp_nonce_field( 'woocommerce-edit_address', 'woocommerce-edit-address-nonce' ); ?>
 				<input type="hidden" name="action" value="edit_address" />
 			</p>
+
+			<a class="" href="<?= get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>">Volver</a>
 		</div>
 
 	</form>

@@ -22,7 +22,6 @@ get_header('account');
                 <h1>Configuración</h1>
                 <p><strong>Cuenta: </strong> Mokaru <?= $member['level']->name ?></p>                
             </div>
-
             <div class="profile-img-container">
                 <figure>					
                     <img src="https://mokaru.com.co/wp-content/themes/mokaru/assets/image/ok_icon.png" alt="Perfil">
@@ -30,30 +29,26 @@ get_header('account');
             </div>
         </div>
 
-
-
-
         <?php
             $url = $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
             $show_edit = false;
-            if (strpos($url,'editar-cuenta') !== false) {
+            if (strpos($url,'editar-cuenta') !== false || strpos($url,'direccion/facturacion') !== false) {
                 $show_edit = true;
             } 
         ?>
         <div class="whrap noShow" id="miCuenta">
 
-            <div class="account-edit <?= $show_edit == true ? '' : 'noShow' ?>">
+            <div class="account-edit <?= $show_edit == true ? '' : 'noShow' ?>">            
                 <?php 
-                    
                     if (strpos($url,'editar-cuenta') !== false) {
+                        do_action( 'woocommerce_account_content' );
+                    } 
+                    if (strpos($url,'direccion/facturacion') !== false) {
                         do_action( 'woocommerce_account_content' );
                     } 
                 ?>
             </div>
 
-            <div class="account-adress <?= $show_edit == true ? 'noShow' : '' ?>">
-                <?php  wc_get_template('/myaccount/my-address.php' ); ?>
-            </div>
 
             <div class="account-info <?= $show_edit == true ? 'noShow' : '' ?>">
                 <div class="item">
@@ -84,39 +79,52 @@ get_header('account');
                     ?>
                     <p class="itemTitle"><?=$verify?></p>
                 </div>
-
+                <?php /*
                 <div class="item">
                     <p class="itemTitle">Documentos Pendientes</p>
                     <p class="itemR">Ver Documentación</p>
                 </div>
+                */ ?>
 
                 <div class="item">
                     <p class="itemTitle">Politica de proteccion de datos</p>
-                    <p class="itemR">Ver Documentación</p>
+                    <a href="<?= get_permalink(313)?> " class="itemR">Ver Documentación</a>
                 </div>
 
                 <div class="item">
                     <p class="itemTitle">Terminos y condiciones</p>
-                    <p class="itemR">Ver Documentación</p>
+                    <a href="<?= get_permalink(315)?>" class="itemR">Ver Documentación</a>
                 </div>
 
                 <div class="buttons">
-
-                    <a href="/mi-cuenta/editar-cuenta/" class="cerrar">Editar perfil</a>
+                    <a href="/mi-cuenta/editar-cuenta/" class="cerrar">Cambiar contraseña</a>
+                    <a href="/mi-cuenta/direccion/facturacion/" class="cerrar">Dirección</a>
                     <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="cerrar">Cerrar Sesión</a>
                 </div>
             </div>
 
         </div>
 
-
         <div class="whrap noShow" id="miMembresia">
-            <p class="tituloWhrap"><strong>Membresia:</strong> <?= $member['level']->name ?></p>
-
+            <?php
+                
+                if(empty($member['level']->name) ){
+                    $member['level']->name = 'No activa';
+                }
+            ?>
             <div class="item">
-                <p class="itemTitle">Interes del valor de la membresia:</p>
-                <p class="itemR">16% en 10 meses</p>
-            </div>
+                <p class="itemTitle">Membresia:</p>
+                <p class="itemR"><?= $member['level']->name ?></p>
+            </div>          
+            
+            <?php if($member['status'] == 'active'){ ?>    
+                <div class="item">
+                    <p class="itemTitle">Interes del valor de la membresia:</p>
+                    <p class="itemR">16% en 10 meses</p>
+                </div>
+			<?php } ?>
+
+         
             <?php
             
             /*

@@ -42,14 +42,30 @@
 			user_login:{required: true},
 			user_email:{required: true,email: true},
 			document:{required:true,minlength: 8},
-			user_pass1:{required:true,minlength: 8},
-			user_pass2:{required:true,minlength: 8,equalTo: '#user_pass1'}
+			user_pass1:{required:true,minlength: 6},
+			user_pass2:{required:true,minlength: 6,equalTo: '#pass1'}
 		},
 		messages:{
 			name:{required: "Por favor digite su nombre completo."},
 			user_login:{required: "Por favor digite un nombre de usuario."},
 			user_email:{required: "Por favor digite su email.",email: "Por favor digite un email válido"},
 			document:{required:"Por favor digite su número de documento", minlength:"El documento debe ser de al menos 8 carácteres."},
+			user_pass1:{required:"Por favor digite su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres."},
+			user_pass2:{required:"Por favor repita su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres.", equalTo: "Contraseñas no coinciden."},
+		},
+		
+		errorPlacement: function(error, element) {
+			element.attr("placeholder", error.text());
+		}
+	});
+	/*VALIDACIÓN FORMULARIO DE RECUPERAR CONTRA*/
+	 jQuery("form[name='resetpass']").validate({
+		rules: {
+
+			user_pass1:{required:true,minlength: 6},
+			user_pass2:{required:true,minlength: 6,equalTo: '#pass1'}
+		},
+		messages:{
 			user_pass1:{required:"Por favor digite su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres."},
 			user_pass2:{required:"Por favor repita su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres.", equalTo: "Contraseñas no coinciden."},
 		},
