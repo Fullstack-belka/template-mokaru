@@ -293,7 +293,7 @@ function update_membership_interest() {
 function clean_date($date) {
 
 	$dateUTC = new DateTime($date);
-	$dateUTC->setTimezone(new DateTimeZone('America/Bogota'));
+	//$dateUTC->setTimezone(new DateTimeZone('America/Bogota'));
 	//$string = date("d M - h:i A", strtotime( $date));
 	$string = $dateUTC->format('d M - h:i A');
 	return $string;

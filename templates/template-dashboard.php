@@ -11,7 +11,7 @@
 ?>
 
 <?php
-get_header();
+get_header('dashboard');
 ?>
 
 <div class="grid">
@@ -161,7 +161,7 @@ get_header();
 <?php 
 
 
-get_footer();
+get_footer('dashboard');
 
 ?>
 
