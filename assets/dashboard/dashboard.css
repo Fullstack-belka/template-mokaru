@@ -713,6 +713,7 @@ h1{
 
 
     .btn-block-mobil{
+        display: block;
         text-decoration: none;
         background-color: #5640E6;
         border-radius: 15px;
@@ -726,6 +727,7 @@ h1{
     }
 
     .text-mobil{
+        display: block;
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 900;
@@ -913,8 +915,23 @@ h1{
  }
 
 
+ .link-nav-inactive{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    padding: 10px;
+    width: 100%;
+    
+    
+   
+}
+
+.link-nav-inactive p{
+    color: #A7A7A7;
+}
 
 
-
+ 
 
 
