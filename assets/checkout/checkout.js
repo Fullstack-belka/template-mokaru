@@ -110,7 +110,7 @@ toggleNavi.addEventListener("click", () => {
     menuCheckout.classList.toggle('nav_Novisible')
 })
 
-toggle.addEventListener("click", () => {
+toggleNavi.addEventListener("click", () => {
     Menu.classList.toggle('nav_Novisible')
 })
 
@@ -139,6 +139,7 @@ const countDown = () => {
     const timerUpdate = setInterval( () => {
         let t = getRemainTime(deadline);
         el.innerHTML = `${t.remainMinutes}m:${t.remainSeconds}s`;
+        
         if (t.remaintTime <= 1) {
             clearInterval(timerUpdate)
             el.innerHTML = `<h1>Hola</h1>`

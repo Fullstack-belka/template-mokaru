@@ -8,7 +8,7 @@
 
 .woocommerce{padding: 25px;}
 .pmpro_checkout_gateway-mokaru{    margin: 1.5% 5%; font-family: 'mulish';}
-header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%; background-color: var(--main-color-select) ;}
+
 .btn-mokaru{border: 1px solid; border-radius: 15px;}
 #pmpro_checkout_box-checkout_boxes h3{display: none;}
 
@@ -119,6 +119,8 @@ header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-
         display: none;
     }
 
+    
+
     .toggle{
         display: none;
     }
@@ -175,6 +177,13 @@ header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-
             color: #FFFF;
             margin-left: 20px;
             }
+
+
+            .payment_options{
+                display: flex;
+                justify-content: space-around;
+                padding-top: 30px;
+            }
 }
 
 
@@ -190,6 +199,18 @@ header{ background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-
         top: 70px;
         background-color: #333;
         background: url(http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-3-2.png) no-repeat center bottom / 70%;  background-color: var(--main-color-select) ;
+    }
+
+    .payment_options{
+        display: flex;
+        padding: 30px 10px 0 10px;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .main_content{
+        padding-top: 70px;
+        padding-left: 0;
     }
 
     .nav_Novisible{
@@ -337,4 +358,31 @@ font-size: 14px;
         .woocommerce-input-wrapper{
             height: 60px; border-radius: 20px;
         }
+}
+
+
+
+.payment_options button{
+    background: #F4F2F7;
+    border: 2px solid #020119;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 20px;
+    display: flex;   
+    align-items: center; 
+    padding: 10px 15px 10px 10px;
+}
+
+.payment_options button img{
+    width: 60px;
+    margin-right: 25px;
+}
+
+.payment_options button p{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.methods{
+    display: none;
 }

@@ -22,9 +22,21 @@ if ( ! wp_doing_ajax() ) {
 }
 ?>
 
+
 <div id="payment" class="woocommerce-checkout-payment">
-	<div>
-		<h3>AQUI PUEDES METER HTML</h3>
+	<div class="payment_options">
+		<button>
+			<img src="http://mokaru.com.co/wp-content/uploads/2022/10/USDT-1.png" alt="Usdt">
+			<p>Pagar con mis USDT</p>
+		</button>
+
+		<button>
+			<img src="http://mokaru.com.co/wp-content/uploads/2022/10/LogoBancolombia-1.png" alt="Usdt">
+			<p>Comprar mis USDT a prooverdor autorizado</p>
+		</button>
+			
+
+		
 	</div>
 	<?php if ( WC()->cart->needs_payment() ) : ?>
 		<ul class="wc_payment_methods payment_methods methods">
