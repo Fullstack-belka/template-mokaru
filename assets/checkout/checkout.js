@@ -129,23 +129,24 @@ const getRemainTime = deadline =>{
     }
 };
 
-const countDown = () => {
-    const el = document.getElementById('clock')
-    const actualDate = new Date()
-    const dateMs = actualDate.getTime()
-    const addMls = 600000 * 2
-    const deadline = new Date(dateMs + addMls)
+function countDown() {
+    const el = document.getElementById('clock');
+    const actualDate = new Date();
+    const dateMs = actualDate.getTime();
+    const addMls = 600000 * 2;
+    const deadline = new Date(dateMs + addMls);
 
-    const timerUpdate = setInterval( () => {
+    const timerUpdate = setInterval(() => {
         let t = getRemainTime(deadline);
         el.innerHTML = `${t.remainMinutes}m:${t.remainSeconds}s`;
         
+
         if (t.remaintTime <= 1) {
-            clearInterval(timerUpdate)
-            el.innerHTML = `<h1>Hola</h1>`
+            clearInterval(timerUpdate);
+            window.location.replace("https://mokaru.com.co/activemos-tu-cuenta/"); //Nota, verificar si esa es la url
         }
-    }, 1000)
-};
+    }, 1000);
+}
 
+countDown()
 
-console.log("hola")
