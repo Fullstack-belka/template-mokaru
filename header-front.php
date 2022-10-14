@@ -18,16 +18,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php 
+	<?php wp_head();
 
-	add_action( 'wp_enqueue_scripts', 'front_script');
-	function front_script() {
-		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/front/main.css',array(), '' );
-		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/front/main.js',  true); 
-	}
-
-	wp_head();
 	?>
+	<style>
+    :root{
+    --main-color-select: <?= $member['level']->color ?>;
+    }
+	</style>
 </head>
 
 <body <?php body_class(); ?>>
