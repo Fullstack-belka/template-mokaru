@@ -20,7 +20,7 @@ get_header('account');
         <div class="infoSection">
             <div class="infoText">
                 <h1>Configuración</h1>
-                <p><strong>Cuenta: </strong> Mokaru <?= $member['level']->name ?></p>                
+                <p><strong>Cuenta: </strong> Mokaru <?= $member->level->name ?></p>                
             </div>
             <div class="profile-img-container">
                 <figure>					
@@ -54,8 +54,8 @@ get_header('account');
                 <div class="item">
                     <p class="itemTitle">Número de cuenta</p>
                     <p class="itemR code">
-					<?php if($member['status'] == 'active'){ ?>    
-						<?= $member['code']  ?>
+					<?php if( $member->status == 'active'){ ?>    
+						<?= $member->code  ?>
 						<?php }else{ ?> Cuenta sin membresía
 					<?php } ?>    
 				    </p>
@@ -70,10 +70,10 @@ get_header('account');
                     <?php
                     $verify = 'Inactiva';
 
-                    if($member['status'] == 'active'){
+                    if( $member->status == 'active'){
                         $verify = 'Aprobada';
                     }
-                    if($member['status'] == 'pending'){
+                    if( $member->status == 'pending'){
                         $verify = 'Pendiente';
                     }
                     ?>
@@ -108,16 +108,16 @@ get_header('account');
         <div class="whrap noShow" id="miMembresia">
             <?php
                 
-                if(empty($member['level']->name) ){
-                    $member['level']->name = 'No activa';
+                if(empty($member->level->name) ){
+                    $member->level->name = 'No activa';
                 }
             ?>
             <div class="item">
                 <p class="itemTitle">Membresia:</p>
-                <p class="itemR"><?= $member['level']->name ?></p>
+                <p class="itemR"><?= $member->level->name ?></p>
             </div>          
             
-            <?php if($member['status'] == 'active'){ ?>    
+            <?php if( $member->status == 'active'){ ?>    
                 <div class="item">
                     <p class="itemTitle">Interes del valor de la membresia:</p>
                     <p class="itemR">18% en 10 meses</p>
@@ -136,12 +136,12 @@ get_header('account');
 
             <div class="item">
                 <p class="itemTitle">Monto Actual:</p>
-                <p class="itemR"><?= $member['total']?> USDT</p>
+                <p class="itemR"><?= $member->amount ?> USDT</p>
             </div>
 
             <div class="item">
                 <p class="itemTitle">Valor de la membresia:</p>
-                <p class="itemR"><?= $member['level']->initial_payment ?> USDT</p>
+                <p class="itemR"><?= $member->level->initial_payment ?> USDT</p>
             </div>
 
             <div class="item">

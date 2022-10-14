@@ -22,21 +22,31 @@ if(!is_user_logged_in()) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head();
+	<?php 
+
+	add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
+	function dashboard_scripts() {
+		wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
+		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
+	}
+
+
+	
+	wp_head();
 	global $member;
 	global $current_user;
 
 	?>
 	<style>
     :root{
-    --main-color-select: <?= $member['level']->color ?>;
+    --main-color-select: <?= $member->level->color ?>;
     }
 	</style>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page-dashboard" class="site body-dashboard level_<?=$member['level']->name?>">
+<div id="page-dashboard" class="site body-dashboard level_<?=$member->level->name?>">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
 
 	<header >
@@ -55,8 +65,8 @@ if(!is_user_logged_in()) {
 				</div>
 				<p class="code">
 					<?php //print_r($member); ?>
-					<?php if($member['status'] == 'active'){ ?>    
-						<?= $member['code']  ?>
+					<?php if($member->status == 'active'){ ?>    
+						<?= $member->code  ?>
 						<?php }else{ ?>    
 							<p>Cuenta sin membresía</p>
 					<?php } ?>    

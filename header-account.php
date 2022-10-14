@@ -19,26 +19,40 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
-	<?php wp_head();
+	<?php
+    	add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
+        function dashboard_scripts() {
+
+            wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/account/account.css',array(), '' );
+            wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/account/account.js', array('jquery'), '', true); 
+            
+            wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
+            wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
+
+            
+        }
+    
+
+    wp_head();
 	global $member;
 	global $current_user;
 
         
-    if(empty($member['level']->name) ){
-        $member['level']->name = 'No activa';
+    if(empty($member->level->name) ){
+        $member->level->name = 'No activa';
     }
 	
 	?>
 	<style>
     :root{
-    --main-color-select: <?= $member['level']->color ?>;
+    --main-color-select: <?= $member->level->color ?>;
     }
 	</style>
 </head>
 
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<div id="page-dashboard" class="site body-dashboard account-dashboard level_<?=$member['level']->name?>">
+<div id="page-dashboard" class="site body-dashboard account-dashboard level_<?=$member->level->name?>">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
 
 
@@ -53,14 +67,14 @@
         </div>
         <div class="cuentaWhrap topW activeW" id="btnMiCuenta">
             <p>Mi Cuenta</p>
-            <?php if($member['status'] == 'active'){ ?>  
+            <?php if($member->status == 'active'){ ?>  
             <div class="cuentaContainer">
-                <p>Membresia <?= $member['level']->name ?></p>
+                <p>Membresia <?= $member->level->name ?></p>
             </div>
             <?php } ?>            
         </div>
     	   
-        <div class="cuentaWhrap <?= $member['status'] == 'active' ? '' : 'noShow'?>" id="btnMiMembresia">
+        <div class="cuentaWhrap <?= $member->status == 'active' ? '' : 'noShow'?>" id="btnMiMembresia">
             <p>Mi Membresia</p>
         </div>
 

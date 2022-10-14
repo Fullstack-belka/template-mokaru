@@ -22,7 +22,13 @@ get_header('dashboard');
             <?php /* ?>
             <p class="Bienvenidos-txt-t">Porcentaje Adquirido</p>
             <p class="Bienvenidos-txt-p">+<?= mokaru_get_percentage(1)->percentage ?>%</p>  
-            <?php */ ?>          
+            <?php */
+
+            echo '<pre>';
+            print_r($member);
+            echo '</pre>';
+            
+            ?>          
         </div>    
     </div>
 
@@ -52,20 +58,20 @@ get_header('dashboard');
     </div>
 
     <!---->
-    <div class="Balance balance-block <?= $member['status'] == 'active' ? 'active' : '' ;  ?>">
+    <div class="Balance balance-block <?= $member->status== 'active' ? 'active' : '' ;  ?>">
         <div class="Balance-txt">
             <h3>Tu Balance</h3>
-            <p class="Balance-txt-t"><?= $member['total'];?> $ USDT</p> <!--insertar cantidad de dolares-->
-            <?php if($member['status'] == 'inactive'){ ?>
+            <p class="Balance-txt-t"><?= $member->amount;?> $ USDT</p> <!--insertar cantidad de dolares-->
+            <?php if($member->status== 'inactive'){ ?>
             <p class="Balance-txt-p">AUN NO TIENES UNA CUENTA MOKARU</p>
             <?php } ?>
-            <?php if($member['status'] == 'pending'){ ?>
+            <?php if($member->status== 'pending'){ ?>
             <p class="Balance-txt-p">Tu cuenta esta en estado de verificación</p>
             <?php } ?>
         </div>
     </div>
 
-    <?php if($member['status'] == 'inactive'){ ?>
+    <?php if($member->status== 'inactive'){ ?>
     <!--mobile-->
     <a class="btn-block-mobil" href="/activa-tu-cuenta">Activa tu cuenta Mōkaru</a>
     <p class="text-mobil">Para beneficios del 2% al 3% mensual</p>
@@ -111,7 +117,9 @@ get_header('dashboard');
             <h3>Notificaciones</h3>
 
             
-            <?php $notifications = mokaru_get_notifications($current_user->ID, 3);?>
+            <?php 
+            $notificationsClass = new Notification();
+            $notifications = $notificationsClass->get_all_notification($current_user->ID, 3);?>
 
             <?php if(count($notifications)< 1){?>
             <div class="notificacion"> <!--not = notificacion-->
@@ -134,7 +142,7 @@ get_header('dashboard');
                     <?php } ?>
             <?php } ?>
 
-            <?php if($member['status']  == 'pending'){ ?>
+            <?php if($member->status == 'pending'){ ?>
                 <div class="notificacion"> <!--not = notificacion-->
                     <div class="t-separador">
                         <div class="icon">
@@ -152,7 +160,12 @@ get_header('dashboard');
             <?php } ?>
         </div>
     </div>
-    <?php if($member['status']  == 'inactive'){ ?>
+    <?php if($member->status == 'inactive'){ ?>
+        <div class="button">
+            <a class="btn-block" href="/activemos-tu-cuenta">Activa tu cuenta Mōkaru</a>
+        </div>
+    <?php } ?>
+    <?php if($member->status == 'inactive'){ ?>
         <div class="button">
             <a class="btn-block" href="/activemos-tu-cuenta">Activa tu cuenta Mōkaru</a>
         </div>

@@ -20,11 +20,19 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head();
+	<?php
+	add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
+	function dashboard_scripts() {
+		wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
+		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
+	}
+	
+
+	wp_head();
 	global $member;
 	global $current_user;
 	
-	if($member['status'] == 'active' || $member['status'] == 'pending' ){
+	if($member->level == 'active' || $member->level == 'pending' ){
 		wp_redirect( get_permalink(213) );		
 	}
 

@@ -27,18 +27,7 @@
 	}
 
 	wp_head();
-	
-	
-
-
 	?>
-
-
-	<style>
-    :root{
-    --main-color-select: <?= $member['level']->color ?>;
-    }
-	</style>
 </head>
 
 <body <?php body_class(); ?>>

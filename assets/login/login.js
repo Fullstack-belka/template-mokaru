@@ -14,9 +14,7 @@
 			log:{required:"Por favor digite su correo electrónico.", email:"Por favor digite un correo electrónico válido."},
 			pwd:{required:"Por favor digite su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres."}
 		},
-		errorPlacement: function(error, element) {
-			element.attr("placeholder", error.text());
-		}
+		errorElement: 'div'
 	});
 	/*FIN VALIDACIÓN INICIO DE SESIÓN*/
 
@@ -29,9 +27,7 @@
 			user_login:{required: "Por favor digite su email.",email: "Por favor digite un email válido."}
 		},
 		
-		errorPlacement: function(error, element) {
-			element.attr("placeholder", error.text());
-		}
+		errorElement: 'div'
 	});
 	
 	
@@ -54,9 +50,7 @@
 			user_pass2:{required:"Por favor repita su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres.", equalTo: "Contraseñas no coinciden."},
 		},
 		
-		errorPlacement: function(error, element) {
-			element.attr("placeholder", error.text());
-		}
+		errorElement: 'div'
 	});
 	/*VALIDACIÓN FORMULARIO DE RECUPERAR CONTRA*/
 	 jQuery("form[name='resetpass']").validate({
@@ -70,9 +64,7 @@
 			user_pass2:{required:"Por favor repita su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres.", equalTo: "Contraseñas no coinciden."},
 		},
 		
-		errorPlacement: function(error, element) {
-			element.attr("placeholder", error.text());
-		}
+		errorElement: 'div'
 	});
 })
 

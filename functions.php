@@ -167,10 +167,6 @@ function custom_scripts() {
 	wp_enqueue_style( 'custom_css', 	get_stylesheet_directory_uri() . '/assets/custom.css', 	array(), ''); 
 	wp_enqueue_script( 'custom_js', get_stylesheet_directory_uri() . '/assets/js/custom.js', array('jquery'), '', true); 
 
-	if(is_user_logged_in()){
-		wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
-		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
-	}
 	if ( is_page_template( 'templates/template-login.php' ) ) {
 		wp_enqueue_script( 'jqvalidate', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js', false); 
 		wp_enqueue_script( 'jqadm', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js', false); 
@@ -180,10 +176,6 @@ function custom_scripts() {
 	if ( is_page_template( 'templates/template-checkout.php' ) ) {
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/checkout/checkout.css',array(), '' );
 		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/checkout/checkout.js', array('jquery'), '', true); 
-	}
-	if ( is_page_template( 'templates/template-mi-cuenta.php' ) ) {
-		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/account/account.css',array(), '' );
-		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/account/account.js', array('jquery'), '', true); 
 	}
 	if ( is_page_template( 'templates/template-activa-tu-cuenta.php' ) ) {			
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/activa_cuenta/activa_cuenta.css',array(), '' );
@@ -234,70 +226,22 @@ function clean_date($date) {
 	return $string;
 }
 
-// OBTENER COLOR DE MEMBRESIA
-function get_color_membership( $id_member = null ){
-	$color = '#5640E6';
 
-	if($id_member == 1){
-		$color = '#C4A655';
-	}
-	if($id_member== 2){
-		$color = '#3C4B5F';
-	}
-	if($id_member == 3){
-		$color = '#020119';
-	}
-	return $color;
-}
 
-function member_plan() {
+// AL INICIAR LA PLATAFORMA 
+function init_function() {
 
 	global $current_user;
 	global $member;
-	$member = [ 
-		'status' => 'inactive',
-		'level' => new stdClass(),
-		'total' => '0',
-		'code' => '0'
-	];	
-	$member['level']->name = '';
-	$member['level']->initial_payment  = '0';
-	$member['level']->color = get_color_membership();
-
-	// NO ACTIVAR ESTA FUNCION - SOLO PARA PRUEBA
-	//mokaru_update_interest();
 
 	if(is_user_logged_in())
 	{				
-		$user_id = $current_user->ID;
-		$user = mokaru_get_user($current_user->ID);
-		if($user){
-			$member['code'] = $user->code ;
-			$member['total'] =  $user->amount;
-			$member['status'] = $user->status;
-		}
-	}
-
-	
-
-	if(function_exists('pmpro_hasMembershipLevel') && pmpro_hasMembershipLevel() )
-	{				
-		$user_id = $current_user->ID;
-		$user = mokaru_get_user($current_user->ID);
-		$level = pmpro_getMembershipLevelForUser( $user_id );
-		$level_id = $level->id;
-		$membership = $current_user->membership_level;
-
-		$member['code'] = $user->code ;
-		$member['level'] = $level;
-		$member['level']->name = strtolower($membership->name);			
-		$member['level']->color = get_color_membership($member['level']->id);
-		$member['total'] =  $user->amount;
-		$member['status'] = $user->status;
+		$memberClass = new Member();
+		$member = $memberClass->mokaru_get_member( $current_user->ID);
 	}
 }
 
-! is_admin() and add_action( 'init', 'member_plan' );
+! is_admin() and add_action( 'init', 'init_function' );
 
 
 /**

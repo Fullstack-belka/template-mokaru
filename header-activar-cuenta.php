@@ -22,7 +22,15 @@ if(!is_user_logged_in()) {
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php wp_head();
+	<?php
+	add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
+	function dashboard_scripts() {
+		wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
+		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
+	}
+	
+	
+	wp_head();
 	global $current_user;
 	global $member;
 	global $woocommerce;
@@ -33,7 +41,7 @@ if(!is_user_logged_in()) {
 	?>
 	<style>
     :root{
-    --main-color-select: <?= $member['level']->color ?>;
+    --main-color-select: <?= $member->level->color ?>;
     }
 	</style>
 </head>
@@ -56,7 +64,7 @@ if(!is_user_logged_in()) {
 
         <div class="user-nav nav_Novisible" id="menuMovil">
             <div class="user">
-				<?php if($member['status'] == 'inactive'){ ?>
+				<?php if($member->level == 'inactive'){ ?>
 					<div class="saludo-user">
 						<?php if($current_user->user_firstname){ ?>
 							<h4 class="user-nombre"><?= $current_user->user_firstname ?>,</h4>
