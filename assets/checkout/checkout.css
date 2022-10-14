@@ -139,7 +139,7 @@
         margin: 20px ;
     }
 
-    .user h3{
+    .user .user-nombre{
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 500;
@@ -263,7 +263,7 @@ font-size: 14px;
         
         .user h4{color: white;}
         
-        .user h3{
+        .user .user-nombre{
         font-family: 'Mulish';
         font-style: normal;
         font-weight: 500;
@@ -383,6 +383,14 @@ font-size: 14px;
     text-align: center;
 }
 
+.btn-wc-checkout{
+    display: none !important;
+}
 .methods{
     display: none;
 }
+
+
+#add_payment_method #payment,
+.woocommerce-cart #payment,
+.woocommerce-checkout #payment{background-color: white;}

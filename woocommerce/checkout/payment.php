@@ -23,21 +23,20 @@ if ( ! wp_doing_ajax() ) {
 ?>
 
 
+
 <div id="payment" class="woocommerce-checkout-payment">
-	<div class="payment_options">
-		<button>
-			<img src="http://mokaru.com.co/wp-content/uploads/2022/10/USDT-1.png" alt="Usdt">
-			<p>Pagar con mis USDT</p>
-		</button>
+		<div class="payment_options">
+			<button class="btn-payment btn-coinpayments" data-payment="payment_method_coinpayments">
+				<img src="http://mokaru.com.co/wp-content/uploads/2022/10/USDT-1.png" alt="Usdt">
+				<p>Pagar con mis USDT</p>
+			</button>
 
-		<button>
-			<img src="http://mokaru.com.co/wp-content/uploads/2022/10/LogoBancolombia-1.png" alt="Usdt">
-			<p>Comprar mis USDT a prooverdor autorizado</p>
-		</button>
-			
+			<button class="btn-payment btn-bancolombia" data-payment="payment_method_bacs">
+				<img src="http://mokaru.com.co/wp-content/uploads/2022/10/LogoBancolombia-1.png" alt="Usdt">
+				<p>Comprar mis USDT a prooverdor autorizado</p>
+			</button>
+		</div>
 
-		
-	</div>
 	<?php if ( WC()->cart->needs_payment() ) : ?>
 		<ul class="wc_payment_methods payment_methods methods">
 			<?php
@@ -64,7 +63,7 @@ if ( ! wp_doing_ajax() ) {
 
 		<?php do_action( 'woocommerce_review_order_before_submit' ); ?>
 
-		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
+		<?php echo apply_filters( 'woocommerce_order_button_html', '<button type="submit" class="button alt btn-wc-checkout" name="woocommerce_checkout_place_order" id="place_order" value="' . esc_attr( $order_button_text ) . '" data-value="' . esc_attr( $order_button_text ) . '">' . esc_html( $order_button_text ) . '</button>' ); // @codingStandardsIgnoreLine ?>
 
 		<?php do_action( 'woocommerce_review_order_after_submit' ); ?>
 

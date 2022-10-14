@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Checkout W
+ * Template Name: Checkout
  * Template Post Type: post, page
  *
  * @package WordPress
@@ -23,7 +23,7 @@ get_header('checkout');
 
 <?php 
 
-get_footer();
+get_footer('checkout');
 
 ?>
 

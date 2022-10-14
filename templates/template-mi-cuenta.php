@@ -88,7 +88,7 @@ get_header('account');
 
                 <div class="item">
                     <p class="itemTitle">Politica de proteccion de datos</p>
-                    <a href="<?= get_permalink(313)?> " class="itemR">Ver Documentación</a>
+                    <a href="<?= get_permalink(3)?> " class="itemR">Ver Documentación</a>
                 </div>
 
                 <div class="item">
@@ -120,7 +120,7 @@ get_header('account');
             <?php if($member['status'] == 'active'){ ?>    
                 <div class="item">
                     <p class="itemTitle">Interes del valor de la membresia:</p>
-                    <p class="itemR">16% en 10 meses</p>
+                    <p class="itemR">18% en 10 meses</p>
                 </div>
 			<?php } ?>
 
@@ -178,7 +178,7 @@ get_header('account');
 </div>
 
 <?php 
-get_footer();
+get_footer('account');
 
 ?>
 

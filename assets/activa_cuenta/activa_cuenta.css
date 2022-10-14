@@ -13,7 +13,7 @@ header{background-color: rgba(86, 64, 230, 1);}
 @media (min-width: 847px) {
 
 header{
-    position: absolute;
+    position: fixed;
     left: 0;
     height: 100vh;
     width: 200px;

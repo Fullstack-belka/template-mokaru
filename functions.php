@@ -161,8 +161,9 @@ function bootstrap_css() {
 	wp_enqueue_style( 'bootstrap_css', get_stylesheet_directory_uri() . '/assets/bootstrap.min.css', array(), ''); 
 }
 add_action( 'wp_enqueue_scripts', 'bootstrap_css');
+
 // Incluir Bootstrap CSS
-function custom_css() {
+function custom_scripts() {
 	wp_enqueue_style( 'custom_css', 	get_stylesheet_directory_uri() . '/assets/custom.css', 	array(), ''); 
 	wp_enqueue_script( 'custom_js', get_stylesheet_directory_uri() . '/assets/js/custom.js', array('jquery'), '', true); 
 
@@ -171,13 +172,12 @@ function custom_css() {
 		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
 	}
 	if ( is_page_template( 'templates/template-login.php' ) ) {
-		wp_enqueue_script( 'jqvalidate', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js', array('jquery'), '', true); 
-		wp_enqueue_script( 'jqadm', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js', array('jquery'), '', true); 
+		wp_enqueue_script( 'jqvalidate', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js', false); 
+		wp_enqueue_script( 'jqadm', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js', false); 
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/login/login.css',array(), '' );
-		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/login/login.js', array('jquery'), '', true); 
-
+		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/login/login.js',  true); 
 	}
-	if ( is_page_template( 'templates/template-checkout-membresia.php' ) ) {
+	if ( is_page_template( 'templates/template-checkout.php' ) ) {
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/checkout/checkout.css',array(), '' );
 		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/checkout/checkout.js', array('jquery'), '', true); 
 	}
@@ -185,70 +185,16 @@ function custom_css() {
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/account/account.css',array(), '' );
 		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/account/account.js', array('jquery'), '', true); 
 	}
-	if ( is_page_template( 'templates/template-activa-tu-cuenta.php' ) ) {	
-		
+	if ( is_page_template( 'templates/template-activa-tu-cuenta.php' ) ) {			
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/activa_cuenta/activa_cuenta.css',array(), '' );
 		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/activa_cuenta/activa_cuenta.js', array('jquery'), '', true); 
 	}
-	if ( is_page_template( 'templates/template-login.php' ) ) {
-		wp_enqueue_style( 'login_css', get_stylesheet_directory_uri() .  '/assets/login.css',array(), '' );
-	}
 
 }
-add_action( 'wp_enqueue_scripts', 'custom_css');
-
-
-function pmpro_add_fields_to_checkout() {
-	// This is where our fields code will go.
-	// Don't break if Register Helper is not loaded
-	if ( ! function_exists( 'pmprorh_add_registration_field' ) ) {
-		return false;
-	}
-	// This is where our fields code will go.
-
-	$fields = array();
-	$fields[] = new PMProRH_Field(
-		'comprobante',					// input name, will also be used as meta key
-		'file',						// type of field
-			array(
-				'label'		=> 'Comprobante de tu transaccion',		// custom field label
-				'profile'	=> true,		// show in user profile
-				'accept'	=> '.jpg,.png,.jpeg',		// show in user profile
-				'class'	=> 'file input_frm_hidden',	// class
-				'required'	=> true,		// make this field required				
-			)
-		);
-
-	$fields[] = new PMProRH_Field(
-		'TYC',					// input name, will also be used as meta key
-		'checkbox',						// type of field
-		array(
-			'label'		=> 'Acepto los <a href="/terminos-y-condiciones" target="_blank">Terminos y condiciones de Mokaru</a>',	// custom field label
-			'profile'	=> true,	// show in user profile
-			'class'	=> 'tyc',	// class
-			'required'	=> true,	// make this field required
-		)
-	);
-
-	foreach($fields as $field){
-		pmprorh_add_registration_field(
-			'checkout_boxes',	// location on checkout page
-			$field	// PMProRH_Field object
-		);
-	}
-
- }
- add_action( 'init', 'pmpro_add_fields_to_checkout' );
-
-
- // ADD CHECKBOX FIEL PARA CHECKOUT
- // checkbox field
-add_action( 'woocommerce_after_order_notes', 'quadlayers_subscribe_checkout' );
+add_action( 'wp_enqueue_scripts', 'custom_scripts');
 
 // Removes Order Notes Title
-
 add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
-
 remove_action( 'woocommerce_order_details_after_order_table', 'woocommerce_order_again_button' );
 
 // Remove Order Notes Field
@@ -262,26 +208,14 @@ function hide_addiotional_info_checkout( $fields ) {
 // Remove notification add to cart
 add_filter( 'wc_add_to_cart_message_html', '__return_false' );
 
+// OCULTAR BARRA DE ADMINISTRACION PARA USUARIOS QUE NO SON ADMINISTRADORES
+add_action('after_setup_theme', 'remove_admin_bar');
 
-function quadlayers_subscribe_checkout( $checkout ) {
-woocommerce_form_field( 'subscriber', array(
-'type' => 'checkbox',
-//'required' => true,
-'class' => array('custom-field form-row-wide'),
-'label' => ' Subscribe to our newsletter.'
-), $checkout->get_value( 'subscriber' ) );
-}
-
- // OCULTAR BARRA DE ADMINISTRACION PARA USUARIOS QUE NO SON ADMINISTRADORES
-
- add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {
 	if (!current_user_can('administrator') && !is_admin()) {
 	show_admin_bar(false);
 	}
 }
-
-
 
 // CRON UPDATE MEMBRESIAS
 add_action( 'mokaru_services', 'update_membership_interest' );
@@ -290,6 +224,7 @@ function update_membership_interest() {
 	mokaru_update_interest();
 }
 
+// LIMPIAR FECHAS
 function clean_date($date) {
 
 	$dateUTC = new DateTime($date);
@@ -299,7 +234,7 @@ function clean_date($date) {
 	return $string;
 }
 
-
+// OBTENER COLOR DE MEMBRESIA
 function get_color_membership( $id_member = null ){
 	$color = '#5640E6';
 
@@ -343,7 +278,9 @@ function member_plan() {
 		}
 	}
 
-	if(function_exists('pmpro_hasMembershipLevel') && pmpro_hasMembershipLevel())
+	
+
+	if(function_exists('pmpro_hasMembershipLevel') && pmpro_hasMembershipLevel() )
 	{				
 		$user_id = $current_user->ID;
 		$user = mokaru_get_user($current_user->ID);

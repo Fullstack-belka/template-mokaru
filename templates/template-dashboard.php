@@ -19,8 +19,10 @@ get_header('dashboard');
     <div class="Bienvenidos primary-block">
         <div class="Bienvenidos-txt">            
             <h3>Bienvenido <?= $current_user->user_firstname ?></h3> <!--Insertar nombre-->
+            <?php /* ?>
             <p class="Bienvenidos-txt-t">Porcentaje Adquirido</p>
-            <p class="Bienvenidos-txt-p">+<?= mokaru_get_percentage(1)->percentage ?>%</p>            
+            <p class="Bienvenidos-txt-p">+<?= mokaru_get_percentage(1)->percentage ?>%</p>  
+            <?php */ ?>          
         </div>    
     </div>
 
