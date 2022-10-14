@@ -15,7 +15,7 @@ get_header();
 ?>
 
 <section>
-    <h1>HOLA</h1>
+    <h1>l</h1>
 </section>
 <?php 
 
