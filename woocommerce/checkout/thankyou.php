@@ -85,6 +85,8 @@ defined( 'ABSPATH' ) || exit;
 
 	<?php endif; ?>
 
+	<p>Gracias por confiar en nosotros, en un momento se activara tu cuenta Mokaru</p>
+
 	<div class="whrap-btn">
 		<a class="btn btn-primary" href="/dashboard">Volver a la dashboard</a>
 	</div>
