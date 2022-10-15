@@ -14,6 +14,19 @@ if(!is_user_logged_in()) {
     wp_redirect( wp_login_url() );
 }
 
+add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
+function dashboard_scripts() {
+	wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
+	wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
+}
+
+global $current_user;
+global $member;
+global $woocommerce;
+
+$woocommerce->cart->empty_cart();
+$verify = mokaru_verify_order($current_user->ID);
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -23,21 +36,7 @@ if(!is_user_logged_in()) {
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php
-	add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
-	function dashboard_scripts() {
-		wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
-		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
-	}
-	
-	
 	wp_head();
-	global $current_user;
-	global $member;
-	global $woocommerce;
-    $woocommerce->cart->empty_cart();
-	$pmpro_levels = pmpro_sort_levels_by_order( pmpro_getAllLevels(false, true) );
-	$pmpro_levels = apply_filters( 'pmpro_levels_array', $pmpro_levels );
-	
 	?>
 	<style>
     :root{
@@ -64,7 +63,7 @@ if(!is_user_logged_in()) {
 
         <div class="user-nav nav_Novisible" id="menuMovil">
             <div class="user">
-				<?php if($member->level == 'inactive'){ ?>
+				<?php if( $member->status == 'inactive' && $verify->show == false ){ ?>   
 					<div class="saludo-user">
 						<?php if($current_user->user_firstname){ ?>
 							<h4 class="user-nombre"><?= $current_user->user_firstname ?>,</h4>
@@ -72,15 +71,33 @@ if(!is_user_logged_in()) {
 						<p class="user-accion">Selecciona tu Cuenta</p>
 					</div>				
 					<div class="cuentas">
-						<?php foreach($pmpro_levels as $membership){ 
-							$nameLevel = strtolower($membership->name);
-						?>
-							<div id="<?= $nameLevel ?>Account" class="nav-rectangulo <?=  $nameLevel ?>-rec">
-								<div class="mark <?= $nameLevel ?>"></div>
-								<p class="<?=  $nameLevel ?>-txt">Mōkaru <?= $nameLevel ?> </p>
-							</div>
-						<?php } ?>
+						<div id="goldAccount" class="nav-rectangulo gold-rec" product-id="23" >
+							<div class="mark gold"></div>
+							<p class="gold-txt">Mōkaru gold </p>
+						</div>
+						<div id="platinumAccount" class="nav-rectangulo platinum-rec" product-id="258" >
+							<div class="mark platinum"></div>
+							<p class="platinum-txt">Mōkaru platinum </p>
+						</div>
+						<div id="blackAccount" class="nav-rectangulo black-rec" product-id="259" >
+							<div class="mark black"></div>
+							<p class="black-txt">Mōkaru black </p>
+						</div>
 					</div>
+				<?php }elseif( $member->status == 'active'){ ?>   
+					<div class="saludo-user">
+						<?php if($current_user->user_firstname){ ?>
+							<h4 class="user-nombre"><?= $current_user->user_firstname ?>,</h4>
+						<?php } ?>
+						<p class="user-accion">Ya eres miembro mokaru!</p>
+					</div>
+				<?php }else{ ?>
+					<div class="saludo-user">
+						<?php if($current_user->user_firstname){ ?>
+							<h4 class="user-nombre"><?= $current_user->user_firstname ?>,</h4>
+						<?php } ?>
+						<p class="user-accion">Ya tienes un pedido!</p>
+					</div>   
 				<?php } ?>
 			</div>
 

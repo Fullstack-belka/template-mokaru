@@ -217,15 +217,46 @@ function update_membership_interest() {
 }
 
 // LIMPIAR FECHAS
-function clean_date($date) {
+function clean_date($date, $type = '' ) {
 
-	$dateUTC = new DateTime($date);
-	//$dateUTC->setTimezone(new DateTimeZone('America/Bogota'));
-	//$string = date("d M - h:i A", strtotime( $date));
-	$string = $dateUTC->format('d M - h:i A');
+	$format = '%d de %b del %Y';
+	if($type == 'day_h'){
+		$format = '%d %b - %r';
+	}
+
+	$dateC = date($date);
+	$string = strftime($format, strtotime($date));
+	
 	return $string;
 }
 
+
+// OBTENER ULTIMA ORDEN Y VERIFICAR ESTADOS
+function mokaru_verify_order($user_id){
+
+	// Get the WC_Customer instance Object for the current user
+	$customer = new WC_Customer( $user_id );
+	$last_order = $customer->get_last_order(); // OBTENEMOS LA ULTIMA ORDEN
+	$order_status = false;
+	$show = false;
+
+	if(!empty($last_order)){
+		$order_status = $last_order->get_status(); // OBTENEMOS EL ESTADO DE LA ORDEN
+	}
+	// SI LA ULTIMA ORDEN ESTA EXISTE MUESTRA QUE YA TIENE
+	if($order_status){
+		$show = true;
+		// SI LA ULTIMA ORDEN ESTA CANCELADA PERMITE LA COMPRA
+		if( $order_status == 'cancelled' ){
+			$show = false;
+		}
+	}
+	$verify = new stdClass();
+	$verify->show = $show; 
+	$verify->order_status = $order_status; 
+
+	return $verify;
+}
 
 
 // AL INICIAR LA PLATAFORMA 
@@ -236,6 +267,9 @@ function init_function() {
 
 	if(is_user_logged_in())
 	{				
+		
+		// ESTA FUNCION ES PELIGROSA SI LA ACTIVA LE SUMA INTERESES A TODOS LOS MEMBERS
+		//mokaru_update_interest();
 		$memberClass = new Member();
 		$member = $memberClass->mokaru_get_member( $current_user->ID);
 	}

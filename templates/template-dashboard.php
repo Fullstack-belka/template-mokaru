@@ -8,10 +8,15 @@
  * @since Twenty Twenty 1.0
  */
 
+
+
+
 ?>
 
 <?php
 get_header('dashboard');
+$verify = mokaru_verify_order($current_user->ID);
+
 ?>
 
 <div class="grid">
@@ -19,16 +24,21 @@ get_header('dashboard');
     <div class="Bienvenidos primary-block">
         <div class="Bienvenidos-txt">            
             <h3>Bienvenido <?= $current_user->user_firstname ?></h3> <!--Insertar nombre-->
-            <?php /* ?>
-            <p class="Bienvenidos-txt-t">Porcentaje Adquirido</p>
-            <p class="Bienvenidos-txt-p">+<?= mokaru_get_percentage(1)->percentage ?>%</p>  
-            <?php */
-
-            echo '<pre>';
-            print_r($member);
+            <?php /* 
+              echo '<pre>';
+            print_r($last_order);
             echo '</pre>';
-            
-            ?>          
+            */        
+            ?>
+
+            <?php if( $member->status== 'active'){ ?>
+                <?php if( $member->cycle_dat_ini < $member->cycle_dat_fin){ ?>
+                    <p class="Bienvenidos-txt-t">Puedes retirar tus fondos el </p>
+                    <p class="Bienvenidos-txt-p"><?= clean_date($member->cycle_dat_fin)?> </p>
+                    <?php }else{ ?>
+                        <p class="Bienvenidos-txt-p"> Ya puedes retirar tus fondos </p>
+                <?php } ?>
+            <?php } ?> 
         </div>    
     </div>
 
@@ -40,7 +50,7 @@ get_header('dashboard');
                     <img src="<?php echo get_template_directory_uri(); ?>/assets/image/ok_icon.png" alt="Perfil">
                 </figure>
             </div>
-            <h2 class="saludo-mobile">Hola <br>  <?= $current_user->user_firstname ?></h2> <!--insertar nombre-->
+            <h2 class="saludo-mobile">Hola <br> <?= $current_user->user_firstname ?></h2> <!--insertar nombre-->
         </div>
 
         <a class="options"  href="/mi-cuenta">
@@ -62,18 +72,19 @@ get_header('dashboard');
         <div class="Balance-txt">
             <h3>Tu Balance</h3>
             <p class="Balance-txt-t"><?= $member->amount;?> $ USDT</p> <!--insertar cantidad de dolares-->
-            <?php if($member->status== 'inactive'){ ?>
+            <?php if($member->status== 'inactive' && $verify->show == false ){ ?>
             <p class="Balance-txt-p">AUN NO TIENES UNA CUENTA MOKARU</p>
-            <?php } ?>
-            <?php if($member->status== 'pending'){ ?>
-            <p class="Balance-txt-p">Tu cuenta esta en estado de verificación</p>
+            <?php }elseif( $member->status == 'active' ){ ?>  
+            <p class="Balance-txt-p">Tu cuenta se encuentra activa</p>
+            <?php }else{ ?>  
+            <p class="Balance-txt-p">Tu pedido se encuentra <?=  wc_get_order_status_name( $verify->order_status ); ?></p>
             <?php } ?>
         </div>
     </div>
 
-    <?php if($member->status== 'inactive'){ ?>
+    <?php if($member->status == 'inactive' && $verify->show == false){ ?>
     <!--mobile-->
-    <a class="btn-block-mobil" href="/activa-tu-cuenta">Activa tu cuenta Mōkaru</a>
+    <a class="btn-block-mobil" href="<?= get_permalink(213)?>">Activa tu cuenta Mōkaru</a>
     <p class="text-mobil">Para beneficios del 2% al 3% mensual</p>
     <!---->
     <?php } ?>
@@ -99,7 +110,7 @@ get_header('dashboard');
                                     <div class="t-content">
                                         <div class="transaccion-txt">
                                             <p class="mensaje-not"><?= $row->text ?></p> <!--Transacciones-->
-                                            <p class="fecha"><?= clean_date($row->log_date) ?></p>  <!--fecha-->
+                                            <p class="fecha"><?= clean_date($row->log_date,'day_h') ?></p>  <!--fecha-->
                                         </div>                                        
                                     </div>
                                 </div>    
@@ -134,7 +145,7 @@ get_header('dashboard');
                                     <div class="t-content">
                                         <div class="notificacion-txt">
                                             <p class="mensaje-not"><?= $row->text ?></p> <!--Transacciones-->
-                                            <p class="fecha"><?= clean_date($row->log_date) ?></p>  <!--fecha-->
+                                            <p class="fecha"><?= clean_date($row->log_date,'day_h') ?></p>  <!--fecha-->
                                         </div>                                        
                                     </div>
                                 </div>    
@@ -160,14 +171,17 @@ get_header('dashboard');
             <?php } ?>
         </div>
     </div>
-    <?php if($member->status == 'inactive'){ ?>
+
+    <?php if( $member->cycle_dat_ini > $member->cycle_dat_fin){ ?>
         <div class="button">
-            <a class="btn-block" href="/activemos-tu-cuenta">Activa tu cuenta Mōkaru</a>
+            <a class="depositar">Depositar</a>
+            <a class="retirar">Retirar</a>
         </div>
-    <?php } ?>
-    <?php if($member->status == 'inactive'){ ?>
+     <?php } ?>
+                   
+    <?php if($member->status == 'inactive' && $verify->show == false){ ?>
         <div class="button">
-            <a class="btn-block" href="/activemos-tu-cuenta">Activa tu cuenta Mōkaru</a>
+            <a class="btn-block" href="<?= get_permalink(213) ?>">Activa tu cuenta Mōkaru</a>
         </div>
     <?php } ?>
 

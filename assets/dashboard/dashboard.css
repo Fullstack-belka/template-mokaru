@@ -36,6 +36,44 @@ header{
 }
 
 
+/**/
+
+.depositar{
+    background: var(--main-color-select);
+    border-radius: 15px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 15px 50px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.depositar:hover{
+    border: 2px solid var(--main-color-select);
+    background-color: #FFFFFF;
+    color: var(--main-color-select);
+}
+
+.retirar{
+    background: #253046;
+    border-radius: 15px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 20px;
+    padding: 15px 50px;
+    margin-left: 50px;
+    cursor: pointer;
+    transition: ease 0.3s;
+}
+
+.retirar:hover{
+    border: 2px solid #253046;
+    background-color: #FFFFFF;
+    color: #253046;
+}
+
+
 
 .menu li {
     display: flex;

@@ -12,13 +12,20 @@ get_header('activar-cuenta');
 
 $checkout_page_id = wc_get_page_id( 'checkout' );
 $checkout_page_url = $checkout_page_id ? get_permalink( $checkout_page_id ) : '';
+$verify = mokaru_verify_order($current_user->ID);
+
+/*
+echo '<pre>';
+print_r($last_order );
+echo '</pre>';
+*/
 
 ?>
 
 <section class="activa-tu-cuenta-content">
-    <div id="insert">        
-        
-        <?php if( $member->status == 'inactive'){ ?>    
+    <div id="insert">     
+
+        <?php if( $member->status == 'inactive' && $verify->show == false ){ ?>    
             <div class="bloque bloque-gold" style="display:block;">
                 <div class="whrap-gold"> 
                     
@@ -74,10 +81,16 @@ $checkout_page_url = $checkout_page_id ? get_permalink( $checkout_page_id ) : ''
                 </div>
                 
             </div>
-        <?php }else{ ?>
+        <?php }elseif( $member->status == 'active' ){ ?>   
             <div class="bloque">
                 <div class="whrap">
-                    <h2>Tu cuenta ya se encuentra en estado <?= $member->status?></h2>
+                    <h2>Ya posees una cuenta Mokaru</h2>
+                </div>
+            </div>
+        <?php }else{ ?>   
+            <div class="bloque">
+                <div class="whrap">
+                    <h2>Tu pedido se encuentra <?=  wc_get_order_status_name( $verify->order_status ); ?> </h2>
                 </div>
             </div>
         <?php } ?>

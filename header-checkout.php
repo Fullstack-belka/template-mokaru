@@ -8,9 +8,19 @@
  *
  * @package Mokaru
  */
+add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
+function dashboard_scripts() {
+	wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
+	wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
+}
 
 
-
+global $member;
+global $current_user;
+$verify = mokaru_verify_order($current_user->ID);
+if($member->status == 'inactive' && $verify->show == 1){ 
+	wp_redirect( get_permalink(213) );		
+}
 
 ?>
 <!doctype html>
@@ -21,20 +31,8 @@
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
 	<?php
-	add_action( 'wp_enqueue_scripts', 'dashboard_scripts');
-	function dashboard_scripts() {
-		wp_enqueue_style( 'dashboard_css', get_stylesheet_directory_uri() .  '/assets/dashboard/dashboard.css',array(), '' );
-		wp_enqueue_script( 'dashboard_js', get_stylesheet_directory_uri() . '/assets/dashboard/dashboard.js', array('jquery'), '', true); 
-	}
-	
 
 	wp_head();
-	global $member;
-	global $current_user;
-	
-	if($member->level == 'active' || $member->level == 'pending' ){
-		wp_redirect( get_permalink(213) );		
-	}
 
 
 	foreach( WC()->cart->get_cart() as $cart_item ){
