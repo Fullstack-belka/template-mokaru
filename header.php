@@ -34,8 +34,19 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site"><!-- #page -->
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
-
-	<header >
-	   
-	</header>     
+	<header>
+            <a class="logo" href="/"><img src="http://mokaru.com.co/wp-content/uploads/2022/10/Group-48.png" alt="logo"></a>
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="#">INICIO</a></li>
+                    <li><a href="../Nosotros/Nosotros.html">NOSOTROS</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="../Servicios/Servicios.html">SERVICIOS</a></li>
+                    <li><a href="#">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="/login">Iniciar sesion / Registro</a>
+            
+            <img class="menu" src="http://mokaru.com.co/wp-content/uploads/2022/10/menu.png" alt="togle">
+        </header>  
 			

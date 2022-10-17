@@ -33,7 +33,7 @@
 <div id="page" class="site"><!-- #page -->
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
 
-	<header >
-	   
-	</header>     
+	<header>
+
+    </header>   
 			
