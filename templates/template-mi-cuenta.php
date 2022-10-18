@@ -178,7 +178,8 @@ get_header('account');
 </div>
 
 <?php 
-get_footer('account');
+
+get_footer('dashboard');
 
 ?>
 

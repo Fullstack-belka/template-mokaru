@@ -23,7 +23,7 @@ get_header('checkout');
 
 <?php 
 
-get_footer('checkout');
+get_footer('dashboard');
 
 ?>
 

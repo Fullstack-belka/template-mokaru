@@ -267,6 +267,15 @@ function woocommerce_ajax_add_to_cart() {
 	wp_die();
 }
 
+// AÑADIR POSTAL OBLIGATORIO
+// Make Postal Code Required for all Countries
+add_filter('woocommerce_get_country_locale', function($locales){
+    foreach ($locales as $key => $value) {
+        $locales[$key]['postcode']['required'] = true;
+    }
+    return $locales;
+});
+
 // OBTENER ULTIMA ORDEN Y VERIFICAR ESTADOS
 function mokaru_verify_order($user_id){
 

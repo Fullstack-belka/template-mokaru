@@ -38,11 +38,19 @@
             <a class="logo" href="/"><img src="http://mokaru.com.co/wp-content/uploads/2022/10/Group-48.png" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
+<<<<<<< HEAD
                     <li><a href="/index.php">INICIO</a></li>
                     <li><a href="#">NOSOTROS</a></li>
                     <li><a href="#">FAQ</a></li>
                     <li><a href="#">SERVICIOS</a></li>
                     <li><a href="#">CONTACTO</a></li>
+=======
+                    <li><a href="/">INICIO</a></li>
+                    <li><a href="/nosotros">NOSOTROS</a></li>
+                    <li><a href="/ayuda">FAQ</a></li>
+                    <li><a href="/servicios">SERVICIOS</a></li>
+                    <li><a href="/contacto">CONTACTO</a></li>
+>>>>>>> 6c6b79f55b35980358e91eb134562446de59f923
                 </ul>
             </nav>
             <a class="cta" href="/login">Iniciar sesion / Registro</a>
