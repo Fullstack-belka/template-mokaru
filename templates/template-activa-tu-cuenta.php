@@ -24,7 +24,7 @@ echo '</pre>';
 
 <section class="activa-tu-cuenta-content">
     <div id="insert">     
-
+            <div id="alert-ajax"></div>
         <?php if( $member->status == 'inactive' && $verify->show == false ){ ?>    
             <div class="bloque bloque-gold" style="display:block;">
                 <div class="whrap-gold"> 
@@ -34,13 +34,13 @@ echo '</pre>';
                     <br>Generaras un 16% de interes en los siguientes 10 meses*. <br><br>Los fondos en tu <spam class="enfasis">Cuenta Mokaru Gold</spam> te generaran un <spam class="enfasis">2% de interes mensual.</spam> <br><br>Obtendras <spam class="enfasis">acceso exclusivo al fondo Mokaru</spam>, donde podras: <br> <br><ul><li>Diseñar tu plan de retiro a la medida</li><li>Crear lineas de ahorro <br></li></ul>
                     <br><spam class="txt-pequeño">$0 en costos por el manejo de tu Cuenta Mokaru y sin letras pequeñas, en Mokaru obtienes tu servicio tal como lo que quieres</spam> </p>
                 </div>
-                <a href="<?=  $checkout_page_url ?> ?add-to-cart=23" class="guide-link gold-txt">➝ Continua con tu deposito</a>
+                <a href="<?=  $checkout_page_url ?>" class="guide-link gold-txt">➝ Continua con tu deposito</a>
             </div>
             <div class="bloque bloque-platinum" style="display:none;"><div class="whrap-platinum"> <h3>Estos son los beneficios que obtendras:</h3><p>En tu primer deposito de <spam class="platinum-txt usdt">500 USDT</spam> para la activacion de tu cuenta <spam class="platinum-txt usdt">Mokaru Platinum.</spam><br>Generaras un 16% de interes en los siguientes 10 meses*. <br><br>Los fondos en tu <spam class="enfasis">Cuenta Mokaru Platinum</spam> te generaran un <spam class="enfasis">2.5% de interes mensual.</spam> <br><br>Obtendras <spam class="enfasis">acceso exclusivo al fondo Mokaru</spam>, donde podras: <br> <br><ul><li>Diseñar tu plan de retiro a la medida</li><li>Crear lineas de ahorro <br></li></ul><br><spam class="txt-pequeño">$0 en costos por el manejo de tu Cuenta Mokaru y sin letras pequeñas, en Mokaru obtienes tu servicio tal como lo que quieres</spam> </p></div>
-                <a href="<?=  $checkout_page_url ?>?add-to-cart=258" class="guide-link platinum-txt">➝ Continua con tu deposito</a>
+                <a href="<?=  $checkout_page_url ?>" class="guide-link platinum-txt">➝ Continua con tu deposito</a>
             </div>        
             <div class="bloque bloque-black" style="display:none;"><div class="whrap-black"> <h3>Estos son los beneficios que obtendras:</h3><p>En tu primer deposito de <spam class="black-txt usdt">1,000 USDT</spam> para la activacion de tu cuenta <spam class="black-txt usdt">Mokaru Black.</spam><br>Generaras un 16% de interes en los siguientes 10 meses*. <br><br>Los fondos en tu <spam class="enfasis">Cuenta Mokaru Black</spam> te generaran un <spam class="enfasis">3% de interes mensual.</spam> <br><br>Obtendras <spam class="enfasis">acceso exclusivo al fondo Mokaru</spam>, donde podras: <br> <br><ul><li>Diseñar tu plan de retiro a la medida</li><li>Crear lineas de ahorro <br></li></ul><br><spam class="txt-pequeño">$0 en costos por el manejo de tu Cuenta Mokaru y sin letras pequeñas, en Mokaru obtienes tu servicio tal como lo que quieres</spam> </p></div>
-                <a href="<?=  $checkout_page_url ?>?add-to-cart=259" class="guide-link black-txt">➝ Continua con tu deposito</a>
+                <a href="<?=  $checkout_page_url ?>" class="guide-link black-txt">➝ Continua con tu deposito</a>
             </div>
             <button class="info-btn" id="open">Ver detalles de mi primer depsito</button>
             <p class="disclamer-txt">
