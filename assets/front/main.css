@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Montserrat:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
 
 
 * {
@@ -778,6 +779,133 @@ footer{
 
 
 
+.faq{
+
+    max-width: 1250px;
+    margin: 25px auto;
+    padding: 80px;
+
+    align-items: center;
+    }
+  
+  
+  
+  .faq h1{
+  
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    margin-bottom: 30px;
+    
+  }
+  
+  
+  .faq p{
+    font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  margin-bottom: 50px;
+  }
+  
+  .faq img{
+    
+    margin-left: 10%;
+    height: 200px;
+  
+  }
+  
+  
+  @media only screen and (max-width: 840px) {
+  .faq{
+    flex-direction: column;
+    padding: 30px;
+  }
+  
+  .faq img{
+    margin: 0;
+  
+  }
+  .baner_content_nosotros{
+  
+    padding: 0;
+  }
+  
+  .baner_content_nosotros div{
+  
+    padding: 20px;
+  
+   
+    
+  }
+  
+  }
+
+
+
+
+  .cl404{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 70vh;
+}
+
+.imglogo404{
+    padding-top: 30px;
+}
+
+.cl404 h1{
+    
+font-family: 'Rajdhani';
+font-style: normal;
+font-weight: 400;
+font-size: 120px;
+color: rgb(0, 0, 0);
+}
+
+.cl404 p{
+    font-family: 'Rajdhani';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px; 
+    color: #000000;
+    margin-bottom:50px ;
+}
+
+.cl404 a{
+   
+    text-decoration: none;
+    padding: 15px 57px;
+    font-size: 20px;
+    font-family: 'Quicksand';
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    background-color: #57d7f3;
+
+
+}
+
+
+@media (max-width:1069px) {
+    .cl404 h1{
+        font-size: 64px;
+    }
+        
+    }
+
+    .bgfaq{
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -1;
+    } 
+      
 
 
 

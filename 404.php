@@ -17,10 +17,10 @@ get_header();
 
 			<div>
 				<div class="cl404">
-					<img src="./img/Group 48.png" class="imglogo404" alt="logo">
+					<img src="http://mokaru.com.co/wp-content/uploads/2022/10/Group-48.png" class="imglogo404" alt="logo">
 					<h1>Error 404</h1>
 					<p>Pagina no encontrada, por favor vuelve al inicio</p>
-					<a href="#">INICIO</a>
+					<a href="/index.php">INICIO</a>
 				</div>   
 			</div>
     

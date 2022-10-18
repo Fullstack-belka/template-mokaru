@@ -38,10 +38,10 @@
             <a class="logo" href="/"><img src="http://mokaru.com.co/wp-content/uploads/2022/10/Group-48.png" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="#">INICIO</a></li>
-                    <li><a href="../Nosotros/Nosotros.html">NOSOTROS</a></li>
+                    <li><a href="/index.php">INICIO</a></li>
+                    <li><a href="#">NOSOTROS</a></li>
                     <li><a href="#">FAQ</a></li>
-                    <li><a href="../Servicios/Servicios.html">SERVICIOS</a></li>
+                    <li><a href="#">SERVICIOS</a></li>
                     <li><a href="#">CONTACTO</a></li>
                 </ul>
             </nav>
