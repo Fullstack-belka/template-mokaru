@@ -775,7 +775,7 @@ h1{
         text-transform: uppercase;
         margin: 0 20%;
         color: #5640E6;
-
+        z-index: 0;
         opacity: 0.5;
     }
 
@@ -872,6 +872,7 @@ h1{
         bottom: 0px;
         display: block;
         width: 100%;
+        z-index: 3;
     }
     .header-movil{
         position: sticky;

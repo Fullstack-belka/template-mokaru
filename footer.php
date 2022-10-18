@@ -11,7 +11,7 @@
 
 ?>
 
-<!--<footer id="colophon" class="site-footer">
+<footer id="colophon" class="site-footer">
 	<div class="floor1">
         <div class="linksF">
             <a href="#" class="footerLink">INICIO</a>
@@ -46,9 +46,10 @@
 
     <div class="logoF">
         <img src="http://mokaru.com.co/wp-content/uploads/2022/10/Group-48.png" alt="logo" >
-    </div>-->
-    
-	</footer><!-- #colophon -->
+
+    </div>
+</footer><!-- #colophon -->
+
 </div><!-- #page -->
 
 <?php wp_footer(); ?>

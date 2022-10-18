@@ -1,4 +1,3 @@
-
 .account-dashboard header{
     background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-1.png');
     height: 100vh;
@@ -7,7 +6,21 @@
     background-position-x:center ;
     background-position-y: bottom;
     background-size: contain;
+    position: fixed;
+    top: 0;
+    left: 0;
 }
+
+@media (max-width: 902px) {
+    .account-dashboard header {
+        position: static;
+        display: flex;
+    }
+}
+
+
+
+
 
 .account-dashboard{grid-template-columns: 20% auto;}
 .cuentaWhrap{
@@ -71,6 +84,8 @@ text-decoration: none;
 
 
 /***********************/
+
+
 
 .infoSection{
     display: flex;
@@ -169,12 +184,8 @@ thead{
 }
 
 @media (max-width: 902px) {
-    body{
-        display: block;
-        
-    }
 
-    header{
+   .account-dashboard header{
         background-image: none;
         height: auto;
         
@@ -317,6 +328,5 @@ thead{
     cursor: pointer;
     margin-bottom: 20px;
 }
-
-
 }
+
