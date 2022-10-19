@@ -49,7 +49,7 @@ if(!is_user_logged_in()) {
 <div id="page-dashboard" class="site body-dashboard level_<?=$member->level->name?>">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
 
-	<header >
+	<header class="header_dashboard" >
 		<div class="nav-desktop">
 			<div class="logo-container">
 				<a class="logo-a" href="/dashboard">
