@@ -228,7 +228,7 @@ get_header();
 
 </section>
 
-<img class="bgfaq" src="../../img/circulos.png" alt="Fondo">
+<img class="bgfaq" src="http://mokaru.com.co/wp-content/uploads/2022/10/circulos.png" alt="Fondo">
 <?php 
 
 
