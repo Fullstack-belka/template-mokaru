@@ -22,11 +22,7 @@ get_header('account');
                 <h1>Configuración</h1>
                 <p><strong>Cuenta: </strong> Mokaru <?= $member->level->name ?></p>                
             </div>
-            <div class="profile-img-container">
-                <figure>					
-                    <img src="https://mokaru.com.co/wp-content/themes/mokaru/assets/image/ok_icon.png" alt="Perfil">
-                </figure>
-            </div>
+            
         </div>
 
         <?php
@@ -96,10 +92,10 @@ get_header('account');
                     <a href="<?= get_permalink(315)?>" class="itemR">Ver Documentación</a>
                 </div>
 
-                <div class="buttons">
-                    <a href="/mi-cuenta/editar-cuenta/" class="cerrar">Cambiar contraseña</a>
-                    <a href="/mi-cuenta/direccion/facturacion/" class="cerrar">Dirección</a>
-                    <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="cerrar">Cerrar Sesión</a>
+                <div class="buttons_micuenta">
+                    <a href="/mi-cuenta/editar-cuenta/" class="itemR">Cambiar contraseña</a>
+                    <a href="/mi-cuenta/direccion/facturacion/" class="itemR">Dirección</a>
+                    <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="itemR">Cerrar Sesión</a>
                 </div>
             </div>
 

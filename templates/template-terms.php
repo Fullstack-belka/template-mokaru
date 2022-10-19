@@ -17,8 +17,8 @@ get_header();
 <section class="faq">
         <div>
 
-            <h1>Bienvenido a nuestra sección de ayuda</h1>
-            <p>Si no encuentras lo que buscas puedes ponerte en contacto con nosotros</p>
+            <h1>Bienvenido a nuestra sección Terminos y Condiciones</h1>
+            
             <div class="accordion" id="accordionExample">
 
 

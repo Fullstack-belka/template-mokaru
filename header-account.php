@@ -56,7 +56,7 @@
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
 
 
-	<header>
+	<header class="header_config">
         <div class="btnContainer">
             <a class="btn-atras" href="/dashboard">
                 <svg width="15" height="15" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,12 +66,12 @@
             </a>
         </div>
         <div class="cuentaWhrap topW activeW" id="btnMiCuenta">
-            <p>Mi Cuenta</p>
-            <?php if($member->status == 'active'){ ?>  
+            <p class="miCuentaTxt">Mi Cuenta</p>
+            <?php  if($member->status == 'active'){ ?>  
             <div class="cuentaContainer">
                 <p>Membresia <?= $member->level->name ?></p>
             </div>
-            <?php } ?>            
+            <?php  } ?>            
         </div>
     	   
         <div class="cuentaWhrap <?= $member->status == 'active' ? '' : 'noShow'?>" id="btnMiMembresia">

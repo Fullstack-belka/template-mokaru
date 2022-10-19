@@ -14,11 +14,11 @@
 <footer id="colophon" class="site-footer">
 	<div class="floor1">
         <div class="linksF">
-            <a href="#" class="footerLink">INICIO</a>
-            <a href="#" class="footerLink">NOSTROS</a>
-            <a href="#" class="footerLink">FAQ</a>
-            <a href="#" class="footerLink">SERVICIOS</a>
-            <a href="#" class="footerLink">CONTACTO</a>
+            <a href="/" class="footerLink">INICIO</a>
+            <a href="/nosotros" class="footerLink">NOSTROS</a>
+            <a href="/ayuda" class="footerLink">FAQ</a>
+            <a href="/servicios" class="footerLink">SERVICIOS</a>
+            <a href="/contacto" class="footerLink">CONTACTO</a>
         </div>
 
         <div class="redesF">
@@ -39,8 +39,8 @@
     <div class="floor2">
         <p>© 2022 Mokaru. All rights reserved.</p>
         <div class="tyc">
-            <a href="#">Terminos de servicio</a>
-            <a href="#">Politica de privacidad</a>
+            <a href="/terminos-y-condiciones">Terminos de servicio</a>
+            <a href="/terminos-y-condiciones">Politica de privacidad</a>
         </div>
     </div>
 
