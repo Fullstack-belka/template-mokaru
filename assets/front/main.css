@@ -27,6 +27,7 @@
   
   .logo {
     cursor: pointer;
+    min-width: 150px;
   }
   
   .nav__links a,
@@ -1049,11 +1050,14 @@ color: rgb(0, 0, 0);
     /*CARDS*/
     
     .cards_Servicios_servicios{
-    display: flex;
     justify-content: center;
     gap: 45px;
     flex-wrap: wrap;
     margin: 100px 0 50px 0 ;
+    }
+
+    .cards_flex{
+      display: flex;
     }
     
 

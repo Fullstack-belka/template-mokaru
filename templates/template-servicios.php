@@ -39,7 +39,7 @@ get_header();
 <!---------------------------------->
 
 <!---------------------------------->
-<section class="cards_Servicios_servicios" id="cartasServicio">
+<section class="cards_Servicios_servicios cards_flex" id="cartasServicio">
 
 <div class="card_servicios">
 <div class="face_servicios front_servicios">
@@ -134,7 +134,7 @@ get_header();
 
 <!---------------------------------->
 
-<section class="retiro " id="retiroServicio">
+<section class="retiro noShow_servicios" id="retiroServicio">
 
 <div class="tuRetiroServicios">
 

@@ -66,10 +66,11 @@ const alcanciaS = document.getElementById("alcanciaServicio")
 
 
 function onClick_Cuentas() {
-  document.querySelector("#CuentasMok").classList.add("active_selector")
-  document.querySelector("#RetiroMok").classList.remove("active_selector")
-  document.querySelector("#AlcanciaMok").classList.remove("active_selector")
+  document.getElementById("CuentasMok").classList.add("active_selector")
+  document.getElementById("RetiroMok").classList.remove("active_selector")
+  document.getElementById("AlcanciaMok").classList.remove("active_selector")
 
+  cardscuenta.classList.add("cards_flex")
   cardscuenta.classList.remove("noShow_servicios")
   retiro.classList.add("noShow_servicios")
   alcanciaS.classList.add("noShow_servicios")
@@ -77,20 +78,22 @@ function onClick_Cuentas() {
 }
 
 function onClick_Retiro() {
-  document.querySelector("#CuentasMok").classList.remove("active_selector")
-  document.querySelector("#RetiroMok").classList.add("active_selector")
-  document.querySelector("#AlcanciaMok").classList.remove("active_selector")
+  document.getElementById("CuentasMok").classList.remove("active_selector")
+  document.getElementById("RetiroMok").classList.add("active_selector")
+  document.getElementById("AlcanciaMok").classList.remove("active_selector")
 
+  cardscuenta.classList.remove("cards_flex")
   cardscuenta.classList.add("noShow_servicios")
   retiro.classList.remove("noShow_servicios")
   alcanciaS.classList.add("noShow_servicios")
 }
 
 function onClick_Alcancia() {
-  document.querySelector("#CuentasMok").classList.remove("active_selector")
-  document.querySelector("#RetiroMok").classList.remove("active_selector")
-  document.querySelector("#AlcanciaMok").classList.add("active_selector")
+  document.getElementById("CuentasMok").classList.remove("active_selector")
+  document.getElementById("RetiroMok").classList.remove("active_selector")
+  document.getElementById("AlcanciaMok").classList.add("active_selector")
 
+  cardscuenta.classList.remove("cards_flex")
   cardscuenta.classList.add("noShow_servicios")
   retiro.classList.add("noShow_servicios")
   alcanciaS.classList.remove("noShow_servicios")
