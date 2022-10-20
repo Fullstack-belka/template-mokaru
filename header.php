@@ -47,11 +47,10 @@
             </nav>
             <a class="cta" href="/login">Iniciar sesion / Registro</a>
             
-            <button class="button_header_togle" onClick="openMenu()">
+            
+                <img class="menu" onClick="openMenu()" id="menu_front" src="http://mokaru.com.co/wp-content/uploads/2022/10/menu.png" alt="togle">
 
-                <img class="menu" id="menu_front" src="http://mokaru.com.co/wp-content/uploads/2022/10/menu.png" alt="togle">
-
-            </button>
+          
         </header>  
         <div class="overlay" id="overlay">
             <button onClick="closeMenu()" class="button_header_togle">

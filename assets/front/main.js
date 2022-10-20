@@ -20,10 +20,10 @@ function closeMenu() {
 //Simulador
 function calcular() {
   var CI = parseInt(document.getElementById('CI').value)
-  const Interes = 1.2
-  const Interes2 = 0.2 
+  const Interes = 1.26
+  const Interes2 = 0.26 
   var Años = parseInt(document.getElementById('T').value)
-  var Aporte = parseInt(document.getElementById('CI').value)
+  var Aporte = parseInt(document.getElementById('AP').value)
   var año0 = CI + Aporte
 
   var parte1 =   año0*(Interes)**Años
@@ -35,7 +35,7 @@ function calcular() {
   var resultado = (parte1 + parte2)-CI
 
   const rendimientoRet = document.getElementById("resultado-retiro")
-  var ansRetiro = new Intl.NumberFormat('de-DE', { maximumSignificantDigits: 3 }).format(resultado) + " USDT";
+  var ansRetiro = new Intl.NumberFormat('de-DE', { maximumSignificantDigits: 3 }).format(resultado) + " USD";
 
   
   if (CI > 0 && Años >= 10){

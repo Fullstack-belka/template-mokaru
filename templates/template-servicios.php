@@ -19,9 +19,9 @@ get_header();
 
 <div class="baner_content">
     <div>
-        <h1>¿Ya sabes los beneficios de tu cuenta Mōkaru?</h1>
+        <h1>¿Ya sabes los beneficios de tu billetera Mōkaru?</h1>
 
-        <p>Abre tu billetera Mokaru en minutos y disfruta de rentabilidades al mes del 2% al 3%* según el tipo de billetera que elijas.</p>
+        <p>Obtén tu billetera Mōkaru en minutos y disfruta rentabilidades mensuales del 2% al 3% según la categoría de tu cuenta seleccionada, además de servicios exclusivos como: “Mi Retiro” y “Alcancía Digital”.</p>
         <p class="small">Aplican términos y condiciones*</p>
     </div>
 
@@ -66,7 +66,7 @@ get_header();
         Luego de este deposito podras transferir mas fondos a tu cuenta, los cuales te generan una rentabilidad de 2% aprox, estos los podras retirar cuando quieras. 
     </p>
 
-    <a href="#">Quiero abrir mi cuenta</a>
+    <a href="/crea-tu-cuenta">Quiero abrir mi cuenta</a>
 
 </div>
 </div>
@@ -96,7 +96,7 @@ get_header();
         Luego de este deposito podras transferir mas fondos a tu cuenta, los cuales te generan una rentabilidad de 3% aprox, estos los podras retirar cuando quieras. 
     </p>
 
-    <a href="#">Quiero abrir mi cuenta</a>
+    <a href="/crea-tu-cuenta">Quiero abrir mi cuenta</a>
 
 </div>
 </div>
@@ -126,7 +126,7 @@ get_header();
         Luego de este deposito podras transferir mas fondos a tu cuenta, los cuales te generan una rentabilidad de 2.5% aprox, estos los podras retirar cuando quieras. 
     </p>
 
-    <a href="#">Quiero abrir mi cuenta</a>
+    <a href="/crea-tu-cuenta">Quiero abrir mi cuenta</a>
 
 </div>
 </div>
@@ -145,7 +145,7 @@ get_header();
         <br><br>
         “Tus planes, son los nuestros” - Mōkaru
     </p>
-    <a href="#" class="abrirCuentaServicios">Abrir mi cuenta</a>
+    <a href="/crea-tu-cuenta" class="abrirCuentaServicios">Abrir mi cuenta</a>
 </div>
 
 <img src="http://mokaru.com.co/wp-content/uploads/2022/10/planeaTuRetiro.png" alt="Planea tu retiro">
@@ -161,16 +161,26 @@ get_header();
     
         <div class="retiro-tittle">
             <h1>Simula como será tu retiro</h1>
-            <p>Calcula cuanto dinero puedes ganar con tu ahorro. <span>Entre mas plazo elijas más ganas</span></p>
+            <p>Simula tu retiro con Mōkaru.<br>Planea tu futuro económico con nosotros, <span>en el plazo que elijas y con el aporte que tú quieras.</span> Puedes hacer tu aporte cada año o un único primer aporte para el tiempo de tu elección,<br><span>retirarse rápido nunca había sido tan fácil.</span></p>
         </div>
 
         <div class="retiro-input">
 
             <div class="ahorrarcont-ret">
-                <p class="ahorro-t-ret">¿Cuanto aportarias a tu fondo de retiro cada año?</p>
+                <p class="ahorro-t-ret">¿Con cuento iniciarias el primer año?</p>
                 
-                    <label class="ahorro-t-ret">$</label>
-                    <input class="registro-f-ret" type="number" name="CI" placeholder="En USDT" id="CI">
+                    
+                    <input class="registro-f-ret" type="number" name="CI" placeholder="En USD" id="CI">
+                
+            </div>
+
+            <div class="retiro-input">
+
+            <div class="ahorrarcont-ret">
+                <p class="ahorro-t-ret">¿Cuanto aportarias a tu fondo de retiro cada año? (Puedes dejarlo en 0)</p>
+                
+                    
+                    <input class="registro-f-ret" type="number" name="AP" placeholder="Lo puedes dejar en 0" id="AP">
                 
             </div>
             
@@ -178,7 +188,7 @@ get_header();
                 <p class="ahorro-t-ret">¿Por cuanto tiempo?</p>
                 
                     
-                    <input class="registro-f-ret" type="number" name="T" placeholder="30 años es lo recomendado" id="T">
+                    <input class="registro-f-ret" type="number" name="T" placeholder="Tiempo en años" id="T">
                 
             </div>
 
@@ -189,7 +199,7 @@ get_header();
             <div class="cuadro-retiro">
                 <div>
                     <p class="cuadro-t-retiro">Te retirarias con:</p>
-                    <p class="Rendimiento-retiro" id="resultado-retiro">Resultado en USDT</p>
+                    <p class="Rendimiento-retiro" id="resultado-retiro">Resultado en USD</p>
                 </div>
 
             
@@ -215,11 +225,11 @@ get_header();
 <div>
     <h2>Alcanza tu meta con nosotros</h2>
     <p>
-        ¿Ya has pensado cuánto dinero quieres tener al momento de retirarte para disfrutar la vida a tu manera? o ¿eres madre/padre de familia y quieres que tus hijos(as) tengan su vida asegurada?, con tus ahorros de hoy y CERO endeudamiento puedes tener esa cantidad que planeas para ti y los tuyos, es solo cuestión de tiempo y disciplina para que con nosotros puedas hacer de estas metas una realidad.
+        Con nuestras alcancias digitales puedes acceder hasta un 24% de interes compuesto anual, y puedes personalizar tu forma de ahorro desde 5 hasta 36 meses
         <br><br>
         “Tus planes, son los nuestros” - Mōkaru
     </p>
-    <a href="#" class="abrirCuentaServicios">Abrir mi cuenta</a>
+    <a href="/crea-tu-cuenta" class="abrirCuentaServicios">Abrir mi cuenta</a>
 </div>
 
 <img src="http://mokaru.com.co/wp-content/uploads/2022/10/planeaTuRetiro.png" alt="Planea tu retiro">

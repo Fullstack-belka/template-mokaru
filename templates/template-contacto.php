@@ -27,13 +27,7 @@ get_header();
         </svg><!--icon-->
         <p>Contacto@mokaru.io</p><!--text-->
     </li>
-    <li>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="#3572E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <path d="M12 18H12.01" stroke="#3572E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg><!--icon-->
-        <p>+xxx xxx xx xx</p><!--text-->
-    </li>
+ 
     <li>
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#3572E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -44,7 +38,7 @@ get_header();
     </li>
 </ul>
 
-<a href="#" class="wppbtn">Whatsapp</a>
+<a href="mailto:contacto@mokaru.io" class="wppbtn">Envianos tu mensaje</a>
 </div>        
 </div>
 

@@ -40,9 +40,7 @@ get_header();
                     misión y visión clara que cumplir y es que todos nuestros clientes gocen de la
                     estabilidad económica. <br>
                     <br>
-                    Sabemos que quieres cambios y claridad, empieza a disfrutar ahora y siempre los
-                    beneficios de mezclar tus finanzas con la tecnóloga, caminemos juntos hacia el
-                    futuro.
+                    Sabemos que quieres cambios, empieza a disfrutar los beneficios de mezclar tus finanzas con la tecnología, caminemos juntos hacia nuestro mejor futuro.
                 </p>
                 
             </div>
@@ -57,7 +55,7 @@ get_header();
         <div>
 
             <h2>Misión</h2>
-            <p>Queremos portar a nuestros clientes por medio la tecnología un camino para alcanzar la
+            <p>Queremos aportar a nuestros clientes por medio la tecnología un camino para alcanzar la
                 estabilidad económica que buscan, enriqueciendo sus vidas en el hoy y en el mañana,
                 creando así una sociedad mas motivada con personas seguras de si mismas que puedan
                 tomar acción para cambiar el mundo con sus ideas.</p>
