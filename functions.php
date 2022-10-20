@@ -13,6 +13,12 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 /**
+ * Implement the Custom Header feature.
+ */
+
+
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -30,6 +36,9 @@ function mokaru_setup() {
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
+	
+
+	require get_template_directory() . '/inc/Updater.php';
 
 	/*
 		* Let WordPress manage the document title.
@@ -167,12 +176,6 @@ function custom_scripts() {
 	wp_enqueue_style( 'custom_css', 	get_stylesheet_directory_uri() . '/assets/custom.css', 	array(), ''); 
 	wp_enqueue_script( 'custom_js', get_stylesheet_directory_uri() . '/assets/js/custom.js', array('jquery'), '', true); 
 
-	if ( is_page_template( 'templates/template-login.php' ) ) {
-		wp_enqueue_script( 'jqvalidate', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js', false); 
-		wp_enqueue_script( 'jqadm', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js', false); 
-		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/login/login.css',array(), '' );
-		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/login/login.js',  true); 
-	}
 	if ( is_page_template( 'templates/template-checkout.php' ) ) {
 		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/checkout/checkout.css',array(), '' );
 		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/checkout/checkout.js', array('jquery'), '', true); 

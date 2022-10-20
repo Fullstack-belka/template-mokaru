@@ -19,7 +19,7 @@ msgid "_s"
 msgstr ""
 
 #. Theme URI of the theme
-msgid "https://underscores.me/"
+msgid "https://github.com/Fullstack-belka/template-mokaru"
 msgstr ""
 
 #. Description of the theme
@@ -27,11 +27,11 @@ msgid "Hi. I'm a starter theme called <code>_s</code>, or <em>underscores</em>, 
 msgstr ""
 
 #. Author of the theme
-msgid "Automattic"
+msgid "Belkacompany"
 msgstr ""
 
 #. Author URI of the theme
-msgid "https://automattic.com/"
+msgid "https://belkacompany.com"
 msgstr ""
 
 #: 404.php:18

@@ -18,7 +18,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-<!--aqui iban las functions pero no estaban funcionando-->
+	<?php 
+
+	add_action( 'wp_enqueue_scripts', 'front_script');
+	function front_script() {
+		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/front/main.css', array(), '1.1', 'all' );
+		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/front/main.js', array('jquery'), '', true); 
+	}
+
+	wp_head();
+	?>
 </head>
 
 <body <?php body_class(); ?>>
@@ -58,16 +67,3 @@
                 <a href="/login" id="ctaMobile">INICIAR SESION / REGISTRO</a>
             </div>
         </div> 
-			
-
-
-        <?php 
-
-add_action( 'wp_enqueue_scripts', 'front_script');
-function front_script() {
-    wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/front/main.css',array(), '' );  //hay que llamar al main.js al final de todo el contenido para que funcione
-    wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/front/main.js',  true); 
-}
-
-wp_head();
-?>

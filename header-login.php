@@ -9,6 +9,14 @@
  * @package Mokaru
  */
 
+add_action( 'wp_enqueue_scripts', 'login_script');
+function login_script() {
+	wp_enqueue_script( 'jqvalidate', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js', false); 
+	wp_enqueue_script( 'jqadm', 'https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/additional-methods.min.js', false); 
+	wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/login/login.js','', false); 
+	wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/login/login.css',array(), '' );
+}
+
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
