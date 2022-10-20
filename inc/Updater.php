@@ -177,7 +177,6 @@ class Updater {
 	 * @return object
 	 */
 	public function update_themes( $transient ) {
-
 		if ( isset( $transient->checked ) ) {
 			$current_version = $this->ver;
 
