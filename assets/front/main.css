@@ -114,6 +114,13 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 5;
+  }
+
+  .iti__flag{
+    display: flex;
+    margin: 0;
+    z-index: -6;
   }
   
   .overlay a {
