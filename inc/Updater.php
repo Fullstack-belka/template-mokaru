@@ -1,12 +1,12 @@
 <?php // phpcs:disable WordPress.Files.FileName
 /**
- * Gridd Theme Updater.
+ * Mokaru Theme Updater.
  *
- * @package Gridd
+ * @package Mokaru
  * @since 1.0
  */
 
-namespace Gridd;
+namespace Mokaru;
 
 /**
  * Updater class.
