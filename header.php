@@ -18,16 +18,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 
-	<?php 
-
-	add_action( 'wp_enqueue_scripts', 'front_script');
-	function front_script() {
-		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/front/main.css', array(), '1.1', 'all' );
-		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/front/main.js', array('jquery'), '', true); 
-	}
-
-	wp_head();
-	?>
+<!--aqui iban las functions pero no estaban funcionando-->
 </head>
 
 <body <?php body_class(); ?>>
@@ -47,6 +38,36 @@
             </nav>
             <a class="cta" href="/login">Iniciar sesion / Registro</a>
             
-            <img class="menu" src="http://mokaru.com.co/wp-content/uploads/2022/10/menu.png" alt="togle">
+            
+                <img class="menu" onClick="openMenu()" id="menu_front" src="http://mokaru.com.co/wp-content/uploads/2022/10/menu.png" alt="togle">
+
+          
         </header>  
+        <div class="overlay" id="overlay">
+            <button onClick="closeMenu()" class="button_header_togle">
+
+                <p class="close" id="close_front">&times;</p>
+            </button>
+            <div class="overlay__content">
+                <a href="/">INICIO</a>
+                <a href="/nosotros">NOSOTROS</a>
+                <a href="/ayuda">FAQ</a>
+                <a href="/servicios">SERVICIOS</a>
+                <a href="/contacto">CONTACTO</a>
+               
+                <a href="/login" id="ctaMobile">INICIAR SESION / REGISTRO</a>
+            </div>
+        </div> 
 			
+
+
+        <?php 
+
+add_action( 'wp_enqueue_scripts', 'front_script');
+function front_script() {
+    wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/front/main.css',array(), '' );  //hay que llamar al main.js al final de todo el contenido para que funcione
+    wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/front/main.js',  true); 
+}
+
+wp_head();
+?>

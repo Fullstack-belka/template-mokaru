@@ -1,89 +1,134 @@
-.account-dashboard header{
-    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-1.png');
-    height: 100vh;
-    width: 200px;
-    background-repeat: no-repeat;
-    background-position-x:center ;
-    background-position-y: bottom;
-    background-size: contain;
+
+.header_config{
     position: fixed;
-    top: 0;
-    left: 0;
-}
-
-@media (max-width: 902px) {
-    .account-dashboard header {
-        position: static;
-        display: flex;
+    width: 200px;
+    height: 100vh;
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Recurso-1.png');
+    background-repeat: no-repeat;
+    background-position: center;
     }
-}
-
-
-
-
-
-.account-dashboard{grid-template-columns: 20% auto;}
-.cuentaWhrap{
-    margin: 0 7%;
-    padding: 15% 10%;
-    border-radius: 20px;
-    margin-top: 15%;
-    border: solid 1px #000000;
-    
-}
-.cuentaWhrap:hover{ cursor: pointer;}
-
-.activeW{
-    background: var(--main-color-select);
-    color: #FFFF;
-    border: none;
-}
-
-.cuentaWhrap p{
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 20px;
-    margin-bottom: 5%;
-}
-
-.topW{
-    margin-top:30% ;
-}
-
-.cuentaContainer p{
-    font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    margin-right: 10px;
-
-}
-
-
-.btnContainer{
-    margin: 7%;
-}
 
 .btn-atras{
-    font-family: 'Mulish';
-font-style: normal;
-font-weight: 500;
-font-size: 17px;
-color: #020119;
-display: flex;
-text-decoration: none;
-
-
+    display:flex;
+    color: black;
+    text-decoration: none;
+    transition: ease 0.3s;
+}
+.btn-atras:hover{
+    color: #a9a9a9;
 }
 
 .btn-atras p{
-    line-height: 14px;
-    margin-left: 10%;
+    line-height: 16px;
+    padding-left: 7px;
+    
+}
+
+.cuentaWhrap{
+    background: var(--main-color-select);
+    padding: 30px 30px;
+    width: 150px;
+    border-radius: 7%;
+    text-align: center;
+    color: #FFFFFF;
+    transition: ease 0.3s;
+    cursor: pointer;
+}
+
+.cuentaWhrap:hover{
+    border: var(--main-color-select) 2px solid;
+    background: transparent;
+    color: #000000;
+}
+
+.cuentaWhrap p{
+    
+    margin: 0;
+}
+
+.cuentaContainer p{
+    font-size: 12px;
+}
+
+@media (max-width:980px) {
+    .account-dashboard .main_content{
+    padding: 20px 0 0 0 ;
+    }
+
+    .header_config{
+        position: static;
+        width: 100%;
+        height: 70px;
+        flex-direction:row;
+        gap: 20px;
+        padding: 5px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: space-between;
+    }
+    .cuentaWhrap{
+        
+        padding: 10px 30px;
+        
+        border-radius: 7%;
+        text-align: center;
+        color: #FFFFFF;
+        transition: ease 0.3s;
+        cursor: pointer;
+    }
+    .miCuentaTxt, .btn-atras p{
+        
+text-overflow: ellipsis;
+
+overflow: hidden;
+white-space: nowrap;
+
+    }
+
+    .btn-atras p{
+        line-height: 24px;
+        padding-left: 7px;
+        
+    }
+
+
+
 }
 
 
-/***********************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -171,81 +216,31 @@ thead{
 }
 
 
-.cerrar{
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-shadow: 8px 13px 44px -6px #DFDBF6;
-    border-radius: 8px;
-    padding: 7px 40px;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 50px;
-    cursor: pointer;
+.buttons_micuenta{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-@media (max-width: 902px) {
 
-   .account-dashboard header{
-        background-image: none;
-        height: auto;
-        
-    }
-    
-    
-    .cuentaWhrap{
-        margin: 0 7% ;
-        background: var(--main-color-select);
-        color: #FFFF;
-        padding: 15% 10%;
-        border-radius: 20px;
-        margin-top: 10%;
-    }
-    
-    .cuentaWhrap p{
-        font-family: 'Mulish';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        margin-bottom: 5%;
-    }
-    
-    
-    
-    .cuentaContainer p{
-        font-family: 'Mulish';
-        font-style: normal;
-        font-weight: 400;
-        font-size: 16px;
-        margin-right: 10px;
-    
-    }
-    
-    
-    .btnContainer{
-        margin:7% 7% 0 7%;
-    }
-    
-    .btn-atras{
-        font-family: 'Mulish';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 14px;
-    color: #020119;
-    display: flex;
-    text-decoration: none;
-    
-    
-    }
-    
-    .btn-atras p{
-        line-height: 14px;
-        margin-left: 10%;
-    }
+.activeW{
+    background: var(--main-color-select);
+    color: #FFFF;
+    border: none;
+}
 
 
 
 
 
+
+
+
+
+
+@media (max-width:980px) {
 
     
 .infoSection{
@@ -311,22 +306,9 @@ thead{
     border: 1px solid #000000;
     box-shadow: 8px 13px 44px -6px #DFDBF6;
     border-radius: 8px;
-    padding: 7px 40px;
+    padding: 7px 20px;
     cursor: pointer;
-}
-
-
-.cerrar{
-    background: #FFFFFF;
-    border: 1px solid #000000;
-    box-shadow: 8px 13px 44px -6px #DFDBF6;
-    border-radius: 8px;
-    padding: 7px 40px;
-    font-weight: 500;
-    font-size: 20px;
-    margin-top: 50px;
-    cursor: pointer;
-    margin-bottom: 20px;
+    color: #000000;
+    text-decoration: none;
 }
 }
-
