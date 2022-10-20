@@ -177,6 +177,7 @@ class Updater {
 	 * @return object
 	 */
 	public function update_themes( $transient ) {
+
 		if ( isset( $transient->checked ) ) {
 			$current_version = $this->ver;
 
@@ -199,6 +200,6 @@ new Updater(
 		'repo' => 'Fullstack-belka/template-mokaru',             // Theme repository.
 		'slug' => 'template-mokaru',                     // Theme Slug.
 		'url'  => 'https://github.com/Fullstack-belka/template-mokaru', // Theme URL.
-		'ver'  => 1.0                        // Theme Version.
+		'ver'  => 1.2                        // Theme Version.
 	]
 );

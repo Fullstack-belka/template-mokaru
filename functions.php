@@ -13,6 +13,12 @@ if ( ! defined( '_S_VERSION' ) ) {
 }
 
 /**
+ * Implement the Custom Header feature.
+ */
+
+
+
+/**
  * Sets up theme defaults and registers support for various WordPress features.
  *
  * Note that this function is hooked into the after_setup_theme hook, which
@@ -30,8 +36,9 @@ function mokaru_setup() {
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
+	
 
-	get_template_part( 'inc/updater.php' );
+	require get_template_directory() . '/inc/Updater.php';
 
 	/*
 		* Let WordPress manage the document title.
