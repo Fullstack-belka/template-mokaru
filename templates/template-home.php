@@ -43,7 +43,7 @@ get_header();
         <div class="txt_container">
             <h3>Billeteras Mōkaru</h3>
 
-            <p class="texto">Cuentas especializadas en generar una rentabilidad del 2% al 3% de retorno mensual dependiedo de tu primer deposito.</p>
+            <p class="texto">Tu billetera en dólares que genera una rentabilidad del 2% al 3% de retorno mensual según la categoría de tu elección (gold, platinum y black).</p>
             <a href="/servicios">Saber más</a>
         </div>
         
@@ -57,7 +57,7 @@ get_header();
         <div class="txt_container">
             <h3>Planea tu retiro</h3>
 
-            <p class="texto">Imaginate llegar a la edad de retirarte y tener la cantidad que deseas para vivir como siempre lo soñaste.</p>
+            <p class="texto">Elige en cuántos años y con cuánto capital quieres retirarte. Eso que veías como un sueño, en Mōkaru será tu plan de vida.</p>
             <a href="/servicios">Saber más</a>
         </div>
         
@@ -72,7 +72,7 @@ get_header();
         <div class="txt_container">
             <h3>Alcancia digital</h3>
 
-            <p class="texto">Ahorra tu dinero a un plazo fijo para alcanzar esa meta que tanto deseas. <br>
+            <p class="texto">¿Tienes una meta en corto o mediano plazo? Apóyate de tu Alcancía Digital Mōkaru y cúmplela.<br>
             <br>
 
 Tus sueños son nuestros planes</p>
@@ -131,13 +131,7 @@ Tus sueños son nuestros planes</p>
                     </svg><!--icon-->
                     <p>Contacto@mokaru.io</p><!--text-->
                 </li>
-                <li>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17 2H7C5.89543 2 5 2.89543 5 4V20C5 21.1046 5.89543 22 7 22H17C18.1046 22 19 21.1046 19 20V4C19 2.89543 18.1046 2 17 2Z" stroke="#3572E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M12 18H12.01" stroke="#3572E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg><!--icon-->
-                    <p>+xxx xxx xx xx</p><!--text-->
-                </li>
+
                 <li>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#3572E9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -148,7 +142,7 @@ Tus sueños son nuestros planes</p>
                 </li>
             </ul>
 
-            <a href="#" class="wppbtn">Whatsapp</a>
+            <a href="mailto:contacto@mokaru.io" class="wppbtn">Envianos tu mensaje</a>
         </div>        
     </div>
 
