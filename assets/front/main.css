@@ -1767,3 +1767,12 @@ justify-content: center;
       
       
 
+  .boton_whatsapp{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .boton_whatsapp img{
+    width: 45px;
+  }

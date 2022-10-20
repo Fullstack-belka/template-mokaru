@@ -65,5 +65,11 @@
                 <a href="/contacto">CONTACTO</a>
                
                 <a href="/login" id="ctaMobile">INICIAR SESION / REGISTRO</a>
+
             </div>
         </div> 
+
+
+        <a href="https://wa.link/0cjx1k" class="boton_whatsapp">
+            <img src="http://mokaru.io/wp-content/uploads/2022/10/174879.png" alt="Logowpp">
+        </a>
