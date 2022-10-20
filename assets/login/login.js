@@ -56,12 +56,12 @@
 	 jQuery("form[name='resetpass']").validate({
 		rules: {
 
-			user_pass1:{required:true,minlength: 6},
-			user_pass2:{required:true,minlength: 6,equalTo: '#pass1'}
+			pass1:{required:true,minlength: 6},
+			pass2:{required:true,minlength: 6,equalTo: '#pass1'}
 		},
 		messages:{
-			user_pass1:{required:"Por favor digite su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres."},
-			user_pass2:{required:"Por favor repita su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres.", equalTo: "Contraseñas no coinciden."},
+			pass1:{required:"Por favor digite su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres."},
+			pass2:{required:"Por favor repita su contraseña", minlength:"La contraseña debe ser de al menos 8 carácteres.", equalTo: "Contraseñas no coinciden."},
 		},
 		
 		errorElement: 'div'

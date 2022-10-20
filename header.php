@@ -22,8 +22,8 @@
 
 	add_action( 'wp_enqueue_scripts', 'front_script');
 	function front_script() {
-		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/front/main.css',array(), '' );
-		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/front/main.js',  true); 
+		wp_enqueue_style( 'main_css', get_stylesheet_directory_uri() .  '/assets/front/main.css', array(), '1.1', 'all' );
+		wp_enqueue_script( 'main_js', get_stylesheet_directory_uri() . '/assets/front/main.js', array('jquery'), '', true); 
 	}
 
 	wp_head();
@@ -34,7 +34,7 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site"><!-- #page -->
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
-	<header>
+	<header class="header_front">
             <a class="logo" href="/"><img src="http://mokaru.com.co/wp-content/uploads/2022/10/Group-48.png" alt="logo"></a>
             <nav>
                 <ul class="nav__links">

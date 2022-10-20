@@ -20,12 +20,17 @@ print_r($last_order );
 echo '</pre>';
 */
 
+
+
 ?>
 
 <section class="activa-tu-cuenta-content">
     <div id="insert">     
-            <div id="alert-ajax"></div>
+            <div id="alert-ajax">
+                
+            </div>
         <?php 
+        wc_print_notices();
             // SI LA PERSONA NO TIENE MEMBRESIA Y TIENE PEDIDOS CANCELADOS O NO TIENE PEDIDOS 
         if( $member->status == 'inactive' && $verify->show == false ){ ?>    
             <div class="bloque bloque-gold" style="display:block;">
