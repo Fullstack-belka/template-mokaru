@@ -30,15 +30,7 @@ get_header();
                   </h2>
                   <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                    Mōkaru es una red privada que opera en los mercados de divisas y comodities a través de su inteligencia artificial Moka, ofrece a sus clientes rendimientos sobre sus activos en dólares y se apoya en la tecnología blockchain para realizar sus transacciones entre el cliente y su servidor (nosotros), tenemos tres servicios exclusivos destinados a un número limitado de residentes en Colombia entre los que podrás encontrar: 
-                      <br>
-                      <br>
-                    - Billetera Mōkaru <br>
-                    - Alcancía Digital <br>
-                    - Mi Retiro
-                      <br>
-                      <br>
-                    Queremos hacer la vida de nuestros clientes más fácil, tus sueños son nuestros planes.
+                    Mōkaru es una red privada que opera en los mercados de divisas y comodities a través de su inteligencia artificial Moka, ofrece a sus clientes rendimientos sobre sus activos en dólares y se apoya en la tecnología blockchain para realizar sus transacciones entre el cliente y su servidor (nosotros).
                     </div>
                   </div>
                 </div>
@@ -52,7 +44,13 @@ get_header();
                   </h2>
                   <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                     <div class="accordion-body">
-                      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                    Tenemos tres servicios exclusivos destinados a un número limitado de residentes en Colombia entre los que podrás encontrar: <br>
+                        <br>
+                    - Billetera Mōkaru <br>
+                    - Alcancía Digital <br>
+                    - Mi Retiro <br>
+                    <br>
+                    Queremos hacer la vida de nuestros clientes más fácil, tus sueños son nuestros planes.
                     </div>
                   </div>
                 </div>
