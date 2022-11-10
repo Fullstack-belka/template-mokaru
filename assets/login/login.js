@@ -34,7 +34,8 @@
 	/*VALIDACIÓN FORMULARIO DE REGISTRO*/
 	 jQuery("form[name='register']").validate({
 		rules: {
-			name:{required: true},
+			first_name:{required: true},
+			last_name:{required: true},
 			user_login:{required: true},
 			user_email:{required: true,email: true},
 			document:{required:true,minlength: 8},
@@ -42,7 +43,8 @@
 			user_pass2:{required:true,minlength: 6,equalTo: '#pass1'}
 		},
 		messages:{
-			name:{required: "Por favor digite su nombre completo."},
+			first_name:{required: "Por favor digite su nombre."},
+			last_name:{required: "Por favor digite su apellido."},
 			user_login:{required: "Por favor digite un nombre de usuario."},
 			user_email:{required: "Por favor digite su email.",email: "Por favor digite un email válido"},
 			document:{required:"Por favor digite su número de documento", minlength:"El documento debe ser de al menos 8 carácteres."},
@@ -79,9 +81,14 @@ const login = function(){
 	function validateInputs() {
 
 		$m("#first_name").addClass("clean_string");
+		$m("#last_name").addClass("clean_string");
 		$m("#user_email").addClass("clean_mail");
 		$m("#user_login").addClass("clean_mail");
 		$m("#document").addClass("clean_number");
+	
+		if(jQuery("form[name='register']").length == 1){
+			jQuery("input[name='redirect_to']").val("/dashboard");
+		}
 
 		/*MAYUSCULAS*/
 		$m('body').on('paste input propertychange', '.clean_mayus', function () {
@@ -140,6 +147,9 @@ const login = function(){
 		});
 
 	};
+
+	
+
 
     return{
         init: function() {

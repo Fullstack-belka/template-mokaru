@@ -31,21 +31,39 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%">
 				<tr>
 					<td align="center" valign="top">
-						<div id="template_header_image">
-							<?php
-							if ( $img = get_option( 'woocommerce_email_header_image' ) ) {
-								echo '<p style="margin-top:0;"><img src="' . esc_url( $img ) . '" alt="' . get_bloginfo( 'name', 'display' ) . '" /></p>';
-							}
-							?>
-						</div>
+
 						<table border="0" cellpadding="0" cellspacing="0" width="600" id="template_container">
 							<tr>
 								<td align="center" valign="top">
 									<!-- Header -->
 									<table border="0" cellpadding="0" cellspacing="0" width="100%" id="template_header">
 										<tr>
+											<td>
+												<div id="template_header_image">
+													<?php if ( $img = get_option( 'woocommerce_email_header_image' ) ) {
+														echo '<p style="margin:0; text-align:center;"><img src="' . esc_url( $img ) . '" alt="' . get_bloginfo( 'name', 'display' ) . '" /></p>';
+													}
+													?>
+												</div>
+											</td>
+										</tr>
+										<tr>
+										
 											<td id="header_wrapper">
 												<h1><?php echo $email_heading; ?></h1>
+											</td>
+									
+										</tr>
+										<tr>
+											<td class="padline">
+												<div align="center" class="alignment">
+													<table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+													<tbody><tr>
+														<td class="divider_inner" style="font-size: 1px; line-height: 1px; border-top: 1px solid #BBBBBB;"><span> </span></td>
+														</tr>
+														</tbody>
+													</table>
+												</div>
 											</td>
 										</tr>
 									</table>
