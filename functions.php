@@ -219,20 +219,6 @@ function update_membership_interest() {
 	mokaru_update_interest();
 }
 
-// LIMPIAR FECHAS
-function clean_date($date, $type = '' ) {
-
-	$format = '%d de %b del %Y';
-	if($type == 'day_h'){
-		$format = '%d %b - %r';
-	}
-
-	$dateC = date($date);
-	$string = strftime($format, strtotime($date));
-	
-	return $string;
-}
-
 //AÑADIR AL CARRITO CON AJAX
 add_action('wp_ajax_woocommerce_ajax_add_to_cart', 'woocommerce_ajax_add_to_cart');
 add_action('wp_ajax_nopriv_woocommerce_ajax_add_to_cart', 'woocommerce_ajax_add_to_cart');
@@ -305,26 +291,6 @@ function mokaru_verify_order($user_id){
 
 	return $verify;
 }
-
-
-// AL INICIAR LA PLATAFORMA 
-function init_function() {
-
-	global $current_user;
-	global $member;
-
-	if(is_user_logged_in())
-	{				
-		
-		// ESTA FUNCION ES PELIGROSA SI LA ACTIVA LE SUMA INTERESES A TODOS LOS MEMBERS
-		//mokaru_update_interest();
-		$memberClass = new Member();
-		$member = $memberClass->mokaru_get_member( $current_user->ID);
-	}
-}
-
-! is_admin() and add_action( 'init', 'init_function' );
-
 
 /**
  * Implement the Custom Header feature.

@@ -1,6 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;900&display=swap');
 
+:root{
+    --mokaru-positive: #6ED69E;
+}
+
+
 .noShow{
     display: none;
 }
@@ -30,11 +35,12 @@
 .profile-img-container figure{margin-bottom: 0;}
 .profile-img-container img{ border-radius: 50%; border: 1px solid white; background-color: var(--main-color-select);}
 
-.cuenta{
-    color: #FFFFFF;
-    text-align: center;
-    
-}
+.cuenta{color: #FFFFFF;text-align: center;}
+
+/* LINEAS BLOCK */
+.lines-block{width: 100%;}
+.line{ display: flex;}
+.line .interest .val{ color: var(--mokaru-positive); font-weight: 600;}
 
 
 /**/
@@ -42,6 +48,7 @@
 .depositar{
     background: var(--main-color-select);
     border-radius: 15px;
+    border: 2px solid transparent !important;
     border: none;
     color: #FFFFFF;
     font-size: 20px;
@@ -51,7 +58,7 @@
 }
 
 .depositar:hover{
-    border: 2px solid var(--main-color-select);
+    border: 2px solid var(--main-color-select) !important;
     background-color: #FFFFFF;
     color: var(--main-color-select);
 }
@@ -76,15 +83,7 @@
 
 
 
-.menu li {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    
-    
-    
-    
-}
+.menu li {display: flex;align-items: center;width: 100%;}
 
 .nav-desktop{
     display: flex;
@@ -311,6 +310,16 @@ svg{
     
 
 }
+
+.resumen-block .line h4{margin-bottom: 0; font-size: 1.2rem;}
+.resumen-block .line{margin-bottom: 15px; width: 100%; align-items: center;}
+.resumen-block .line .container-row.interest{margin-left: auto;}
+.resumen-block .line .time{font-size: .7rem;}
+
+.tags{display: flex; margin-top: 3px;}
+.tags .tag-link{font-size: .7rem;  text-decoration: unset; padding: 5px 10px; background-color: #6dc972; color: white; border-radius: 10px;}
+.tags .tag-link:hover{filter: brightness(1.1);}
+
 .bienvenidos-mobile{
     display: none;
 }
@@ -344,9 +353,7 @@ h1{
     display: grid;
     grid-template-columns: auto auto ;
     gap: 45px;
-    margin: 35px 45px 35px 300px;
-  
-    
+    margin: 35px 45px 35px 330px;
 }
 
 .Transacciones{
@@ -363,6 +370,14 @@ h1{
     background: #FFFFFF;
     box-shadow: 8px 13px 44px -6px #DFDBF7;
     border-radius: 20px;
+    padding: 30px;
+}
+.primary-block h3{
+    font-weight: 500;
+    font-size: 24px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: rgba(67, 67, 67, 1);
 }
 
 .balance-block{
@@ -399,31 +414,26 @@ h1{
 
 /*CUADRO DE BIENVENIDA*/
 
-.Bienvenidos{
+.bienvenidos{
     padding: 50px 30px
 }
 
-.Bienvenidos-txt{
-    
-    display: flex;
-    flex-direction:column ;
-    justify-content: space-around;
-    height:100% ;
+.bienvenidos-txt{
 }
 
-.Bienvenidos-txt h3{
+.bienvenidos-txt h3{
     font-size: 25px;
     font-weight: 900;
 }
 
-.Bienvenidos-txt-t{
+.bienvenidos-txt-t{
     font-size: 25px;
     font-weight: 500;
 }
 
-.Bienvenidos-txt-p{
-    font-weight: 800;
-    font-size: 23px;
+.bienvenidos-txt-p{
+    font-weight: 600;
+    font-size: 1.2rem;
     color: #B9B9BC;
 }
 
@@ -447,11 +457,9 @@ h1{
 }
 
 .positivo{
-    margin-top: auto;
-    margin-bottom: auto;
-    color: #6ED69E;
-    font-weight: 800;
-    font-size: 18px;
+    color: var(--mokaru-positive);
+    font-weight: 600;
+    font-size: 1.2rem;
     
 }
 
@@ -503,11 +511,10 @@ h1{
 }
 
 .Balance-txt-p{
-    letter-spacing: 0.17em;
-    color: #020018;
-    opacity: 0.5;
-    font-weight: 900;
-    font-size: 12px;
+    color: white;
+    letter-spacing: .05rem;
+    font-size: .8rem;
+    font-family: 'Rubik';
 }
 
 /**/
@@ -565,26 +572,16 @@ h1{
     background-size: 15px;
 }
 .Transacciones-txt{
-    margin: 30px 30px 10px 30px;
+    margin-bottom: 20px;
     height: calc(100% - 60px);
 }
 
-.Transacciones-txt h3{
-    font-weight: 500;
-    font-size: 24px;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: rgba(67, 67, 67, 1);
-}
-.transacciones-content{
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between;
-}
+/* BLOQUES DE DASHBOARD */
+.transacciones-container{max-height: 400px; overflow-y: scroll;}
+.transacciones-content{margin-top: 20px;display: flex;justify-content: space-between;align-items: center;}
+.transacciones-content p{margin-bottom: 0;}
 .Transacciones-txt h3{margin-bottom: 20px;}
-.Transacciones-not{
-    display: flex;
-}
+.Transacciones-not{display: flex;}
 
 .circle{
     background-color: rgba(185, 185, 188, 1);
@@ -594,31 +591,14 @@ h1{
     margin-right: 25px;
 }
 .transacciones-content .mensaje-not{margin: 0;}
-.mensaje-not{
-    line-height: 45px;
-    font-weight: 800;
-    font-size: 20px;
-
-}
-/**/
-
-
+.transaccion-txt .mensaje-not{margin-bottom: 0;}
+.mensaje-not{font-weight: 800;font-size: 1.2rem;}
 
 /*NOTIFICACIONES*/
 
 .Notificaciones-txt{
-    margin: 30px 30px 10px 30px;
     height: calc(100% - 60px);
 }
-
-.Notificaciones-txt h3{
-    font-weight: 500;
-    font-size: 24px;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-    color: rgba(67, 67, 67, 1);
-}
-
 .notificacion{
     margin-bottom: auto;
     display: flex;
@@ -626,7 +606,6 @@ h1{
     
 }
 .notificacion .notificacion-txt p{margin: 0;}
-/**/
 
 
 
@@ -647,7 +626,7 @@ h1{
      background-size: contain;
     }
     
-    .Bienvenidos{
+    .bienvenidos{
         display: none;
     }
 
@@ -734,11 +713,8 @@ h1{
     }
     
     .Balance-txt-p{
-        letter-spacing: 0.17em;
         color: #FFFFFF;
-        opacity: 0.7;
-        font-weight: 800;
-        font-size: 10px;
+        font-size: .8rem;
     }
     
 

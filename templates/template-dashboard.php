@@ -21,26 +21,40 @@ $verify = mokaru_verify_order($current_user->ID);
 
 <div class="grid">
         
-    <div class="Bienvenidos primary-block">
-        <div class="Bienvenidos-txt">            
+    <div class="bienvenidos resumen-block primary-block">
+        <div class="bienvenidos-txt">            
             <h3>Bienvenido <?= $current_user->user_firstname ?></h3> <!--Insertar nombre-->
-            <?php /* 
-              echo '<pre>';
-            print_r($last_order);
-            echo '</pre>';
-            */        
-            ?>
-
-            <?php if( $member->status== 'active'){ ?>
-                <?php if( $member->cycle_dat_ini < $member->cycle_dat_fin){ ?>
-                    <p class="Bienvenidos-txt-t">Puedes retirar tus fondos el </p>
-                    <p class="Bienvenidos-txt-p"><?= clean_date($member->cycle_dat_fin)?> </p>
-                    <?php }else{ ?>
-                        <p class="Bienvenidos-txt-p"> Ya puedes retirar tus fondos </p>
-                <?php } ?>
+            <?php if(count($memberLines) > 0){ ?>
+                <p class="bienvenidos-txt-p">Estos son tus activos</p>
+                    <?php  foreach($memberLines as $key => $line){  ?>
+                    <div class="line">
+                        <span class="icon-<?= $line->name ?>"></span> 
+                        <div class="info-line">
+                            <?php $today = date("Y-m-d H:m:s"); ?> 
+                            <h4 data="<?= $line->dat_fin ?>"><?= $line->name ?></h4>
+                            <?php if(  $today <= $line->dat_fin ){ ?>
+                            <div class="time">
+                                <time class="fecha"><?= clean_date($line->dat_fin,'day_y') ?></time>  <!--fecha-->
+                            </div>
+                            <?php }else{ ?>
+                            <div class="tags">
+                                <a class="tag-link" href="">Retirar</a>
+                            </div>
+                            <?php } ?>
+                        </div>
+                        <?php if($line->interest > 0){  ?>
+                            <div class="container-row interest">
+                                <div class="val">
+                                    +$ <?= $line->interest ?>
+                                </div>
+                            </div>
+                        <?php } ?>       
+                    </div>                
+                    <?php } ?>
             <?php } ?> 
-        </div>    
+        </div>
     </div>
+
 
     <!--mobile-->
     <div class="bienvenidos-mobile">
@@ -67,7 +81,7 @@ $verify = mokaru_verify_order($current_user->ID);
         </a>
     </div>
 
-    <!---->
+    <!-- BALANCE BLOCK-->
     <div class="Balance balance-block <?= $member->status== 'active' ? 'active' : '' ;  ?>">
         <div class="Balance-txt">
             <h3>Tu Balance</h3>
@@ -82,6 +96,43 @@ $verify = mokaru_verify_order($current_user->ID);
         </div>
     </div>
 
+    <?php if(count($memberLines) > 0){?>
+        <div class="content-lines lines-block primary-block">
+            <?php  foreach($memberLines as $key => $line){  ?>
+            <div class="line">
+                <div class="info-line">
+                    <span class="cycle">Ciclo  <?= $line->cycle ?></span>
+                    <h3><span class="icon-<?= $line->name ?>"></span>  <?= $line->name ?></h3>
+                    <div class="time">
+                        <time class="fecha"><?= clean_date($line->dat_ini,'day_y') ?> - <?= clean_date($line->dat_fin,'day_y') ?></time>  <!--fecha-->
+                    </div>
+                </div>
+                <div class="container-row percentage">
+                    <div class="val">
+                        % <?= $line->percentage * 30?>
+                    </div>
+                    <div class="text">Mensual</div>
+                </div>
+                <div class="container-row amount">
+                    <div class="val">
+                        $ <?= $line->amount_line ?>
+                    </div>
+                    <div class="text">Monto</div>
+                </div> 
+                <div class="container-row interest">
+                    <div class="val">
+                        $ <?= $line->interest ?>
+                    </div>
+                    <div class="text">Intereses hasta la fecha</div>
+                </div>
+                <div class="container-row actions">
+                    <a href="<?= get_admin_url(get_current_blog_id(), 'admin.php?page=mokaru-profile&template=view&user_id='.$_REQUEST['user_id'].'&line_id='.$line->line_id);?>"><i class="fa-regular fa-eye"></i></a>                                         
+                </div>
+            </div>
+            <?php } ?>
+        </div>
+    <?php } ?>
+
     <?php if($member->status == 'inactive' && $verify->show == false){ ?>
     <!--mobile-->
     <a class="btn-block-mobil" href="<?= get_permalink(213)?>">Activa tu cuenta Mōkaru</a>
@@ -92,7 +143,9 @@ $verify = mokaru_verify_order($current_user->ID);
     <div class="Transacciones primary-block">
         <div class="Transacciones-txt">
             <h3>Transacciones</h3>
-            <?php $transactions = mokaru_get_transactions($current_user->ID, 3);?>
+            <?php
+            $transactionsClass = new MemberTransaction();
+            $transactions = $transactionsClass->get_transactions($current_user->ID, 15,1);?>
 
             <?php if(count($transactions)< 1){?>
             <div class="Transacciones-not"> <!--not = notificacion-->
@@ -111,6 +164,7 @@ $verify = mokaru_verify_order($current_user->ID);
                                         <div class="transaccion-txt">
                                             <p class="mensaje-not"><?= $row->text ?></p> <!--Transacciones-->
                                             <p class="fecha"><?= clean_date($row->log_date,'day_h') ?></p>  <!--fecha-->
+                                            <p class="line"><?= $row->name ?></p>  <!--fecha-->
                                         </div>                                        
                                     </div>
                                 </div>    
@@ -118,16 +172,13 @@ $verify = mokaru_verify_order($current_user->ID);
                             </div>
                     <?php } ?>
                 </div>
-            <?php } ?>
-            
+            <?php } ?>        
         </div>
     </div>
 
     <div class="Notificaciones primary-block">
         <div class="Notificaciones-txt">
-            <h3>Notificaciones</h3>
-
-            
+            <h3>Notificaciones</h3>            
             <?php 
             $notificationsClass = new Notification();
             $notifications = $notificationsClass->get_all_notification($current_user->ID, 3);?>
@@ -164,21 +215,13 @@ $verify = mokaru_verify_order($current_user->ID);
                                 <p class="mensaje">Esperando revisión de administradores</p> <!--Transacciones-->
                                 <p class="fecha">01/07/2022</p>  <!--fecha-->
                             </div>                        
-                        </div>
-                        
+                        </div>                        
                     </div>
                 </div>
             <?php } ?>
         </div>
     </div>
 
-    <?php if( $member->cycle_dat_ini > $member->cycle_dat_fin){ ?>
-        <div class="button">
-            <a class="depositar">Depositar</a>
-            <a class="retirar">Retirar</a>
-        </div>
-     <?php } ?>
-                   
     <?php if($member->status == 'inactive' && $verify->show == false){ ?>
         <div class="button">
             <a class="btn-block" href="<?= get_permalink(213) ?>">Activa tu cuenta Mōkaru</a>
@@ -188,7 +231,6 @@ $verify = mokaru_verify_order($current_user->ID);
 </div>
 
 <?php 
-
 
 get_footer('dashboard');
 

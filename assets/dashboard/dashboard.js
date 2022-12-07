@@ -29,3 +29,38 @@ togglemovil.addEventListener("click", () => {
 
 
 
+const transactions = function(){
+
+	function deposit_form() {
+
+        $m("#deposit_form").submit(function(e) {
+            e.preventDefault(); // avoid to execute the actual submit of the form.
+            var form = $m(this);
+            var actionUrl = form.attr('action');
+            $m.ajax({
+                type: "GET",
+                url: actionUrl,
+                data: form.serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+                    window.location.href = "/checkout";
+                }
+            });
+            
+        });
+	};
+
+	
+
+
+    return{
+        init: function() {
+            deposit_form();
+        }
+    };
+
+}();
+
+$m(document).ready(function () {
+	transactions.init();
+});

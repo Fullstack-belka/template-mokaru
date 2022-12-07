@@ -24,7 +24,7 @@ global $current_user;
 global $member;
 global $woocommerce;
 
-$woocommerce->cart->empty_cart();
+//$woocommerce->cart->empty_cart();
 $verify = mokaru_verify_order($current_user->ID);
 
 ?>

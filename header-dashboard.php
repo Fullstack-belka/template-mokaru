@@ -34,6 +34,7 @@ if(!is_user_logged_in()) {
 	
 	wp_head();
 	global $member;
+	global $memberLines;
 	global $current_user;
 
 	?>
@@ -81,30 +82,30 @@ if(!is_user_logged_in()) {
                                 <p class="ctrl-link activo-1024">Inicio</p>
                             </a>
                             
-                        </li>
-        
-                        <li >
+                        </li>						
+                        <li>
+                            <a href="<?php echo  get_permalink(427) ; ?>"" class="link-nav" title="Mi plata">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/10/currency-dollar.png" alt="icon">
+                            <p class="ctrl-link">Transacciones</p>
+                            </a>
+                        </li>        
+                        <li>
                             <a href="#" class="link-nav-inactive" title="Servicio no disponible aún">
                                 <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/10/trending-up2.png" alt="icon">
                                 <p class="ctrl-link">Mi retiro</p>
-                            </a>
-                            
-                        </li>
-        
-                        <li class="">
-
+                            </a>                            
+                        </li>        
+                        <li>
                             <a href="#" class="link-nav-inactive" title="Servicio no disponible aún">
                                 <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/10/currency-dollar.png" alt="icon">
                             <p class="ctrl-link">Alcancias</p>
                             </a>
-                        </li>
-        
-                        <li >
+                        </li>        
+                        <li>
                             <a href="/mi-cuenta" class="link-nav">
                                 <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/07/settings.png" alt="icon">
                             	<p class="ctrl-link">Cuenta</p>
-                            </a>
-                            
+                            </a>                            
                         </li>
                     </ul>
                     <div class="separador"></div>
