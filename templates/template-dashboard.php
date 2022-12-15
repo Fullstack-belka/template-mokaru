@@ -38,7 +38,7 @@ $verify = mokaru_verify_order($current_user->ID);
                             </div>
                             <?php }else{ ?>
                             <div class="tags">
-                                <a class="tag-link" href="">Retirar</a>
+                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="">Retirar</a>
                             </div>
                             <?php } ?>
                         </div>
@@ -99,7 +99,7 @@ $verify = mokaru_verify_order($current_user->ID);
     <?php if(count($memberLines) > 0){?>
         <div class="content-lines lines-block primary-block">
             <?php  foreach($memberLines as $key => $line){  ?>
-            <div class="line">
+            <div class="line" data-line-id="<?= $line->id_mem_lin?>">
                 <div class="info-line">
                     <span class="cycle">Ciclo  <?= $line->cycle ?></span>
                     <h3><span class="icon-<?= $line->name ?>"></span>  <?= $line->name ?></h3>
@@ -109,7 +109,7 @@ $verify = mokaru_verify_order($current_user->ID);
                 </div>
                 <div class="container-row percentage">
                     <div class="val">
-                        % <?= $line->percentage * 30?>
+                        % <?= $line->percentage * 3000?>
                     </div>
                     <div class="text">Mensual</div>
                 </div>
@@ -145,7 +145,7 @@ $verify = mokaru_verify_order($current_user->ID);
             <h3>Transacciones</h3>
             <?php
             $transactionsClass = new MemberTransaction();
-            $transactions = $transactionsClass->get_transactions($current_user->ID, 15,1);?>
+            $transactions = $transactionsClass->get_transactions($current_user->ID, 15);?>
 
             <?php if(count($transactions)< 1){?>
             <div class="Transacciones-not"> <!--not = notificacion-->
@@ -154,21 +154,24 @@ $verify = mokaru_verify_order($current_user->ID);
             </div>
             <?php }else{     ?>
                 <div class="transacciones-container">
-                    <?php  foreach($transactions as $key => $row){  ?>
-                            <div class="transacciones-content"> <!--not = notificacion-->
+                    <?php  foreach($transactions as $key => $row){ 
+                        
+                            $line = new Lines($row->line_from);
+                        ?>
+                            <div class="transacciones-content <?=$row->type ?>"> <!--not = notificacion-->
                                 <div class="t-separador">                                    
-                                    <div class="circle-<?=$row->type == 'income' ? 'green' : 'red' ?>">                                    
+                                    <div class="circle-<?=$row->type ?>">                                    
                                     </div>
 
                                     <div class="t-content">
                                         <div class="transaccion-txt">
                                             <p class="mensaje-not"><?= $row->text ?></p> <!--Transacciones-->
                                             <p class="fecha"><?= clean_date($row->log_date,'day_h') ?></p>  <!--fecha-->
-                                            <p class="line"><?= $row->name ?></p>  <!--fecha-->
+                                            <p class="line"><?= $line->name ?></p>  <!--fecha-->
                                         </div>                                        
                                     </div>
                                 </div>    
-                                <p class="<?=$row->type == 'income' ? 'positivo' : 'negativo' ?>">+$ <?= $row->amount ?></p>
+                                <p class="amount">$ <?= $row->amount ?></p>
                             </div>
                     <?php } ?>
                 </div>
@@ -188,7 +191,7 @@ $verify = mokaru_verify_order($current_user->ID);
                 <div class="circle"><p>?</p></div>
                 <p class="mensaje-not">No tienes notificaciones nuevas</p> <!--Notificaciones-->
             </div>
-            <?php }else{     ?>
+            <?php }else{ ?>
                     <?php  foreach($notifications as $key => $row){  ?>
                             <div class="notificacion"> <!--not = notificacion-->
                                 <div class="t-separador">                                    
@@ -213,7 +216,6 @@ $verify = mokaru_verify_order($current_user->ID);
                         <div class="t-content">
                             <div class="notificacion-txt">
                                 <p class="mensaje">Esperando revisión de administradores</p> <!--Transacciones-->
-                                <p class="fecha">01/07/2022</p>  <!--fecha-->
                             </div>                        
                         </div>                        
                     </div>

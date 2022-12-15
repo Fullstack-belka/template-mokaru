@@ -67,7 +67,8 @@ $verify = mokaru_verify_order($current_user->ID);
             <h3>Recargas y Retiros</h3>
             <?php
             $transactionsClass = new MemberTransaction();
-            $transactions = $transactionsClass->mokaru_get_transactions($current_user->ID, 3,1);?>
+            $transactions = $transactionsClass->get_transactions($current_user->ID, 15,1,1);
+            ?>
 
             <?php if(count($transactions)< 1){?>
             <div class="Transacciones-not"> <!--not = notificacion-->
@@ -77,9 +78,9 @@ $verify = mokaru_verify_order($current_user->ID);
             <?php }else{     ?>
                 <div class="transacciones-container">
                     <?php  foreach($transactions as $key => $row){  ?>
-                            <div class="transacciones-content"> <!--not = notificacion-->
+                            <div class="transacciones-content <?=$row->type?>"> <!--not = notificacion-->
                                 <div class="t-separador">                                    
-                                    <div class="circle-<?=$row->type == 'income' ? 'green' : 'red' ?>">                                    
+                                    <div class="circle-<?=$row->type?>">                                    
                                     </div>
 
                                     <div class="t-content">
@@ -89,7 +90,7 @@ $verify = mokaru_verify_order($current_user->ID);
                                         </div>                                        
                                     </div>
                                 </div>    
-                                <p class="<?=$row->type == 'income' ? 'positivo' : 'negativo' ?>">+$ <?= $row->amount ?></p>
+                                <p class="amount">$ <?= $row->amount ?></p>
                             </div>
                     <?php } ?>
                 </div>
@@ -101,8 +102,8 @@ $verify = mokaru_verify_order($current_user->ID);
     <div class="primary-block" id="trans-action-block">
         <h3>Acciones</h3>
         <div class="button-container">
-            <button type="button" class="depositar " data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Depositar  </button>                
-            <button type="button" class="retirar " data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Retirar  </button>                
+            <button type="button" class="depositar btn " data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Depositar  </button>                
+            <button type="button" class="retirar btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Retirar  </button>                
         </div>
 
     </div>

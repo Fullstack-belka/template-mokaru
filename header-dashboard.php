@@ -84,10 +84,16 @@ if(!is_user_logged_in()) {
                             
                         </li>						
                         <li>
-                            <a href="<?php echo  get_permalink(427) ; ?>"" class="link-nav" title="Mi plata">
+                            <a href="/transacciones" class="link-nav" title="Mi plata">
                                 <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/10/currency-dollar.png" alt="icon">
                             <p class="ctrl-link">Transacciones</p>
                             </a>
+                        </li>   
+						<li>
+                            <a href="/mi-billetera" class="link-nav" title="Mi billetera">
+                                <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/10/trending-up2.png" alt="icon">
+                                <p class="ctrl-link">Mi billetera</p>
+                            </a>                            
                         </li>        
                         <li>
                             <a href="#" class="link-nav-inactive" title="Servicio no disponible aún">
@@ -95,6 +101,7 @@ if(!is_user_logged_in()) {
                                 <p class="ctrl-link">Mi retiro</p>
                             </a>                            
                         </li>        
+                       
                         <li>
                             <a href="#" class="link-nav-inactive" title="Servicio no disponible aún">
                                 <img class="ctrl-icon" src="http://mokaru.com.co/wp-content/uploads/2022/10/currency-dollar.png" alt="icon">

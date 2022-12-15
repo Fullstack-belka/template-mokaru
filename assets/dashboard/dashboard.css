@@ -25,6 +25,7 @@
     height: 100vh;
     background: linear-gradient(180.19deg, #262626 70.92%, #00D1FF 246.86%);
     font-family: 'mulish';
+  
 }
 .main_content{padding-left: 200px;}
 @media (max-width:876px) {.main_content{padding-left: 10px;}}
@@ -39,22 +40,21 @@
 
 /* LINEAS BLOCK */
 .lines-block{width: 100%;}
-.line{ display: flex;}
+.line{ display: flex; margin-bottom: 15px;}
+.line .container-row{padding: 5px 15px;}
+.line .info-line h3{margin: 0;}
+.line .info-line .time{font-size: .7rem;}
+.line .info-line .cycle{font-size: .6rem;}
 .line .interest .val{ color: var(--mokaru-positive); font-weight: 600;}
 
 
-/**/
+/* BOTONES */
+.button-container{margin-top: 30px;}
+.button-container > .btn{   transition: ease 0.3s; border: 2px solid transparent; cursor: pointer; width: 100%; border-radius: 15px; margin-bottom: 15px;  padding: 15px 50px;    color: #FFFFFF; font-size: 1.2rem;}
+
 
 .depositar{
     background: var(--main-color-select);
-    border-radius: 15px;
-    border: 2px solid transparent !important;
-    border: none;
-    color: #FFFFFF;
-    font-size: 20px;
-    padding: 15px 50px;
-    cursor: pointer;
-    transition: ease 0.3s;
 }
 
 .depositar:hover{
@@ -65,13 +65,6 @@
 
 .retirar{
     background: #253046;
-    border-radius: 15px;
-    border: none;
-    color: #FFFFFF;
-    font-size: 20px;
-    padding: 15px 50px;
-    margin-left: 50px;
-    cursor: pointer;
     transition: ease 0.3s;
 }
 
@@ -87,11 +80,20 @@
 
 .nav-desktop{
     display: flex;
-flex-direction: column;
-
-gap: 20px;
+    flex-direction: column;
+    overflow-y: scroll;
+    gap: 20px;
+    height: 100%;
     margin: 20px 25px;
+    padding-bottom: 100px;
 }
+
+/* SCROLL */
+.nav-desktop::-webkit-scrollbar-track{-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);background: transparent ;border-radius: 10px; }
+.nav-desktop::-webkit-scrollbar{width: 4px;background-color:transparent;} 
+.nav-desktop::-webkit-scrollbar-thumb{border-radius: 10px;background-color: transparent;background-image: -webkit-linear-gradient(top,#262626 0%,#2ab0ed 100%);}
+ 
+ 
 
 
 .navItem p{
@@ -374,8 +376,8 @@ h1{
 }
 .primary-block h3{
     font-weight: 500;
-    font-size: 24px;
-    letter-spacing: 0.02em;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
     text-transform: uppercase;
     color: rgba(67, 67, 67, 1);
 }
@@ -455,33 +457,14 @@ h1{
     display: flex;
     
 }
+.fecha{font-size: .7rem;}
 
-.positivo{
-    color: var(--mokaru-positive);
-    font-weight: 600;
-    font-size: 1.2rem;
-    
-}
-
-.notificacion p{
-    line-height: 45px;
-}
-
-.negativo{
-    margin-top: auto;
-    margin-bottom: auto;
-    color: #D14F4F;
-    font-weight: 800;
-    font-size: 18px;
-}
-
-.pendiente{
-    margin-top: auto;
-    margin-bottom: auto;
-    color: #D19D4F;
-    font-weight: 800;
-    font-size: 18px;
-}
+.transacciones-content .amount{ font-size: 1.2rem;font-weight: 600;}
+.transacciones-content.withdraw .amount{color: #D14F4F;}
+.transacciones-content.withdraw .amount::before{content: '-';}
+.transacciones-content.income .amount{color: var(--mokaru-positive);}
+.transacciones-content.income .amount::before{content: '+';}
+.transacciones-content.pedngin .amount{color: #D19D4F;}
 
 
 /*CUADRO DE BALANCE*/
@@ -533,7 +516,7 @@ h1{
 }
 
 
-.circle-red{
+.circle-withdraw{
     background-color:#F5DCDC;
     height: 45px;
     width: 45px;
@@ -546,7 +529,7 @@ h1{
     background-size: 15px;
 }
 
-.circle-green{
+.circle-income{
     background-color: #DCF5E8;
     height: 45px;
     width: 45px;

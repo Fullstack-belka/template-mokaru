@@ -31,9 +31,9 @@ echo '</pre>';
             </div>
         <?php 
         wc_print_notices();
-        echo do_shortcode('[woocommerce_cart]');
+        //echo do_shortcode('[woocommerce_cart]');
 
-        /*
+        
             // SI LA PERSONA NO TIENE MEMBRESIA Y TIENE PEDIDOS CANCELADOS O NO TIENE PEDIDOS 
         if( $member->status == 'inactive' && $verify->show == false ){ ?>    
             <div class="bloque bloque-gold" style="display:block;">
@@ -108,7 +108,7 @@ echo '</pre>';
                     <h2>Tu pedido se encuentra <?=  wc_get_order_status_name( $verify->order_status ); ?> </h2>
                 </div>
             </div>
-        <?php }*/ ?>
+        <?php } ?>
     </div>
 </section>
 
