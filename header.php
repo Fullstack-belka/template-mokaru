@@ -35,7 +35,7 @@
 <div id="page" class="site"><!-- #page -->
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'mokaru' ); ?></a>
 	<header class="header_front">
-            <a class="logo" href="/"><img src="http://mokaru.com.co/wp-content/uploads/2022/10/Group-48.png" alt="logo"></a>
+            <a class="logo" href="/"><img src="http://mokaru.io/wp-content/uploads/2022/10/Group-57.png" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
                     <li><a href="/">INICIO</a></li>

@@ -64,3 +64,7 @@ const transactions = function(){
 $m(document).ready(function () {
 	transactions.init();
 });
+
+
+
+//pop up retiros

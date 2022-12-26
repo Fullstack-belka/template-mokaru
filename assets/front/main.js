@@ -98,3 +98,42 @@ function onClick_Alcancia() {
   retiro.classList.add("noShow_servicios")
   alcanciaS.classList.remove("noShow_servicios")
 }
+
+
+function displayCardBlack() {
+  document.getElementById("cardBlackdescripcion").classList.remove("noShow_servicios")
+  document.getElementById("cardGolddescripcion").classList.add("noShow_servicios")
+  document.getElementById("cardPlatinumDescripcion").classList.add("noShow_servicios")
+}
+
+function displayCardGold() {
+  document.getElementById("cardBlackdescripcion").classList.add("noShow_servicios")
+  document.getElementById("cardGolddescripcion").classList.remove("noShow_servicios")
+  document.getElementById("cardPlatinumDescripcion").classList.add("noShow_servicios")
+}
+
+function displayCardPlatinum() {
+  document.getElementById("cardBlackdescripcion").classList.add("noShow_servicios")
+  document.getElementById("cardGolddescripcion").classList.add("noShow_servicios")
+  document.getElementById("cardPlatinumDescripcion").classList.remove("noShow_servicios")
+}
+
+
+
+
+const btnAnual = document.getElementById('aporteAnualBtn')
+const sectionAnual = document.getElementById('aporteAnualSection')
+const noBtnAnual = document.getElementById('noAporteAnualBtn')
+
+btnAnual.addEventListener("click", () => {
+  sectionAnual.classList.toggle("noShow")
+  btnAnual.classList.toggle("noShow")
+  noBtnAnual.classList.toggle("noShow")
+})
+
+noBtnAnual.addEventListener("click", () => {
+  sectionAnual.classList.toggle("noShow")
+  btnAnual.classList.toggle("noShow")
+  noBtnAnual.classList.toggle("noShow")
+
+})

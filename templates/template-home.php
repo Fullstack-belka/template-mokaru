@@ -51,7 +51,7 @@ get_header();
 
     <div class="card bg2">
         <div class="ilustracion2">
-            <img  src="http://mokaru.com.co/wp-content/uploads/2022/10/planeaTuRetiro.png" alt="cartas con logo de mokaru">
+            <img  src="http://mokaru.io/wp-content/uploads/2022/10/Group-3621.png" alt="cartas con logo de mokaru">
         </div>
         
         <div class="txt_container">
@@ -66,7 +66,7 @@ get_header();
 
     <div class="card bg3">
         <div class="ilustracion3">
-            <img  src="http://mokaru.com.co/wp-content/uploads/2022/10/alcanciaDigital.png" alt="cartas con logo de mokaru">
+            <img  src="http://mokaru.io/wp-content/uploads/2022/10/Group-3622.png" alt="cartas con logo de mokaru">
         </div>
         
         <div class="txt_container">

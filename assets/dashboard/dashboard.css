@@ -934,3 +934,398 @@ h1{
  
 
 
+/*Ingrdo de los popups*/
+
+
+
+
+
+
+
+.salir-whrap{
+    margin: 10% 10% 0 20%;
+    }
+    
+    .salir p{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 18px;
+    color: rgb(0, 0, 0);
+    margin-left: 20px;
+    }
+    .salir{
+        display: flex;
+        text-decoration: none;
+        }
+
+
+    
+    .retirar-t{
+        font-family: 'Mulish';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+        color: #434343;
+        margin-top: 30px;
+    }
+
+    @media(min-width:1365px) {
+    .retirar-whrap{
+        margin-top: 45px;
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        height: 25vw;
+        min-height: 150px;
+        max-height: 350px;
+
+
+    }
+    }
+    .primary-block-retiro{
+        background: #FFFFFF;
+        box-shadow: 8px 13px 44px -6px #DFDBF7;
+        border-radius: 20px;
+        padding: 30px;
+        max-width: 450px;
+    }
+
+
+    .retirar-cuadros-t{
+        font-family: 'Mulish';
+font-style: normal;
+font-weight: 700;
+font-size: 32px;
+text-align: center;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+
+color: #434343;
+    }
+
+
+.salir-retiro{
+    margin: 150px 70px;
+}
+
+.recarga-usdt-retiro{
+    width: 100%;
+    border: 3px solid #253046;
+    border-radius: 7px;
+    height: 45px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    color: #253046;
+    margin-top: 20px;
+}
+
+.recarga-retiro-btn{
+    margin-top: 45px;
+    background: #253046;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 7px;
+    height: 45px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+
+.deposit-rectangle{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.titulo-rectangulo{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+
+    text-align: center;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+
+    color: #434343;
+}
+
+.link-a{
+    
+    background: #253046;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    width: 100%;
+    border-radius: 7px;
+   padding: 14px 0;
+    color: #FFFFFF;
+    text-align: center;
+    text-decoration: none;
+    
+}
+
+
+@media(max-width:1365px) {
+    .retirar-whrap{
+       display: flex;
+       flex-direction: column;
+        
+        gap: 25px;
+        padding: 0 5px;
+
+        margin: 40px auto;
+        
+    }
+
+    .primary-block-retiro{
+        margin: 0 auto;
+    }
+
+    .salir-retiro{
+        margin: 50px 30px;
+    }
+
+}
+
+
+
+
+@media(min-width:1365px) {
+    .grid-retirar{
+        background-color: #FFFFFF;
+        
+        display: grid;
+        gap: 30px;
+        grid-template-columns: 49% 49%;
+        grid-template-rows: 6vh 16vh 16vh 16vh 16vh;
+        padding:10px;
+        margin: 0 0 0 330px;
+        position: absolute;
+        top: 30px;
+        width: calc(100% - 330px);
+
+
+
+
+        
+    }
+
+
+
+    .grid-retirar-titulo{
+        grid-column: 1/3;
+    }
+
+    .grid-retirar-balance{
+        grid-row: 2/3;
+        grid-column: 2/3;
+
+        background: #253046;
+        box-shadow: 8px 13px 44px -6px #DFDBF6;
+        border-radius: 20px;
+        padding: 30px;
+        
+
+    }
+
+    .grid-retirar-info{
+        min-height: 400px;
+        grid-row: 2/5;
+        grid-column: 1/2;
+        
+    }
+
+    .grid-retirar-ayuda{
+        grid-row: 3/5;
+        grid-column: 2/3;
+    }
+}
+
+.form-retiro p{
+    margin-top: 10px;
+}
+
+
+.grid-retirar-balance{
+
+    background: #253046;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 20px;
+    padding: 30px;
+
+    max-width: 450px;
+    
+
+}
+
+@media(max-width:1365px) {
+    .grid-retirar-balance{
+        margin: 0 auto;
+        width: 100%;
+    }
+}
+
+.Balance-txt-retiro h3{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    color: #FFFFFF;
+}
+
+.Balance-txt-retiro p{
+    font-family: 'Inter';
+font-style: normal;
+font-weight: 700;
+font-size:26px;
+
+
+
+color: #FFFFFF;
+}
+
+.retiro-disclamer{
+    font-size: 14px;
+    margin-top: 3px;
+}
+
+
+@media(max-width:1365px) {
+    .grid-retirar{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        padding: 10px;
+        position: absolute;
+        width: 100%;
+        top: 30px;
+        background-color: #ffffff;
+        padding-bottom: 100px;
+    }
+}
+
+.grid-retirar-titulo{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: #434343;
+}
+
+.subtitulo-conf{
+    font-family: 'Mulish';
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+
+display: flex;
+align-items: center;
+letter-spacing: 0.02em;
+text-transform: uppercase;
+
+color: #434343;
+}
+
+
+
+
+
+
+
+.saldo-deposito-lineas{
+    grid-column: 2/3;
+    grid-row: 1/3;
+}
+
+.bienvenida-deposito-lineas{
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.lineas-deposito-lineas{
+    grid-column: 1/3;
+    grid-row: 3/6;
+}
+
+
+.primary-block-lineas{
+    background: #FFFFFF;
+    box-shadow: 8px 13px 44px -6px #DFDBF7;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.grid-retirar-balance-l{
+
+    background: #253046;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 20px;
+    padding: 30px;
+    
+
+}
+
+
+.lineas-txt{
+    font-family: 'Mulish';
+    font-style: normal;
+    font-size: 20px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.lineas-txt p{
+    font-size: 16px;
+}
+
+.white-txt{
+    color: #FFFFFF;
+}
+
+.linea-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.depositar-linea{
+    background: #253046;
+    color: #FFFFFF;
+    padding: 0 15px;
+    border-radius: 7px;
+}
+
+.separador{
+    margin: 20px 0;
+}
+
+.depositar-linea-inactiva{
+    background: #FFFFFF;
+    color: #253046;
+    padding: 0 15px;
+    border-radius: 7px;
+}
+
+
+
+
+
+
+
+

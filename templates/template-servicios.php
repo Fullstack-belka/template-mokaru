@@ -41,96 +41,179 @@ get_header();
 <!---------------------------------->
 <section class="cards_Servicios_servicios cards_flex" id="cartasServicio">
 
-<div class="card_servicios">
-<div class="face_servicios front_servicios">
-    <div class="imgCard_servicios">
-        <img   src="http://mokaru.com.co/wp-content/uploads/2022/10/CARDgold.png" alt="pcazul">
-    </div>
-    <h3>Billetera Mōkaru Gold</h3>
-    <p>Con tu cuenta mokaru Gold podras acceder a todos los servicios Mokaru, esta cuenta te dara una rentabilidad mensual hasta de 2%.
-        <br>
-        <br>
+        <div class="card_servicios">
+            <div class="face_servicios front_servicios">
+                <div class="imgCard_servicios">
+                    <img   src="http://mokaru.com.co/wp-content/uploads/2022/10/CARDgold.png" alt="card gold">
+                </div>
+                <h3>Billetera Mōkaru Gold</h3>
+                <p>Con tu billetera Black podrás hacer uso de los servicios exclusivos ofrecidos por Mōkaru para hacer crecer tu patrimonio. <br> <br>
 
-        El deposito inicial para esta cuenta des de 350USDT</p>
+                    Esta billetera ofrece un beneficio de hasta 2% mensual sobre tus activos.</p>
 
-        <p class="hoverbtn_servicios">Saber más</p>
-</div>
+                <p class="hoverbtn_servicios" onClick=displayCardGold()>Saber más</p>
+            </div>
+        </div>
 
-<div class="face_servicios back_servicios">
-    <h3>Billetera Mōkaru Gold</h3>
-    <p>
-        Con tu cuenta mokaru Gold podras acceder a todos los servicios Mokaru, esta cuenta te dara una rentabilidad mensual hasta de 2%.
-<br><br>
-        La apertura de esta cuenta se realiza con un deposito inicial de 350 USDT a 10 meses con una rentabilidad fija de 18%, al terminar este plazo, los fondos los podras retirar de tu cuenta mokaru o dejarlos sin un plazo fijo.
-        <br><br>
-        Luego de este deposito podras transferir mas fondos a tu cuenta, los cuales te generan una rentabilidad de 2% aprox, estos los podras retirar cuando quieras. 
-    </p>
 
-    <a href="/crea-tu-cuenta">Quiero abrir mi cuenta</a>
 
-</div>
-</div>
 
-<div class="card_servicios">
-<div class="face_servicios front_blackbg_servicios">
-    <div class="imgCard_servicios">
-        <img   src="http://mokaru.com.co/wp-content/uploads/2022/10/CardBlack.png" alt="card black">
-    </div>
-    <h3>Billetera Mōkaru Black</h3>
-    <p>Con tu cuenta mokaru Black podras acceder a todos los servicios Mokaru, esta cuenta te dara una rentabilidad mensual hasta de 3%.
-        <br>
-        <br>
+        <div class="card_servicios">
+            <div class="face_servicios front_blackbg_servicios">
+                <div class="imgCard_servicios">
+                    <img   src="http://mokaru.com.co/wp-content/uploads/2022/10/CardBlack.png" alt="card black">
+                </div>
+                <h3>Billetera Mōkaru Black</h3>
+                <p>Con tu billetera Black podrás hacer uso de los servicios exclusivos ofrecidos por Mōkaru para hacer crecer tu patrimonio. <br> <br>
 
-        El deposito inicial para esta cuenta des de 1.000 USDT</p>
+                    Esta billetera ofrece un beneficio de hasta 3% mensual sobre tus activos.</p>
 
-        <p class="hoverbtn_servicios">Saber más</p>
-</div>
+                <p class="hoverbtn_servicios" onClick=displayCardBlack()>Saber más</p>
+            </div>
 
-<div class="face_servicios back_black_servicios">
-    <h3>Billetera Mōkaru Black</h3>
-    <p>
-        Con tu cuenta mokaru Black podras acceder a todos los servicios Mokaru, esta cuenta te dara una rentabilidad mensual hasta de 3%.
-<br><br>
-        La apertura de esta cuenta se realiza con un deposito inicial de 1.000 USDT a 10 meses con una rentabilidad fija de 18%, al terminar este plazo, los fondos los podras retirar de tu cuenta mokaru o dejarlos sin un plazo fijo.
-        <br><br>
-        Luego de este deposito podras transferir mas fondos a tu cuenta, los cuales te generan una rentabilidad de 3% aprox, estos los podras retirar cuando quieras. 
-    </p>
+        </div>
 
-    <a href="/crea-tu-cuenta">Quiero abrir mi cuenta</a>
 
-</div>
-</div>
 
-<div class="card_servicios">
-<div class="face_servicios front_servicios">
-    <div class="imgCard_servicios">
-        <img   src="http://mokaru.com.co/wp-content/uploads/2022/10/ExportPlaninum.png" alt="pcazul">
-    </div>
-    <h3>Billetera Mōkaru Platinum</h3>
-    <p>Con tu cuenta mokaru Platinum podras acceder a todos los servicios Mokaru, esta cuenta te dara una rentabilidad mensual hasta de 2.5%.
-        <br>
-        <br>
 
-        El deposito inicial para esta cuenta des de 500 USDT</p>
+        <div class="card_servicios">
+            <div class="face_servicios front_servicios">
+                <div class="imgCard_servicios">
+                    <img   src="http://mokaru.com.co/wp-content/uploads/2022/10/ExportPlaninum.png" alt="card platinum">
+                </div>
+                <h3>Billetera Mōkaru Platinum</h3>
+                <p>Con tu billetera Platinum podrás hacer uso de los servicios exclusivos ofrecidos por Mōkaru para hacer crecer tu patrimonio. <br> <br>
 
-        <p class="hoverbtn_servicios">Saber más</p>
-</div>
+                    Esta billetera ofrece un beneficio de hasta 2.5% mensual sobre tus activos.</p>
 
-<div class="face_servicios back_servicios">
-    <h3>Billetera Mōkaru Platinum</h3>
-    <p>
-        Con tu cuenta mokaru Platinum podras acceder a todos los servicios Mokaru, esta cuenta te dara una rentabilidad mensual hasta de 2.5%.
-<br><br>
-        La apertura de esta cuenta se realiza con un deposito inicial de 500 USDT a 10 meses con una rentabilidad fija de 18%, al terminar este plazo, los fondos los podras retirar de tu cuenta mokaru o dejarlos sin un plazo fijo.
-        <br><br>
-        Luego de este deposito podras transferir mas fondos a tu cuenta, los cuales te generan una rentabilidad de 2.5% aprox, estos los podras retirar cuando quieras. 
-    </p>
+                <p class="hoverbtn_servicios" onClick=displayCardPlatinum()>Saber más</p>
+            </div>
 
-    <a href="/crea-tu-cuenta">Quiero abrir mi cuenta</a>
 
-</div>
-</div>
+        </div>
+
+
+
+
+
+
+        <div class="retiro noShow_servicios" id="cardBlackdescripcion">
+
+            <div class="tuRetiroServicios">
+
+            <div>
+                <h2>Billetera Mōkaru Black</h2>
+                <p>
+                La apertura de esta billetera se realiza
+                con un depósito inicial de 1.000 USDT que te retornará una rentabilidad fija de 18% en los próximos 10 meses, y te permitirá hacer uso de los demás servicios Mōkaru al instante, terminado este período podrás retirar los fondos de tu Billetera Mōkaru o dejarlos sin un plazo fijo en la misma y recibir un retorno mensual del 3%, enviarlos a tu “Alcancía Digital” o destinarlos a tu plan “Mi Retiro”.
+                <br><br>
+                Billeteras disponibles en Colombia: 5.000
+                <br><br>
+                USDT es utilizado para las transacciones entre el cliente y Mōkaru don embargo tus activos siempre estarán en USD por tu seguridad y la nuestra.
+                </p>
+                <a href="/crea-tu-cuenta" class="abrirCuentaServicios">Abrir mi cuenta</a>
+            </div>
+
+            <img src="http://mokaru.com.co/wp-content/uploads/2022/10/CardBlack.png" alt="card black">
+
+            </div>
+
+        </div>
+
+
+        <div class="retiro noShow_servicios" id="cardGolddescripcion">
+
+            <div class="tuRetiroServicios">
+
+            <div>
+            <h2>Billetera Mōkaru Gold</h2>
+                <p>
+                La apertura de esta billetera se realiza
+                con un depósito inicial de 350 USDT que te retornará una rentabilidad fija de 18% en los próximos 10 meses, y te permitirá hacer uso de los demás servicios Mōkaru al instante, terminado este período podrás retirar los fondos de tu Billetera Mōkaru o dejarlos sin un plazo fijo en la misma y recibir un retorno mensual del 2%, enviarlos a tu “Alcancía Digital” o destinarlos a tu plan “Mi Retiro”.
+                <br><br>
+                Billeteras disponibles en Colombia: 20.000
+                <br><br>
+                USDT es utilizado para las transacciones entre el cliente y Mōkaru don embargo tus activos siempre estarán en USD por tu seguridad y la nuestra.
+                </p>
+                <a href="/crea-tu-cuenta" class="abrirCuentaServicios">Abrir mi cuenta</a>
+            </div>
+
+            <img src="http://mokaru.com.co/wp-content/uploads/2022/10/CARDgold.png" alt="card gold">
+
+            </div>
+
+        </div>
+
+
+        <div class="retiro noShow_servicios" id="cardPlatinumDescripcion">
+
+            <div class="tuRetiroServicios">
+
+            <div>
+            <h2>Billetera Mōkaru Platinum</h2>
+                <p>
+                La apertura de esta billetera se realiza
+                con un depósito inicial de 500 USDT que te retornará una rentabilidad fija de 18% en los próximos 10 meses, y te permitirá hacer uso de los demás servicios Mōkaru al instante, terminado este período podrás retirar los fondos de tu Billetera Mōkaru o dejarlos sin un plazo fijo en la misma y recibir un retorno mensual del 2.5%, enviarlos a tu “Alcancía Digital” o destinarlos a tu plan “Mi Retiro”.
+                <br><br>
+                Billeteras disponibles en Colombia: 10.000
+                <br><br>
+                USDT es utilizado para las transacciones entre el cliente y Mōkaru don embargo tus activos siempre estarán en USD por tu seguridad y la nuestra.
+                </p>
+                <a href="/crea-tu-cuenta" class="abrirCuentaServicios">Abrir mi cuenta</a>
+            </div>
+
+            <img src="http://mokaru.com.co/wp-content/uploads/2022/10/ExportPlaninum.png" alt="card Platinum">
+
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </section>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!---------------------------------->
 
@@ -174,9 +257,19 @@ get_header();
                 
             </div>
 
-            <div class="retiro-input">
 
-            <div class="ahorrarcont-ret">
+
+        <div class="retiro-input">
+        <div>
+                    <button id="aporteAnualBtn">
+                        Quiero aportar anualmente a mi retiro
+                    </button>
+
+                    <button id="noAporteAnualBtn" class="noShow">
+                        Quiero aportar una sola vez
+                    </button>
+            </div>
+            <div class="ahorrarcont-ret" id="aporteAnualSection">
                 <p class="ahorro-t-ret">¿Cuanto aportarias a tu fondo de retiro cada año? (Puedes dejarlo en 0)</p>
                 
                     

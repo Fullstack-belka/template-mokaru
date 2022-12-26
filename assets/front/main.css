@@ -28,6 +28,7 @@
   .logo {
     cursor: pointer;
     min-width: 150px;
+    max-width: 200px;
   }
   
   .nav__links a,
@@ -376,25 +377,17 @@ margin: 0 0 0 6%;
 .ilustracion2{
     text-align: center;
     padding-top: 10px;
-    padding-bottom: 15px;
+    padding-bottom: 30px;
 }
 
-.ilustracion2 img{
-    width: 148px;
-    height: 174px;
-}
 
 
 .ilustracion3{
     text-align: center;
-    padding-top: 38px;
-    padding-bottom: 20px;
+    padding-top: 20px;
+    padding-bottom: 10px;
 }
 
-.ilustracion3 img{
-    width: 267px;
-    height: 142px;
-}
 
 
 .card h3{
@@ -940,7 +933,9 @@ color: rgb(0, 0, 0);
       }
 
 
-      
+    .noShow{
+      display: none;
+    }
 
 /*BANER*/
 
@@ -1086,12 +1081,9 @@ color: rgb(0, 0, 0);
     
     .card_servicios{
       position: relative;
-      width: 300px;
-      height: 450px;
+      width: 320px;
+      height: 470px;
       margin: 20px;
-     
-    
-    
     }
     
     
@@ -1161,103 +1153,17 @@ color: rgb(0, 0, 0);
     }
     
     
-    .card_servicios .back_servicios{
-       transform: perspective(600px) rotateY(180deg);
-       background-image: url("http://mokaru.com.co/wp-content/uploads/2022/10/card1.jpg");
-       border-radius: 10px;
+ 
     
-       color: rgb(0, 0, 0);
-       display: flex;
-       flex-direction: column;
-    
-       font-family: 'Quicksand';
-       filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.15));
-       background-repeat: no-repeat;
-       background-size: cover;
-      
-      
-       
-    
-    }
-    .card_servicios .back_black_servicios{
-      transform: perspective(600px) rotateY(180deg);
-      background-image: url("http://mokaru.com.co/wp-content/uploads/2022/10/fondocardBlack.png");
-      border-radius: 10px;
-    
-      color: rgb(251, 251, 251);
-      display: flex;
-      flex-direction: column;
-    
-      font-family: 'Quicksand';
-      filter: drop-shadow(0px 0px 30px rgba(0, 0, 0, 0.15));
-      background-repeat: no-repeat;
-      background-size: cover;
-     
-     
-      
-    
-    }
-    
-    
-    .back_black_servicios a{
-      margin: 0 18px 18px 18px;
-      color: #fefefe;
-    }
+  
     
     
     
-    .card_servicios .back_black_servicios h3{
-      font-size: 20px;
-      font-weight: 500;
-      margin: 18px 18px 0 18px;
-    }
-    
-    .card_servicios .back_black_servicios p{
-      font-size: 14px;
-      font-weight: 400;
-      margin: 18px 18px 18px 18px;
-    }
-    
-    
-    .back_servicios a{
-      margin: 0 18px 18px 18px;
-      color: #000000;
-    }
-    
-    
-    
-    .card_servicios .back_servicios h3{
-      font-size: 20px;
-      font-weight: 500;
-      margin: 18px 18px 0 18px;
-    }
-    
-    .card_servicios .back_servicios p{
-      font-size: 14px;
-      font-weight: 400;
-      margin: 18px 18px 18px 18px;
-    }
-    
-    
-    .card_servicios:hover .front_servicios{
-      transform: perspective(600px) rotateY(180deg);
-    }
-    
-    .card_servicios:hover .front_blackbg_servicios{
-      transform: perspective(600px) rotateY(180deg);
-    }
-    
-    
-    
-    .card_servicios:hover .back_servicios{
-      transform: perspective(600px) rotateY(360deg);
-    }
-    .card_servicios:hover .back_black_servicios{
-      transform: perspective(600px) rotateY(360deg);
-    }
+ 
     
     .hoverbtn_servicios{
       text-decoration: underline;
+      cursor: pointer;
     }
     
     /*CARDS*/
@@ -1268,7 +1174,7 @@ color: rgb(0, 0, 0);
     
     .retiro{
       max-width: 1124px;
-      margin: 150px auto;
+      margin: 50px auto;
     
     }
     
@@ -1306,6 +1212,7 @@ color: rgb(0, 0, 0);
     font-style: normal;
     font-weight: 600;
     font-size: 24px;
+    margin-left: 50px;
     
     }
     
@@ -1405,7 +1312,6 @@ justify-content: center;
     border-bottom: 1px solid rgba(44, 42, 41, 1);
     margin-bottom: 0px;
     width: 100%;
-    margin-top: 2rem;
     font-family: 'Quicksand';
     font-style: normal;
     font-weight: 500;
