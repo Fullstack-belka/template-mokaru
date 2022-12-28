@@ -31,6 +31,12 @@ togglemovil.addEventListener("click", () => {
 
 const transactions = function(){
 
+    function ocultar() {
+
+
+
+    }
+
 	function deposit_form() {
 
         $m("#deposit_form").submit(function(e) {
@@ -56,10 +62,16 @@ const transactions = function(){
     return{
         init: function() {
             deposit_form();
+            ocultar();
         }
+
+        
     };
 
 }();
+
+
+
 
 $m(document).ready(function () {
 	transactions.init();
