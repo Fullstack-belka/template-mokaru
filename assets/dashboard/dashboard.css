@@ -956,6 +956,7 @@ h1{
     .salir{
         display: flex;
         text-decoration: none;
+        cursor: pointer;
         }
 
 
