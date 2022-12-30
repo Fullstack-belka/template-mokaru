@@ -12,6 +12,8 @@ if ( ! defined( '_S_VERSION' ) ) {
 	define( '_S_VERSION', '1.0.0' );
 }
 
+use Mailjet\Resources;
+
 /**
  * Implement the Custom Header feature.
  */
@@ -319,3 +321,77 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+add_action( 'wp_ajax_nopriv_create_request','ajax_create_request' );
+add_action( 'wp_ajax_create_request','ajax_create_request');
+
+function ajax_create_request() {
+	global $current_user;
+    $nonce = sanitize_text_field( $_POST['nonce'] );
+    $statusCode = 0;
+    $msg = '';
+    if ( ! wp_verify_nonce( $nonce, 'ajax-request-nonce' ) ) {
+        die ( 'Busted!');
+    }
+
+    if(empty($_POST['usdt'])){ $statusCode = 1; $msg .= '<br>Ingrese un monto valido'; }
+    if(empty($_POST['wallet'])){ $statusCode = 1; $msg .= '<br>Ingrese una Billetera valida'; }
+
+    if($statusCode == 0){
+
+        $text = 'Cantidad a retirar: $'.$_POST['usdt'].' USDT <br>';
+        $text .= 'Billetera: '.$_POST['wallet'].'  <br>';
+        $type = 'Retiro';
+        $status = 'active';
+
+		$arraySend = [
+			'text' => $text,
+			'type' => $type
+		];
+
+		/*
+        $requestClass = new Request();
+        $request = $requestClass->create( $current_user->ID ,$type,$status,$text);
+		*/
+		$mj = new \Mailjet\Client('a2960d71c926e88e79bab5f18fb0cd62', 'da8add205c6ae3afda0f1dac9d26404f',true,['version' => 'v3.1']);
+		$body = [
+			'Messages' => [
+			  	[
+					'From' => [
+						'Email' => "moka@mokaru.io",
+						'Name' => "Moka"
+					],
+					'To' => [
+						[
+							'Email' => "fullstack@belkacompany.com",
+							'Name' => "Juan Ramirez"
+						]
+					],
+					'TemplateID' => 4464312,
+					'TemplateLanguage' => true,
+					'Subject' => "Prueba en servidor - Moka",
+					'Variables' => $arraySend
+			  	]
+			]
+		];
+		$response = $mj->post(Resources::$Email, ['body' => $body]);
+		
+		if(!$response->success()){
+			$msg .= 'No se envio nada';
+			$msg .= print_r($response->getData());
+			$statusCode = 1;
+		}
+		
+		var_dump($response);
+		
+		
+		
+
+    }
+
+	echo json_encode(
+		array( 'statusCode' => $statusCode,'msg' => $msg)
+	);
+
+    die();
+}

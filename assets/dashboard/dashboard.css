@@ -7,7 +7,7 @@
 
 
 .noShow{
-    display: none;
+    display: none !important;
 }
 
 *{
@@ -956,6 +956,7 @@ h1{
     .salir{
         display: flex;
         text-decoration: none;
+        cursor: pointer;
         }
 
 

@@ -36,6 +36,10 @@ $verify = mokaru_verify_order($current_user->ID);
                             <div class="time">
                                 <time class="fecha"><?= clean_date($line->dat_fin,'day_y') ?></time>  <!--fecha-->
                             </div>
+                            <?php }elseif($line->id_mem_lin == 2){ ?>
+                            <div class="tags">
+                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="">Retirar</a>
+                            </div>
                             <?php }else{ ?>
                             <div class="tags">
                                 <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="">Retirar</a>
@@ -103,9 +107,11 @@ $verify = mokaru_verify_order($current_user->ID);
                 <div class="info-line">
                     <span class="cycle">Ciclo  <?= $line->cycle ?></span>
                     <h3><span class="icon-<?= $line->name ?>"></span>  <?= $line->name ?></h3>
+                    <?php if($line->id_mem_lin != 2){ ?>
                     <div class="time">
                         <time class="fecha"><?= clean_date($line->dat_ini,'day_y') ?> - <?= clean_date($line->dat_fin,'day_y') ?></time>  <!--fecha-->
                     </div>
+                    <?php } ?>
                 </div>
                 <div class="container-row percentage">
                     <div class="val">
