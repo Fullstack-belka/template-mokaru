@@ -51,6 +51,7 @@
 /* BOTONES */
 .button-container{margin-top: 30px;}
 .button-container > .btn{   transition: ease 0.3s; border: 2px solid transparent; cursor: pointer; width: 100%; border-radius: 15px; margin-bottom: 15px;  padding: 15px 50px;    color: #FFFFFF; font-size: 1.2rem;}
+.button-container > .segundario-btn{   transition: ease 0.3s; border: 2px solid transparent; cursor: pointer; width: 100%; border-radius: 15px; margin-bottom: 15px;  padding: 15px 50px;    color: #253046; font-size: 1.2rem;}
 
 
 .depositar{
@@ -63,9 +64,31 @@
     color: var(--main-color-select);
 }
 
+.depositar-servicios{
+    background: var(--main-color-select);
+}
+
+.depositar-servicios:hover{
+    border: 2px solid var(--main-color-select) !important;
+    background-color: #FFFFFF;
+    color: var(--main-color-select);
+}
+
 .retirar{
     background: #253046;
     transition: ease 0.3s;
+}
+
+.servicios-mok{
+    border: 2px solid var(--main-color-select) !important;
+    background-color: #FFFFFF;
+    color: var(--main-color-select);
+}
+
+.servicios-mok:hover{
+    background: #253046;
+    transition: ease 0.3s;
+    color: #FFFFFF;
 }
 
 .retirar:hover{
@@ -1109,7 +1132,7 @@ color: #434343;
         display: grid;
         gap: 30px;
         grid-template-columns: 49% 49%;
-        grid-template-rows: 6vh 16vh 16vh 16vh 16vh;
+        grid-template-rows: 6vh 16vh 16vh 16vh 16vh 6vh;
         padding:10px;
         margin: 0 0 0 330px;
         position: absolute;
@@ -1120,6 +1143,25 @@ color: #434343;
 
 
         
+    }
+
+    .grid-retirar-welcome{
+        grid-column: 1/2;
+        grid-row: 2/4;
+
+    }
+
+    .grid-retirar-balance-t{
+        grid-column: 2/3;
+        grid-row: 2/4;
+
+
+    }
+
+    .grid-retirar-list{
+        grid-column: 1/3;
+        grid-row: 4/6;
+    
     }
 
 
@@ -1151,6 +1193,16 @@ color: #434343;
         grid-row: 3/5;
         grid-column: 2/3;
     }
+}
+
+.grid-retirar-balance-t{
+
+    background-color: #253046;
+    box-shadow: 8px 13px 44px -6px #DFDBF6;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 450px;
+
 }
 
 .form-retiro p{
@@ -1326,5 +1378,22 @@ color: #434343;
 
 
 
+.grid-retirar-list{
+    background: #FFFFFF;
+    box-shadow: 8px 13px 44px -6px #DFDBF7;
+    border-radius: 20px;
+    padding: 30px;
+}
+
+
+.service-items{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.service-items button{
+    color: #FFFFFF;
+}
 
 

@@ -35,15 +35,23 @@ const transactions = function(){
         $m(".depositar").click(function(){
             $m('.depositar-view').removeClass('noShow');
             $m('.transactions-view').addClass('noShow');
+            $m('.transferir').addClass('noShow')
         });
         $m(".retirar").click(function(){
             $m('.retirar-view').removeClass('noShow');
             $m('.transactions-view').addClass('noShow');
+            $m('.transferir').addClass('noShow')
+        });
+        $m(".servicios-mok").click(function(){
+            $m('.retirar-view').addClass('noShow');
+            $m('.transactions-view').addClass('noShow');
+            $m('.transferir').removeClass('noShow')
         });
         $m(".salir").click(function(){
             $m('.retirar-view').addClass('noShow');
             $m('.depositar-view').addClass('noShow');
             $m('.transactions-view').removeClass('noShow');
+            $m('.transferir').addClass('noShow')
         });
 
     }
