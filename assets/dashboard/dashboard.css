@@ -51,7 +51,7 @@
 /* BOTONES */
 .button-container{margin-top: 30px;}
 .button-container > .btn{   transition: ease 0.3s; border: 2px solid transparent; cursor: pointer; width: 100%; border-radius: 15px; margin-bottom: 15px;  padding: 15px 50px;    color: #FFFFFF; font-size: 1.2rem;}
-.button-container > .segundario-btn{   transition: ease 0.3s; border: 2px solid transparent; cursor: pointer; width: 100%; border-radius: 15px; margin-bottom: 15px;  padding: 15px 50px;    color: #253046; font-size: 1.2rem;}
+.button-container > .secundario-btn{   transition: ease 0.3s; border: 2px solid transparent; cursor: pointer; width: 100%; border-radius: 15px; margin-bottom: 15px;  padding: 15px 50px;    color: #253046; font-size: 1.2rem;}
 
 
 .depositar{

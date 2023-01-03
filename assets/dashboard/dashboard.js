@@ -32,9 +32,6 @@ togglemovil.addEventListener("click", () => {
 const transactions = function(){
 
     function ocultar() {
-        $m(".depositar-servicios ").click(function(){
-            $m('.confirmacionRecarga-view').removeClass('noShow');
-        });
         $m(".depositar").click(function(){
             $m('.depositar-view').removeClass('noShow');
             $m('.transactions-view').addClass('noShow');
@@ -45,7 +42,7 @@ const transactions = function(){
             $m('.transactions-view').addClass('noShow');
             $m('.transferir-view').addClass('noShow')
         });
-        $m(".recargar").click(function(){
+        $m(".servicios-mok").click(function(){
             $m('.retirar-view').addClass('noShow');
             $m('.transactions-view').addClass('noShow');
             $m('.transferir-view').removeClass('noShow')
@@ -59,6 +56,7 @@ const transactions = function(){
             $m('.transactions-view').removeClass('noShow');
         });
 
+        
     }
 
 	function deposit_form() {

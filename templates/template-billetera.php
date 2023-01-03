@@ -97,13 +97,20 @@ if($member->mokaru_id > 0){
         <div class="primary-block" id="trans-action-block">
             <h3>Acciones</h3>
             <div class="button-container">
-                <button type="button" class="depositar btn " data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Depositar  </button>                
+                <button type="button" class="depositar-servicios btn ">Depositar  </button>                
                 <button type="button" class="retirar btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Retirar  </button>                
             </div>
 
         </div>
 
     </div>
+
+    <?php 
+    // INCLUIMOS LA VISTA DE RECARGAR MODULO
+    require get_template_directory() . '/template-parts/depositar-view.php';
+        
+    ?>
+
 <?php } ?>
 
 
