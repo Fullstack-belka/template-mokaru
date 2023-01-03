@@ -333,8 +333,12 @@ function ajax_create_request() {
     if ( ! wp_verify_nonce( $nonce, 'ajax-request-nonce' ) ) {
         die ( 'Busted!');
     }
+	$memberClass = new Member();
+	$member = $memberClass->get_member( $current_user->ID);
 
-    if(empty($_POST['usdt'])){ $statusCode = 1; $msg .= '<br>Ingrese un monto valido'; }
+    if(empty($_POST['usdt']) || $_POST['usdt'] < 50){ $statusCode = 1; $msg .= '<br>Ingrese un monto valido'; }
+    if($_POST['usdt'] < 50){ $statusCode = 1; $msg .= '<br>Igrese un monto mayor a 50 USDT'; }
+    if($_POST['usdt'] > $member->amount ){ $statusCode = 1; $msg .= '<br>Igrese un monto menor a '. $member->amount.' USDT'; }
     if(empty($_POST['wallet'])){ $statusCode = 1; $msg .= '<br>Ingrese una Billetera valida'; }
 
     if($statusCode == 0){
@@ -349,10 +353,10 @@ function ajax_create_request() {
 			'type' => $type
 		];
 
-		/*
+		
         $requestClass = new Request();
         $request = $requestClass->create( $current_user->ID ,$type,$status,$text);
-		*/
+		
 		$mj = new \Mailjet\Client('a2960d71c926e88e79bab5f18fb0cd62', 'da8add205c6ae3afda0f1dac9d26404f',true,['version' => 'v3.1']);
 		$body = [
 			'Messages' => [
@@ -377,15 +381,83 @@ function ajax_create_request() {
 		$response = $mj->post(Resources::$Email, ['body' => $body]);
 		
 		if(!$response->success()){
-			$msg .= 'No se envio nada';
+			$msg .= 'Hubo un error en el envio de correo';
 			$msg .= print_r($response->getData());
 			$statusCode = 1;
 		}
-		
-		var_dump($response);
-		
-		
-		
+    }
+
+	echo json_encode(
+		array( 'statusCode' => $statusCode,'msg' => $msg)
+	);
+
+    die();
+}
+
+
+add_action( 'wp_ajax_nopriv_deposit_lines','ajax_deposit_lines' );
+add_action( 'wp_ajax_deposit_lines','ajax_deposit_lines');
+
+function ajax_deposit_lines() {
+	global $current_user;
+    $nonce = sanitize_text_field( $_POST['nonce'] );
+    $statusCode = 0;
+    $msg = '';
+    if ( ! wp_verify_nonce( $nonce, 'ajax-request-nonce' ) ) {
+        die ( 'Busted!');
+    }
+    //LLAMAMOS LAS CLASSES QUE VAMOS A USAR
+    $memberClass = new Member();
+    $linesClass = new Lines();
+    $transactionClass = new MemberTransaction();
+	$memberLineClass = new MemberLines();
+
+	$member = $memberClass->get_member( $current_user->ID);
+
+    if(empty($_POST['amount'])){ $statusCode = 1; $msg .= '<br>Ingrese un monto valido'; }
+    if($_POST['amount'] < 10 ){ $statusCode = 1; $msg .= '<br>Ingrese un monto mayor a 10 USDT'; }
+    if($_POST['amount'] > $member->amount ){ $statusCode = 1; $msg .= '<br>Igrese un monto menor a '. $member->amount.' USDT'; }
+    if(empty($_POST['line_to'])){ $statusCode = 1; $msg .= '<br>Seleccione un módulo'; }
+
+	// SI PASO LA VALIDACION
+    if($statusCode == 0){
+
+        $text = 'Movimiento a ' .$linesClass->get_name_by_id( $_POST['line_to']);
+        $type = 'move';
+        $status = 'active';
+
+		// SETEAMOS LAS VARIABLES
+        $line_from = 1;
+        $line_to = $_POST['line_to'];
+        $user_id = $current_user->ID;
+        $mokaru_account = $memberClass->get_member($user_id);
+        $mokaru_id = $mokaru_account->mokaru_id;
+		$amount_account =  $mokaru_account->amount - $_POST['amount'];
+		$memberClass->update_amount($user_id, $amount_account);
+
+		// $user_id, $mokaru_id, $line_to ,$line_from ,$amount, $type, $text
+		$resultTransaction = $transactionClass->add_transaction( $user_id,$mokaru_id,$line_to,$line_from,$_POST['amount'],$type,$text);
+		if(!$resultTransaction){
+			$statusCode = 1;
+			$msg .= 'Hubo un error en la transacción';
+		}
+
+		// ACTUALIZAMOS EL MONTO DE LA LINEA
+		if($statusCode == 0){
+			$line_id = $_POST['line_to'];
+			$lineMember = $memberLineClass->get_line_member($mokaru_id,$line_id);
+			$amount_line = $lineMember->amount_line + $_POST['amount'];
+			$resultUpdateLine = $memberLineClass->deposit_to_line($mokaru_id,$line_id,$amount_line);
+			if(!$resultUpdateLine){
+				$statusCode = 1;
+				$msg .= 'Hubo un error en la actualización del monto de la linea '.$linesClass->get_name_by_id( $_POST['line_to']);
+			}
+		}
+	}
+
+	if($statusCode == 0){{
+		$msg .= 'Se realizo la transacción correctamente';
+	}
 
     }
 
@@ -395,3 +467,4 @@ function ajax_create_request() {
 
     die();
 }
+

@@ -481,6 +481,7 @@ h1{
 .fecha{font-size: .7rem;}
 
 .transacciones-content .amount{ font-size: 1.2rem;font-weight: 600;}
+.transacciones-content.move .amount{color: #58a6ff;}
 .transacciones-content.withdraw .amount{color: #D14F4F;}
 .transacciones-content.withdraw .amount::before{content: '-';}
 .transacciones-content.income .amount{color: var(--mokaru-positive);}
@@ -495,7 +496,6 @@ h1{
 }
 
 .Balance-txt{
-    
     display: flex;
     flex-direction:column ;
     justify-content: space-around;
@@ -550,6 +550,19 @@ h1{
     background-size: 15px;
 }
 
+.circle-move{
+    background-color: #d2e7ff;
+    height: 45px;
+    width: 45px;
+    border-radius: 100%;
+    margin: auto 25px auto 0;
+    text-align: center;
+    transform: rotate(90deg);
+    background-image: url('http://mokaru.com.co/wp-content/uploads/2022/07/Vectorarrowup.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 15px;
+}
 .circle-income{
     background-color: #DCF5E8;
     height: 45px;
@@ -576,8 +589,13 @@ h1{
     background-size: 15px;
 }
 .Transacciones-txt{
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
     margin-bottom: 20px;
     height: calc(100% - 60px);
+}
+.transacciones-container::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
 }
 
 /* BLOQUES DE DASHBOARD */
