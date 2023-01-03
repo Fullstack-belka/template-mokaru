@@ -79,13 +79,13 @@
     transition: ease 0.3s;
 }
 
-.servicios-mok{
+.recargar{
     border: 2px solid var(--main-color-select) !important;
     background-color: #FFFFFF;
     color: var(--main-color-select);
 }
 
-.servicios-mok:hover{
+.recargar:hover{
     background: #253046;
     transition: ease 0.3s;
     color: #FFFFFF;

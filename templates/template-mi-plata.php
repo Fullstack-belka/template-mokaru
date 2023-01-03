@@ -110,7 +110,7 @@ if($member->mokaru_id > 0){
         <div class="button-container">
             <button type="button" class="depositar btn " >Depositar  </button>                
             <button type="button" class="retirar btn" >Retirar  </button>  
-            <button type="button" class="servicios-mok segundario-btn" >Recargar servicios Mokaru  </button>               
+            <button type="button" class="recargar segundario-btn" >Recargar servicios Mokaru  </button>               
         </div>
     </div>
 
@@ -277,8 +277,6 @@ if($member->mokaru_id > 0){
             
     </div>
 </div>
-
-
 
 
 <?php } ?>
