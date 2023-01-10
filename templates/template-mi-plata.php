@@ -203,8 +203,8 @@ if($member->mokaru_id > 0){
     <div class="grid-retirar-welcome primary-block-retiro">
         <div class="bienvenidos-txt">            
             <h3>Bienvenido <?= $current_user->user_firstname ?></h3> <!--Insertar nombre-->
-            <p class="bienvenidos-txt-t">Modulo de transacciones </p>
-            <p>Aqui podras recargar tus servicios mokaru o retirar tu ganancias</p>
+            <p class="bienvenidos-txt-t">Recarga tus servicios Mokaru</p>
+            <p>Aqui podras recargar tus servicios mokaru para acceder a sus rentabilidades</p>
         </div> 
     </div>
 

@@ -5,6 +5,7 @@
         </div>
         <div class="grid-retirar-info deposit-rectangle primary-block-retiro">     
             <h2 class="titulo-rectangulo">Información de Deposito</h2>
+            <p>Vas a recargar a: Mi billetera Mokaru</p>
             <form class="form-recargar-modulo" action="/" id="form-recargar-modulo">
                 <input type="number" class="recarga-usdt-retiro" id="amount" name="amount" placeholder="Cantidad en USD" pattern="" step="1">
                 <input type="hidden" id="line_to" name="line_to" value="3" >
@@ -27,5 +28,13 @@
             <p>Ir atras</p>     
         </a>
             
+    </div>
+
+    <div class="alerta">
+        <p>Estas seguro que deseas recargar x USD a tu {billetera Mokaru}</p>
+        <div>
+            <button class="green">Si, estoy seguro</button>
+            <button class="red">No, ir atras</button>
+        </div>
     </div>
 </div>

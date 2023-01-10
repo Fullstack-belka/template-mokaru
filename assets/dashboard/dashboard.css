@@ -1415,3 +1415,60 @@ color: #434343;
 }
 
 
+
+
+.alerta{
+
+    background-color: #F5F5F5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 400px;
+    max-height: 300px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 8px 13px 44px -6px #656565;
+}
+
+.alerta p{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.alerta button{
+    border-radius: 10px;
+    border: none;
+}
+
+.alerta div{
+    text-align: center;
+    margin-top:50px ;
+}
+
+.green{
+    background: rgba(110, 214, 158, 0.3);
+    color: #259A5B;
+    transition: ease 0.2s;
+}
+
+.green:hover{
+    border: #259A5B 1px solid;
+    background-color: transparent;
+    color: #259A5B;
+}
+
+.red{
+    background: rgba(244, 73, 73, 0.3);
+    color: #C50505;
+    transition: ease 0.2s;
+
+}
+
+.red:hover{
+    border: #C50505 1px solid;
+    background-color: transparent;
+    color: #C50505;
+}
