@@ -1,13 +1,21 @@
+<?php
+
+$memberClass = new MemberLines();
+$memberLine = $memberClass->get_line_member($member->mokaru_id,3);
+
+?>
+
 <div class="depositarModulo-view noShow">
     <div class="grid-retirar">    
         <div class="grid-retirar-titulo">
-            <h2>Recargas a Modulo</h2>
+            <h2>Depositar a <span class="name-line">Modulo</span></h2>
         </div>
         <div class="grid-retirar-info deposit-rectangle primary-block-retiro">     
             <h2 class="titulo-rectangulo">Información de Deposito</h2>
             <form class="form-recargar-modulo" action="/" id="form-recargar-modulo">
-                <input type="number" class="recarga-usdt-retiro" id="amount" name="amount" placeholder="Cantidad en USD" pattern="" step="1">
+                <input type="number" class="recarga-usdt-retiro clean_number" id="amount" name="amount" placeholder="Cantidad en USD" pattern="" step="1">
                 <input type="hidden" id="line_to" name="line_to" value="3" >
+                <input type="hidden" id="line_from" name="line_from" value="1" >
                 <button type="submit" class="button alt recarga-retiro-btn">Depositar</button>
                 <div class="alert-message"></div>
             </form>  
@@ -15,8 +23,12 @@
 
         <div class="grid-retirar-balance-t">
             <div class="Balance-txt-retiro">
-                <h3>Tu Balance</h3>
-                <p class="Balance-txt-t-retiro"><?= $member->amount;?> $ USDT</p> <!--insertar cantidad de dolares-->                       
+                <h3>Tu cuenta</h3>
+                <p class="Balance-txt-t-retiro"><span class="amount-member"><?= $member->amount?></span> $ USDT</p> <!--insertar cantidad de dolares-->                       
+            </div>
+            <div class="Balance-txt-retiro">
+                <h3>Monto en Mi Billetera</h3>
+                <p class="Balance-txt-t-retiro"><span class="amount-line"><?= $memberLine->amount_line ?></span> $ USDT</p> <!--insertar cantidad de dolares-->                       
             </div>
         </div>
 

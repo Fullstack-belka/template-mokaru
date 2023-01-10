@@ -70,7 +70,7 @@ if($member->mokaru_id > 0){
 
     <div class="Transacciones primary-block">
         <div class="Transacciones-txt">
-            <h3>Recargas y Retiros</h3>
+            <h3>Movimientos</h3>
             <?php
             $transactionsClass = new MemberTransaction();
             $transactions = $transactionsClass->get_transactions($current_user->ID, 15,1,1);
@@ -83,7 +83,8 @@ if($member->mokaru_id > 0){
             </div>
             <?php }else{     ?>
                 <div class="transacciones-container">
-                    <?php  foreach($transactions as $key => $row){  ?>
+                    <?php  foreach($transactions as $key => $row){  
+                            $line = new Lines($row->line_from);  ?> 
                             <div class="transacciones-content <?=$row->type?>"> <!--not = notificacion-->
                                 <div class="t-separador">                                    
                                     <div class="circle-<?=$row->type?>">                                    
@@ -93,6 +94,7 @@ if($member->mokaru_id > 0){
                                         <div class="transaccion-txt">
                                             <p class="mensaje-not"><?= $row->text ?></p> <!--Transacciones-->
                                             <p class="fecha"><?= clean_date($row->log_date,'day_h') ?></p>  <!--fecha-->
+                                            <p class="line"><?= $line->name ?></p>  
                                         </div>                                        
                                     </div>
                                 </div>    
@@ -125,7 +127,7 @@ if($member->mokaru_id > 0){
             <h2 class="titulo-rectangulo">¿Cuanto deseas depositar?</h2>
             <form class="form-retiro" action="/?add-to-cart=424" id="deposit_form">
                 <label for="alg_open_price_424">Ingresa un monto</label> 
-                <input type="number" data-product_id="424" class="alg_open_price recarga-usdt-retiro" name="alg_open_price" id="alg_open_price_424" value="" pattern="" step="1">
+                <input type="number" data-product_id="424" class="alg_open_price recarga-usdt-retiro clean_number" name="alg_open_price" id="alg_open_price_424" value="" pattern="" step="1">
                 <button type="submit" name="add-to-cart" value="424" class="single_add_to_cart_button button alt recarga-retiro-btn">Continuar</button>
             </form>  
         </div>
@@ -164,7 +166,7 @@ if($member->mokaru_id > 0){
     <div class="grid-retirar-info deposit-rectangle primary-block-retiro "> 
         <h2 class="titulo-rectangulo">¿Cuanto deseas retirar?</h2>
         <form action="" id="form-retiro" class="form-retiro">
-            <input type="number" class="recarga-usdt-retiro" name="usdt" id="usdt" placeholder="Cantidad en USDT">        
+            <input type="number" class="recarga-usdt-retiro clean_number" name="usdt" id="usdt" placeholder="Cantidad en USDT">        
             <input type="text" class="recarga-usdt-retiro" name="wallet"" id="wallet" placeholder="Billetera de USDT.TRC20 ">        
             <p>Nota: En el apartado de la billetera solo deben ir billeteras de la red TRC20 que reciban USDT</p>
             <input type="submit" value="Continuar" class="recarga-retiro-btn">

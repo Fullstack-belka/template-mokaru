@@ -427,12 +427,19 @@ function ajax_deposit_lines() {
         $status = 'active';
 
 		// SETEAMOS LAS VARIABLES
-        $line_from = 1;
+        $line_from =  $_POST['line_from'];
         $line_to = $_POST['line_to'];
         $user_id = $current_user->ID;
         $mokaru_account = $memberClass->get_member($user_id);
         $mokaru_id = $mokaru_account->mokaru_id;
-		$amount_account =  $mokaru_account->amount - $_POST['amount'];
+
+		// SI VA PA LAS TRANSACCIONES SUMA EL MONTO DE LA CUENTA
+		if($line_to == 1){
+			$amount_account =  $mokaru_account->amount + $_POST['amount'];
+		// SI VA PA UN SERVICIO DESCUENTA EL MONTO DE LA CUENTA
+		}else{
+			$amount_account =  $mokaru_account->amount - $_POST['amount'];
+		}
 		$memberClass->update_amount($user_id, $amount_account);
 
 		// $user_id, $mokaru_id, $line_to ,$line_from ,$amount, $type, $text
@@ -444,13 +451,22 @@ function ajax_deposit_lines() {
 
 		// ACTUALIZAMOS EL MONTO DE LA LINEA
 		if($statusCode == 0){
-			$line_id = $_POST['line_to'];
-			$lineMember = $memberLineClass->get_line_member($mokaru_id,$line_id);
-			$amount_line = $lineMember->amount_line + $_POST['amount'];
-			$resultUpdateLine = $memberLineClass->deposit_to_line($mokaru_id,$line_id,$amount_line);
+			$line_id = $line_to;
+			if($line_to == 1){
+				$line_id = $line_from;
+			}
+			$lineMember = $memberLineClass->get_line_member($mokaru_id,$line_id);				
+			// SI VA PA LAS TRANSACCIONES RESTA EL MONTO DE LA LINEA
+			if($line_to == 1){
+				$amount_line = $lineMember->amount_line - $_POST['amount'];
+			// SI VA PA UN SERVICIO SUMA  EL MONTO 
+			}else{
+				$amount_line = $lineMember->amount_line + $_POST['amount'];
+			}			
+			$resultUpdateLine = $memberLineClass->update_amount_to_line($mokaru_id,$line_id,$amount_line);
 			if(!$resultUpdateLine){
 				$statusCode = 1;
-				$msg .= 'Hubo un error en la actualización del monto de la linea '.$linesClass->get_name_by_id( $_POST['line_to']);
+				$msg .= 'Hubo un error en la actualización del monto de la linea '.$linesClass->get_name_by_id( $line_id);
 			}
 		}
 	}
@@ -468,3 +484,34 @@ function ajax_deposit_lines() {
     die();
 }
 
+
+
+add_action( 'wp_ajax_nopriv_get_line_member','ajax_get_line_member' );
+add_action( 'wp_ajax_get_line_member','ajax_get_line_member');
+
+function ajax_get_line_member(){
+	global $current_user;
+	$memberClass = new Member();
+	$lineClass = new Lines($_POST['line_id']);
+	$memberLineClass = new MemberLines();
+
+	$nonce = sanitize_text_field( $_POST['nonce'] );
+    $statusCode = 0;
+    $msg = '';
+    if ( ! wp_verify_nonce( $nonce, 'ajax-request-nonce' ) ) {
+        die ( 'Busted!');
+    }
+
+	$member = $memberClass->get_member( $current_user->ID);
+	if($_POST['line_id'] != 1){
+		$member_line = $memberLineClass->get_line_member($_POST['mokaru_id'],$_POST['line_id']);
+	}else{
+		$member_line = $lineClass;
+	}
+	echo json_encode(
+		$member_line 
+	);
+
+
+	die();
+}

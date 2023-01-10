@@ -47,7 +47,7 @@ if($member->mokaru_id > 0){
                 <h3>Transacciones</h3>
                 <?php
                 $transactionsClass = new MemberTransaction();
-                $transactions = $transactionsClass->get_transactions($current_user->ID, 15,3);
+                $transactions = $transactionsClass->get_transactions($current_user->ID, 15,3,3);
                 ?>
 
                 <?php if(count($transactions)< 1){?>
@@ -57,7 +57,8 @@ if($member->mokaru_id > 0){
                 </div>
                 <?php }else{     ?>
                     <div class="transacciones-container">
-                        <?php  foreach($transactions as $key => $row){  ?>
+                        <?php  foreach($transactions as $key => $row){
+                                $line = new Lines($row->line_from);  ?>                            
                                 <div class="transacciones-content <?=$row->type?>"> <!--not = notificacion-->
                                     <div class="t-separador">                                    
                                         <div class="circle-<?=$row->type?>">                                    
@@ -67,6 +68,7 @@ if($member->mokaru_id > 0){
                                             <div class="transaccion-txt">
                                                 <p class="mensaje-not"><?= $row->text ?></p> <!--Transacciones-->
                                                 <p class="fecha"><?= clean_date($row->log_date,'day_h') ?></p>  <!--fecha-->
+                                                <p class="line"><?= $line->name ?></p>  
                                             </div>                                        
                                         </div>
                                     </div>    
@@ -97,8 +99,8 @@ if($member->mokaru_id > 0){
         <div class="primary-block" id="trans-action-block">
             <h3>Acciones</h3>
             <div class="button-container">
-                <button type="button" class="depositar-servicios btn ">Depositar  </button>                
-                <button type="button" class="retirar btn" data-bs-toggle="modal" data-bs-target="#exampleModalCenter">Retirar  </button>                
+                <button type="button" class="depositar-servicios btn" data-line-from-id="1" data-line-to-id="3">Depositar  </button>                
+                <button type="button" class="retirar btn depositar-servicios" data-line-from-id="3" data-line-to-id="1">Retirar  </button>                
             </div>
 
         </div>
