@@ -50,6 +50,10 @@ const transactions = function(){
             $m('div[class$="-view"]').addClass('noShow')
             $m('.transactions-view').removeClass('noShow');
         });
+        $m(".red").click(function(){
+            $m('.alerta').addClass('noShow')
+            ;
+        });
 
         
     }
