@@ -29,12 +29,12 @@
         </a>
             
     </div>
-
+        <!--Alerta-->
     <div class="alerta">
         <p>Estas seguro que deseas recargar x USD a tu {billetera Mokaru}</p>
         <div>
             <button class="green">Si, estoy seguro</button>
             <button class="red">No, ir atras</button>
         </div>
-    </div>
+    </div> 
 </div>

@@ -113,7 +113,32 @@ if($member->mokaru_id > 0){
             <button type="button" class="recargar servicios-mok secundario-btn " >Recargar servicios Mokaru  </button>               
         </div>
     </div>
-
+    <div class="primary-block-lineas">
+    <h3>Retiros Pendientes</h3>
+    <table class="retiros-pendientes">
+        <tr>
+            <th>Fecha</th>
+            <th>Cantidad</th>
+            <th>Estado</th>
+        </tr>
+        <tr>
+            <td>22/sep/2023</td>
+            <td>250 USD</td>
+            <td>Pendiente</td>
+        </tr>
+        <tr>
+            <td>22/sep/2023</td>
+            <td>250 USD</td>
+            <td>Pendiente</td>
+        </tr>
+        <tr>
+            <td>22/sep/2023</td>
+            <td>250 USD</td>
+            <td>Pendiente</td>
+        </tr>
+    </table>
+    
+    </div>
 </div>
 
 <div class="depositar-view noShow">
@@ -268,6 +293,10 @@ if($member->mokaru_id > 0){
      </div>
  </div>
 <?php } ?>
+
+
+
+
 
 <?php 
 
