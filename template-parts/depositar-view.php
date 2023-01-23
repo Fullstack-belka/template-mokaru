@@ -40,7 +40,6 @@ $memberLine = $memberClass->get_line_member($member->mokaru_id,3);
             <p>Ir atras</p>     
         </a> 
     </div>
-
 </div>
 
 <!-- Modal -->
