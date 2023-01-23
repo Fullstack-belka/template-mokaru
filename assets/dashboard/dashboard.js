@@ -120,6 +120,7 @@ const transactions = function(){
                     success: function(data)
                     {   
                         var data = $m.parseJSON(data);
+                        console.log(data)
                        if(data.statusCode > 0){
                             $m(form).find('.alert-message').html(data.msg)
                        }
@@ -129,6 +130,9 @@ const transactions = function(){
         });
 
 	};
+
+
+
     function desposit_services() {
 
         /*VALIDACIÓN FORMULARIO DE FORMULARIO*/
@@ -146,27 +150,23 @@ const transactions = function(){
             errorElement: 'div',
             onkeyup: false,
             onfocusout: function(element) {$m(element).valid()},
-            submitHandler: (function(form) {
-                $m.ajax({
-                    type: "POST",
-                    url: deposit_lines_vars.url,
-                    data: {
-                        amount : $m(form).find('#amount').val(),
-                        line_to : $m(form).find('#line_to').val(),
-                        line_from : $m(form).find('#line_from').val(),
-                        action : deposit_lines_vars.action,
-                        nonce : deposit_lines_vars.nonce
-                    } ,
-                    success: function(data)
-                    {   
-                        var data = $m.parseJSON(data);
-                        console.log(data)                        
-                       if(data.statusCode > 0){
-                            $m(form).find('.alert-message').html(data.msg)
-                       }
-                    }
-                });
+            submitHandler: (function(form,event) {
+
+                event.preventDefault();
+       
+                $m('#alertModal .initial-message').show();
+                $m('#alertModal .modal-footer').show();
+                $m('#alertModal .message').html('');
+                $m('#alertModal .amount-send').html($m(form).find('#amount').val());
+                var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
+                myModal.show()
+               
             })
+        });
+
+        $m("#button_send").click(function(){
+            form = $m('#form-recargar-modulo')
+            send_deposit_service(form)
         });
 
         $m(".depositar-servicios").click(function(){
@@ -213,6 +213,45 @@ const transactions = function(){
             });
 
             return line
+        }
+        
+        function send_deposit_service(form){
+
+            var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
+            myModal.hide()  
+            
+            $m('#alertModal .modal-footer').hide();
+            $m('#alertModal .initial-message').hide();
+
+            $m.ajax({
+                type: "POST",
+                url: deposit_lines_vars.url,
+                data: {
+                    amount : $m(form).find('#amount').val(),
+                    line_to : $m(form).find('#line_to').val(),
+                    line_from : $m(form).find('#line_from').val(),
+                    action : deposit_lines_vars.action,
+                    nonce : deposit_lines_vars.nonce
+                } ,
+                success: function(data)
+                {   
+                    var data = $m.parseJSON(data);
+                    console.log(data) 
+                    $m('#alertModal .message').html(data.msg)        
+                    $m('#alertModal .alert-icon').hide();
+                    $m('.amount-member').html(data.account_amount);
+                    $m('.amount-line').html(data.amount_line);
+                    if(data.statusCode > 0){                
+                        $m('#alertModal #alert_icon').show();
+                    }else{  
+                        $m('#alertModal #success_icon').show();
+                    }
+
+                    var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
+                    myModal.show()                       
+            
+                }
+            });
         }
 
 	};

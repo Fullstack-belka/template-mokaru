@@ -7,12 +7,15 @@
  * @package Mokaru
  */
 
+ ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if ( ! defined( '_S_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
 	define( '_S_VERSION', '1.0.0' );
 }
 
-use Mailjet\Resources;
 
 /**
  * Implement the Custom Header feature.
@@ -347,41 +350,46 @@ function ajax_create_request() {
         $text .= 'Billetera: '.$_POST['wallet'].'  <br>';
         $type = 'Retiro';
         $status = 'active';
-
-		$arraySend = [
-			'text' => $text,
-			'type' => $type
-		];
-
-		
         $requestClass = new Request();
         $request = $requestClass->create( $current_user->ID ,$type,$status,$text);
-		
-		$mj = new \Mailjet\Client('a2960d71c926e88e79bab5f18fb0cd62', 'da8add205c6ae3afda0f1dac9d26404f',true,['version' => 'v3.1']);
-		$body = [
-			'Messages' => [
-			  	[
-					'From' => [
-						'Email' => "moka@mokaru.io",
-						'Name' => "Moka"
-					],
-					'To' => [
-						[
-							'Email' => "fullstack@belkacompany.com",
-							'Name' => "Juan Ramirez"
-						]
-					],
-					'TemplateID' => 4464312,
-					'TemplateLanguage' => true,
-					'Subject' => "Prueba en servidor - Moka",
-					'Variables' => $arraySend
-			  	]
-			]
+
+		// ENVIAMOS EMAIL AL USUARIO
+		$arraySend = [
+			'name' => $current_user->first_name.' '.$current_user->last_name,
+			'billetera' => $_POST['wallet'],
+			'usdt' => $_POST['usdt'],
 		];
-		$response = $mj->post(Resources::$Email, ['body' => $body]);
+		$to_name = $current_user->first_name.' '.$current_user->last_name;
+		$to_email = $current_user->user_email; 
+		$subject = 'Recibimos tu petición de retiro';
+		$templateID = 4487797;
+		$response = mailjet_send_email($to_name,$to_email,$subject,$arraySend,$templateID);
 		
 		if(!$response->success()){
-			$msg .= 'Hubo un error en el envio de correo';
+			$msg .= 'Hubo un error en el envio de correo al usuario';
+			$msg .= print_r($response->getData());
+			$statusCode = 1;
+		}
+
+		// ENVIAMOS EMAIL AL ADMIN
+		$arraySend = [
+			'name' => $current_user->first_name.' '.$current_user->last_name,
+			'billetera' => $_POST['wallet'],
+			'usdt' => $_POST['usdt'],
+			'email' =>  $current_user->user_email,
+			'celphone' => get_user_meta($current_user->ID,'user_phone',true),
+			'user_id' => $current_user->ID,
+			'membresia' => $member->level->name,
+			'date' => date('Y-m-d'),
+		];
+		$to_name = 'Administrador';
+		$to_email = get_option('admin_email'); 
+		$subject = 'Han realizado una petición de retiro';
+		$templateID = 4487785;
+		$response = mailjet_send_email($to_name,$to_email,$subject,$arraySend,$templateID);
+
+		if(!$response->success()){
+			$msg .= 'Hubo un error en el envio de correo al Administrador';
 			$msg .= print_r($response->getData());
 			$statusCode = 1;
 		}
@@ -435,12 +443,12 @@ function ajax_deposit_lines() {
 
 		// SI VA PA LAS TRANSACCIONES SUMA EL MONTO DE LA CUENTA
 		if($line_to == 1){
-			$amount_account =  $mokaru_account->amount + $_POST['amount'];
+			$account_amount =  $mokaru_account->amount + $_POST['amount'];
 		// SI VA PA UN SERVICIO DESCUENTA EL MONTO DE LA CUENTA
 		}else{
-			$amount_account =  $mokaru_account->amount - $_POST['amount'];
+			$account_amount =  $mokaru_account->amount - $_POST['amount'];
 		}
-		$memberClass->update_amount($user_id, $amount_account);
+		$memberClass->update_amount($user_id, $account_amount);
 
 		// $user_id, $mokaru_id, $line_to ,$line_from ,$amount, $type, $text
 		$resultTransaction = $transactionClass->add_transaction( $user_id,$mokaru_id,$line_to,$line_from,$_POST['amount'],$type,$text);
@@ -452,6 +460,7 @@ function ajax_deposit_lines() {
 		// ACTUALIZAMOS EL MONTO DE LA LINEA
 		if($statusCode == 0){
 			$line_id = $line_to;
+			// SI LA LINEA QUE RECARGARA ES LA DE TRANSFERENCIAS AJUSTA EL MONTO DE LA BILLETERA
 			if($line_to == 1){
 				$line_id = $line_from;
 			}
@@ -477,8 +486,32 @@ function ajax_deposit_lines() {
 
     }
 
+	// ENVIAMOS EMAIL AL ADMIN
+	$name = $current_user->first_name.' '.$current_user->last_name;
+	$arraySend = [
+		'name' => $name,
+		'amount' => $_POST['amount'].' $ USDT',
+		'email' =>  $current_user->user_email,
+		'celphone' => get_user_meta($current_user->ID,'user_phone',true),
+		'user_id' => $current_user->ID,
+		'membresia' => $member->level->name,
+		'line_to' => $linesClass->get_name_by_id( $line_to),
+		'line_from' => $linesClass->get_name_by_id( $line_from),
+	];
+	$to_email = get_option('admin_email'); 
+	$subject = $name.' Ha realizado un movimiento';
+	$templateID = 4487786;
+	$response = mailjet_send_email($name,$to_email,$subject,$arraySend,$templateID);
+
+	if(!$response->success()){
+		$msg .= 'Hubo un error en el envio de correo al Administrador';
+		$msg .= print_r($response->getData());
+		$statusCode = 1;
+	}
+
+
 	echo json_encode(
-		array( 'statusCode' => $statusCode,'msg' => $msg)
+		array( 'statusCode' => $statusCode,'msg' => $msg, 'account_amount'=> $account_amount ,  'amount_line'=> $amount_line)
 	);
 
     die();

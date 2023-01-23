@@ -38,7 +38,7 @@ if($member->mokaru_id > 0){
         <div class="Balance balance-block <?= $member->status== 'active' ? 'active' : '' ;  ?>">
             <div class="Balance-txt">
                 <h3>Tu Balance</h3>
-                <p class="Balance-txt-t"><?= $memberLine->amount_line;?> $ USDT</p>
+                <p class="Balance-txt-t"> <span class="amount-line"><?= $memberLine->amount_line ?></span> $ USDT</p>
             </div>
         </div>
 
@@ -72,7 +72,7 @@ if($member->mokaru_id > 0){
                                             </div>                                        
                                         </div>
                                     </div>    
-                                    <p class="amount">$ <?= $row->amount ?></p>
+                                    <p class="amount ">$ <?= $row->amount ?></p>
                                 </div>
                         <?php } ?>
                     </div>
