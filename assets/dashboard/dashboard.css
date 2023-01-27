@@ -1475,5 +1475,7 @@ color: #434343;
 
 .retiros-pendientes{
     width: 100%;
+   
 }
-
+.retiros-block::-webkit-scrollbar {display: none; /* for Chrome, Safari, and Opera */}
+.retiros-block{ max-height: 175px; overflow-y: scroll;}

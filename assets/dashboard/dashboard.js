@@ -60,36 +60,53 @@ const transactions = function(){
 
 	function deposit_form() {
 
-          /*VALIDACIÓN FORMULARIO DE FORMULARIO*/
-          $m("#deposit_form").validate({
+        /*VALIDACIÓN FORMULARIO DE FORMULARIO*/
+        $m("#deposit_form").validate({
             rules: {
                 alg_open_price:{required:true,digits: true, min:50,number:true}
             },
             messages:{
                 alg_open_price:{required:"Por favor digite un monto",number:"Solo puedes ingresar números", min: "Solo puedes recargar de 50 USDT en adelante"}
-            },
-            
+            },            
             errorElement: 'div',
             onfocusout: function(e) {
                 this.element(e);
             },
-
-            submitHandler: (function(form) {
-                var form = $m("#deposit_form");
-                var actionUrl = form.attr('action');
-                $m.ajax({
-                    type: "GET",
-                    url: actionUrl,
-                    data: form.serialize(), // serializes the form's elements.
-                    success: function(data)
-                    {
-                        window.location.href = "/checkout";
-                    }
-                });
+            submitHandler: (function(form,event) {
+                event.preventDefault();            
+                // AGREGAMOS CLASE PARA ENVIO
+                $m("#button_send").addClass('depositar-usdt');
+                $m('#alertModal .initial-message').show();
+                $m('#alertModal .modal-footer').show();
+                $m('#alertModal .message').html('');
+                $m('#alertModal .name-line').html('Transacciones');
+                $m('#alertModal .amount-send').html($m(form).find('#alg_open_price_424').val());
+                var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
+                myModal.show()
+               
             })
         });
+        
+        $m(document).on('click', "#button_send.depositar-usdt", function(){
+            form = $m('#deposit_form');
+            send_income(form);
+        });
+
+        function send_income(form){
+            var actionUrl = form.attr('action');
+            $m.ajax({
+                type: "GET",
+                url: actionUrl,
+                data:  form.serialize(), // serializes the form's elements.
+                success: function(data)
+                {             
+                    window.location.href = "/checkout";            
+                }
+            });
+        }
 
 	};
+
     function retirar_form() {
 
         /*VALIDACIÓN FORMULARIO DE FORMULARIO*/
@@ -108,30 +125,62 @@ const transactions = function(){
                 this.element(e);
             },
             submitHandler: (function(form) {
-                $m.ajax({
-                    type: "POST",
-                    url: retirar_vars.url,
-                    data: {
-                        usdt : $m(form).find('#usdt').val(),
-                        wallet : $m(form).find('#wallet').val(),
-                        action : retirar_vars.action,
-                        nonce : retirar_vars.nonce
-                    } ,
-                    success: function(data)
-                    {   
-                        var data = $m.parseJSON(data);
-                        console.log(data)
-                       if(data.statusCode > 0){
-                            $m(form).find('.alert-message').html(data.msg)
-                       }
-                    }
-                });
+
+                
+                event.preventDefault();
+                // AGREGAMOS CLASE PARA ENVIO
+                $m("#button_send").addClass('solicitar-retiro');
+                $m('#alertModal .initial-message').show();
+                $m('#alertModal .modal-footer').show();
+                $m('#alertModal .message').html('');
+                $m('#alertModal .initial-message p').html( 
+                    'Estas seguro que deseas solicitar un retiro por <b>'+$m(form).find('#usdt').val()+' $ USDT</b> <br> a la <b>Billetera TRC20</b> '+$m(form).find('#wallet').val()
+                );
+                var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
+                myModal.show()
             })
         });
 
+        $m(document).on('click', "#button_send.solicitar-retiro", function(){
+            form = $m('#form-retiro');
+            send_withdraw(form);
+        });
+
+        function send_withdraw(form){
+
+            var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
+            myModal.hide();            
+            $m('#alertModal .modal-footer').hide();
+            $m('#alertModal .initial-message').hide();
+
+            $m.ajax({
+                type: "POST",
+                url: retirar_vars.url,
+                data: {
+                    usdt : $m(form).find('#usdt').val(),
+                    wallet : $m(form).find('#wallet').val(),
+                    action : retirar_vars.action,
+                    nonce : retirar_vars.nonce
+                } ,
+                success: function(data)
+                {   
+                    var data = $m.parseJSON(data);
+                    console.log(data) 
+                    $m('#alertModal .message').html(data.msg)        
+                    $m('#alertModal .alert-icon').hide();
+                    if(data.statusCode > 0){                
+                        $m('#alertModal #alert_icon').show();
+                    }else{  
+                        $m('#alertModal #success_icon').show();
+                    }
+                    var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
+                    myModal.show()                       
+            
+                }
+            });
+        }
+        
 	};
-
-
 
     function desposit_services() {
 
@@ -153,7 +202,9 @@ const transactions = function(){
             submitHandler: (function(form,event) {
 
                 event.preventDefault();
-       
+                
+                // AGREGAMOS CLASE PARA ENVIO
+                $m("#button_send").addClass('recargar-modulo');
                 $m('#alertModal .initial-message').show();
                 $m('#alertModal .modal-footer').show();
                 $m('#alertModal .message').html('');
@@ -164,7 +215,7 @@ const transactions = function(){
             })
         });
 
-        $m("#button_send").click(function(){
+        $m(document).on('click', "#button_send.recargar-modulo", function(){
             form = $m('#form-recargar-modulo')
             send_deposit_service(form)
         });
@@ -255,6 +306,7 @@ const transactions = function(){
         }
 
 	};
+
     function validateInputs() {
 
         /*MAYUSCULAS*/

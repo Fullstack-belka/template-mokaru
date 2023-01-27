@@ -39,6 +39,8 @@ if(!is_user_logged_in()) {
 	global $memberLines;
 	global $current_user;
 
+
+
 	?>
 	<style>
     :root{

@@ -17,6 +17,7 @@ if($member->mokaru_id > 0){
     $memberLine = $memberClass->get_line_member($member->mokaru_id,3);
     $percentageClass = new Percentage();
     $percentage = $percentageClass->get_percentage($member->level->id+1);
+    $requestClass = new Request();
 ?>
 
 <div class="grid transactions-view">
@@ -115,32 +116,39 @@ if($member->mokaru_id > 0){
             <button type="button" class="recargar servicios-mok secundario-btn " >Recargar servicios Mokaru  </button>               
         </div>
     </div>
-    <div class="primary-block-lineas">
-    <h3>Retiros Pendientes</h3>
-    <table class="retiros-pendientes">
-        <tr>
-            <th>Fecha</th>
-            <th>Cantidad</th>
-            <th>Estado</th>
-        </tr>
-        <tr>
-            <td>22/sep/2023</td>
-            <td>250 USD</td>
-            <td>Pendiente</td>
-        </tr>
-        <tr>
-            <td>22/sep/2023</td>
-            <td>250 USD</td>
-            <td>Pendiente</td>
-        </tr>
-        <tr>
-            <td>22/sep/2023</td>
-            <td>250 USD</td>
-            <td>Pendiente</td>
-        </tr>
-    </table>
+
+
+    <?php
+    $requests = $requestClass->get_requests_filter($member->user_id, 15);
+    
+    if(count($requests)> 1) {?>
+    <div class="primary-block-lineas ">
+        <h3>Retiros Pendientes</h3>
+        <div class="retiros-block">
+            <table class="retiros-pendientes">
+                <tr>
+                    <th>Fecha</th>
+                    <th>Cantidad</th>
+                    <th>Estado</th>
+                </tr>
+            <?php  foreach($requests as $key => $request){  ?> 
+                    <tr>
+                        <td><?= clean_date($request->log_date,'day_h') ?></td>
+                        <td><?=$request->req_amount?></td>
+                        <td>
+                            <?php if($request->status == 'active'){ echo 'Pendiente'; }  ?>
+                            <?php if($request->status == 'completed'){ echo 'Completada'; }  ?>
+                            <?php if($request->status == 'denied'){ echo 'Rechazado'; }  ?>
+                        </td>
+                    </tr>
+            <?php } ?>
+            </table>
+        </div>
     
     </div>
+    <?php }  ?>
+
+
 </div>
 
 <div class="depositar-view noShow">

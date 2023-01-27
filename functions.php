@@ -351,7 +351,7 @@ function ajax_create_request() {
         $type = 'Retiro';
         $status = 'active';
         $requestClass = new Request();
-        $request = $requestClass->create( $current_user->ID ,$type,$status,$text);
+        $request = $requestClass->create( $current_user->ID ,$type, $_POST['usdt'], $status,$text);
 
 		// ENVIAMOS EMAIL AL USUARIO
 		$arraySend = [
@@ -393,8 +393,11 @@ function ajax_create_request() {
 			$msg .= print_r($response->getData());
 			$statusCode = 1;
 		}
+		if($statusCode == 0){
+			$msg .= 'Se realizo la transacción correctamente';
+		}
+		
     }
-
 	echo json_encode(
 		array( 'statusCode' => $statusCode,'msg' => $msg)
 	);

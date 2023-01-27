@@ -20,6 +20,7 @@ $verify = mokaru_verify_order($current_user->ID);
 ?>
 
 <div class="grid">
+
         
     <div class="bienvenidos resumen-block primary-block">
         <div class="bienvenidos-txt">            
