@@ -469,7 +469,7 @@ h1{
     color: white;
     letter-spacing: .05rem;
     font-size: .8rem;
-    font-family: 'Rubik';
+    
 }
 
 /**/
@@ -1760,3 +1760,11 @@ nav .menu-bar .menu ul{
     border: none;
 }
 
+/*formchechout*/
+
+.checkoutform{
+    padding: 25px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    box-shadow: 8px 13px 44px -6px #e4e4e4;
+}

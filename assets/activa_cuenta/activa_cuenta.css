@@ -5,7 +5,7 @@
     margin: 0;
 }
 
-header{background-color: rgba(86, 64, 230, 1);}
+header{background-color: #FFFFFF;}
 .info-btn:hover{background-color: transparent !important}
 
 
@@ -13,6 +13,7 @@ header{background-color: rgba(86, 64, 230, 1);}
 @media (min-width: 847px) {
 
 header{
+    box-shadow: 8px 13px 44px -6px #DFDBF7;
     position: fixed;
     left: 0;
     height: 100vh;
@@ -36,14 +37,14 @@ header{
     }
     .user-nombre{
         font-family: 'Mulish', sans-serif;
-        color: #FFFF;
+        color: #000000;
         font-weight: 600;
         font-size:1.625em;
     }
     
     .user-accion{
         font-family: 'Mulish', sans-serif;
-        color: #FFFF;
+        color: #000000;
         font-weight: 600;
         font-size:1em;  
     }
@@ -281,6 +282,7 @@ header{
     padding: 5px 5px 2px 6px;
     border-radius: 5px;
     cursor: pointer;
+    max-height: 30px;
 }
 
 .svg:hover{
@@ -328,7 +330,8 @@ header{
 
 @media (max-width: 847px) {
     header{
-        
+        box-shadow: 13px 8px 44px -6px #DFDBF7;
+    
        position: absolute;
        top:0;
        width: 100%;
