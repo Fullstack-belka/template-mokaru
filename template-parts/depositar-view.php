@@ -12,7 +12,7 @@ $memberLine = $memberClass->get_line_member($member->mokaru_id,3);
         </div>
         <div class="grid-retirar-info deposit-rectangle primary-block-retiro">     
             <h2 class="titulo-rectangulo">Información de Deposito</h2>
-            <p class="text-center">Vas a depositar a: Mi billetera Mokaru</p>
+            <p class="text-center">Vas a depositar a: <span class="name-line">Modulo</span></p>
             <form class="form-recargar-modulo" action="/" id="form-recargar-modulo">
                 <input type="number" class="recarga-usdt-retiro clean_number" id="amount" name="amount" placeholder="Cantidad en USD" pattern="" step="1">
                 <input type="hidden" id="line_to" name="line_to" value="3" >

@@ -351,7 +351,8 @@ function ajax_create_request() {
         $type = 'Retiro';
         $status = 'active';
         $requestClass = new Request();
-        $request = $requestClass->create( $current_user->ID ,$type, $_POST['usdt'], $status,$text);
+		//create($user_id, $type, $hash ,$req_amount, $wallet, $status, $text )
+        $request = $requestClass->create( $current_user->ID ,$type, '', $_POST['usdt'], $_POST['wallet'], $status,$text);
 
 		// ENVIAMOS EMAIL AL USUARIO
 		$arraySend = [
@@ -375,6 +376,7 @@ function ajax_create_request() {
 		$arraySend = [
 			'name' => $current_user->first_name.' '.$current_user->last_name,
 			'billetera' => $_POST['wallet'],
+			'request_id' => $request,
 			'usdt' => $_POST['usdt'],
 			'email' =>  $current_user->user_email,
 			'celphone' => get_user_meta($current_user->ID,'user_phone',true),
@@ -394,7 +396,7 @@ function ajax_create_request() {
 			$statusCode = 1;
 		}
 		if($statusCode == 0){
-			$msg .= 'Se realizo la transacción correctamente';
+			$msg .= 'Se realizo la solicitud correctamente';
 		}
 		
     }
@@ -427,91 +429,98 @@ function ajax_deposit_lines() {
 
     if(empty($_POST['amount'])){ $statusCode = 1; $msg .= '<br>Ingrese un monto valido'; }
     if($_POST['amount'] < 10 ){ $statusCode = 1; $msg .= '<br>Ingrese un monto mayor a 10 USDT'; }
-    if($_POST['amount'] > $member->amount ){ $statusCode = 1; $msg .= '<br>Igrese un monto menor a '. $member->amount.' USDT'; }
-    if(empty($_POST['line_to'])){ $statusCode = 1; $msg .= '<br>Seleccione un módulo'; }
+	if(empty($_POST['line_to'])){ $statusCode = 1; $msg .= '<br>Seleccione una linea de destino'; }
+	if(empty($_POST['line_from'])){ $statusCode = 1; $msg .= '<br>Seleccione una linea de transferencia'; }
 
-	// SI PASO LA VALIDACION
+	// VALIDACION DEMONTOS
+	if($statusCode == 0){
+	// SETEAMOS LAS VARIABLES
+	$user_id = $current_user->ID;
+	$mokaru_account = $memberClass->get_member($user_id);
+	$mokaru_id = $mokaru_account->mokaru_id;
+	$line_from =  $_POST['line_from'];
+	$line_to = $_POST['line_to'];
+	$lineMember = $memberLineClass->get_line_member($mokaru_id,$line_from);	
+	if($line_from == 1){
+		if($_POST['amount'] > $member->amount ){ $statusCode = 1; $msg .= '<br>Igrese un monto menor a '. $member->amount.' USDT'; }
+	}else{
+		if($_POST['amount'] > $lineMember->amount_line ){ $statusCode = 1; $msg .= '<br>Igrese un monto menor a '. $lineMember->amount_line.' USDT'; }
+	}
+	}
+	// SI PASO LA VALIDACION DE MONTOS
     if($statusCode == 0){
 
         $text = 'Movimiento a ' .$linesClass->get_name_by_id( $_POST['line_to']);
         $type = 'move';
         $status = 'active';
-
-		// SETEAMOS LAS VARIABLES
-        $line_from =  $_POST['line_from'];
-        $line_to = $_POST['line_to'];
-        $user_id = $current_user->ID;
-        $mokaru_account = $memberClass->get_member($user_id);
-        $mokaru_id = $mokaru_account->mokaru_id;
-
+		$line_id = $line_to;
+		// SI LA LINEA QUE RECARGARA ES LA DE TRANSFERENCIAS AJUSTA EL MONTO DE LA BILLETERA
+		if($line_to == 1){
+			$line_id = $line_from;
+		}
+		$lineMember = $memberLineClass->get_line_member($mokaru_id,$line_id);				
 		// SI VA PA LAS TRANSACCIONES SUMA EL MONTO DE LA CUENTA
 		if($line_to == 1){
 			$account_amount =  $mokaru_account->amount + $_POST['amount'];
+			$amount_line = $lineMember->amount_line - $_POST['amount'];
+			$amount_to = $account_amount;
+			$amount_from = $amount_line;
 		// SI VA PA UN SERVICIO DESCUENTA EL MONTO DE LA CUENTA
 		}else{
 			$account_amount =  $mokaru_account->amount - $_POST['amount'];
+			$amount_line = $lineMember->amount_line + $_POST['amount'];
+			$amount_from = $account_amount;
+			$amount_to = $amount_line;
 		}
 		$memberClass->update_amount($user_id, $account_amount);
 
 		// $user_id, $mokaru_id, $line_to ,$line_from ,$amount, $type, $text
-		$resultTransaction = $transactionClass->add_transaction( $user_id,$mokaru_id,$line_to,$line_from,$_POST['amount'],$type,$text);
+		$resultTransaction = $transactionClass->add_transaction( 
+			$user_id,$mokaru_id,
+			$line_to, $amount_to,
+			$line_from, $amount_from,
+			$_POST['amount'],$type,$text);
+
 		if(!$resultTransaction){
 			$statusCode = 1;
 			$msg .= 'Hubo un error en la transacción';
 		}
+		
+		$resultUpdateLine = $memberLineClass->update_amount_to_line($mokaru_id,$line_id,$amount_line);
 
-		// ACTUALIZAMOS EL MONTO DE LA LINEA
-		if($statusCode == 0){
-			$line_id = $line_to;
-			// SI LA LINEA QUE RECARGARA ES LA DE TRANSFERENCIAS AJUSTA EL MONTO DE LA BILLETERA
-			if($line_to == 1){
-				$line_id = $line_from;
-			}
-			$lineMember = $memberLineClass->get_line_member($mokaru_id,$line_id);				
-			// SI VA PA LAS TRANSACCIONES RESTA EL MONTO DE LA LINEA
-			if($line_to == 1){
-				$amount_line = $lineMember->amount_line - $_POST['amount'];
-			// SI VA PA UN SERVICIO SUMA  EL MONTO 
-			}else{
-				$amount_line = $lineMember->amount_line + $_POST['amount'];
-			}			
-			$resultUpdateLine = $memberLineClass->update_amount_to_line($mokaru_id,$line_id,$amount_line);
-			if(!$resultUpdateLine){
-				$statusCode = 1;
-				$msg .= 'Hubo un error en la actualización del monto de la linea '.$linesClass->get_name_by_id( $line_id);
-			}
+		if(!$resultUpdateLine){
+			$statusCode = 1;
+			$msg .= 'Hubo un error en la actualización del monto de la linea '.$linesClass->get_name_by_id( $line_id);
 		}
+		
 	}
 
-	if($statusCode == 0){{
+	if($statusCode == 0){
 		$msg .= 'Se realizo la transacción correctamente';
+		// ENVIAMOS EMAIL AL ADMIN
+		$name = $current_user->first_name.' '.$current_user->last_name;
+		$arraySend = [
+			'name' => $name,
+			'amount' => $_POST['amount'].' $ USDT',
+			'email' =>  $current_user->user_email,
+			'celphone' => get_user_meta($current_user->ID,'user_phone',true),
+			'user_id' => $current_user->ID,
+			'membresia' => $member->level->name,
+			'line_to' => $linesClass->get_name_by_id( $line_to),
+			'line_from' => $linesClass->get_name_by_id( $line_from),
+		];
+		$to_email = get_option('admin_email'); 
+		$subject = $name.' Ha realizado un movimiento';
+		$templateID = 4487786;
+		$response = mailjet_send_email($name,$to_email,$subject,$arraySend,$templateID);
+
+		if(!$response->success()){
+			$msg .= 'Hubo un error en el envio de correo al Administrador';
+			$msg .= print_r($response->getData());
+			$statusCode = 1;
+		}
+
 	}
-
-    }
-
-	// ENVIAMOS EMAIL AL ADMIN
-	$name = $current_user->first_name.' '.$current_user->last_name;
-	$arraySend = [
-		'name' => $name,
-		'amount' => $_POST['amount'].' $ USDT',
-		'email' =>  $current_user->user_email,
-		'celphone' => get_user_meta($current_user->ID,'user_phone',true),
-		'user_id' => $current_user->ID,
-		'membresia' => $member->level->name,
-		'line_to' => $linesClass->get_name_by_id( $line_to),
-		'line_from' => $linesClass->get_name_by_id( $line_from),
-	];
-	$to_email = get_option('admin_email'); 
-	$subject = $name.' Ha realizado un movimiento';
-	$templateID = 4487786;
-	$response = mailjet_send_email($name,$to_email,$subject,$arraySend,$templateID);
-
-	if(!$response->success()){
-		$msg .= 'Hubo un error en el envio de correo al Administrador';
-		$msg .= print_r($response->getData());
-		$statusCode = 1;
-	}
-
 
 	echo json_encode(
 		array( 'statusCode' => $statusCode,'msg' => $msg, 'account_amount'=> $account_amount ,  'amount_line'=> $amount_line)

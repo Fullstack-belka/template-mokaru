@@ -91,7 +91,7 @@ if($member->mokaru_id > 0){
                         <div class="text">Intereses hasta la fecha</div>
                     </div>
                     <div class="container-row actions">
-                        <a href="<?= get_admin_url(get_current_blog_id(), 'admin.php?page=mokaru-profile&template=view&user_id='.$_REQUEST['user_id'].'&line_id='.$memberLine->line_id);?>"><i class="fa-regular fa-eye"></i></a>                                         
+                        <a href="<?= get_admin_url(get_current_blog_id(), 'admin.php?page=mokaru-users&template=view&user_id='.$_REQUEST['user_id'].'&line_id='.$memberLine->line_id);?>"><i class="fa-regular fa-eye"></i></a>                                         
                     </div>
                 </div>
         </div>

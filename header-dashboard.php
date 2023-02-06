@@ -40,6 +40,7 @@ if(!is_user_logged_in()) {
 	global $memberLines;
 	global $current_user;
 
+	//print_r($member);
 
 
 	?>
@@ -62,10 +63,16 @@ if(!is_user_logged_in()) {
                 <span class="image">
                     <img src="http://mokaru.io/wp-content/uploads/2022/12/Logo_ok.png" alt="Logo">
                 </span>
-
                 <div class="text logo-text">
-                    <span class="name">Hola Andres</span> <!--'hola' + primer nombre del usuario-->
-                    <span class="profession">Membresia Black</span> <!--'Membresia' + tipo de membresia, el texto va en el color representativo de cada membresia-->
+                    <span class="name">Hola <?= $current_user->user_firstname ?> <?= $current_user->user_lastname ?></span> <!--'hola' + primer nombre del usuario-->
+					<span class="profession">
+					<?php if($member->status == 'active'){ ?>    
+							Membresia <?=$member->level->name?>
+					<?php }else{ ?>    
+							Cuenta sin membresía
+					<?php } ?>  
+                   
+					</span> <!--'Membresia' + tipo de membresia, el texto va en el color representativo de cada membresia-->
                 </div>
             </div>
 
@@ -144,23 +151,6 @@ if(!is_user_logged_in()) {
         </div>
 
     </nav>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		<!--Nav movil-->
 		<div class="nav-movil">
 			<div class="header-movil">
