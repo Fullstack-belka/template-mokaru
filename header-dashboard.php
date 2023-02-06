@@ -157,7 +157,7 @@ if(!is_user_logged_in()) {
 				<ul class="movil-nav">
 					<li class="movil-nav-li">
 						<p  class="movil-nav-li-a" >
-							<i class='bx bx-log-out icon bx-sm OpenLogOut' ></i>
+							<i class='bx bx-log-out icon bx-sm' id="usersAdmin" ></i>
 					
 						</p>
 					</li>
@@ -196,7 +196,7 @@ if(!is_user_logged_in()) {
 		</div>    
 	</header>
 
-	<div class="alert-log-out-container noShow">
+	<div class="alert-log-out-container noShow"> <!--ALERTA DE CERRAR SESION-->
 
 			<div class="alert-log-out primary-block">
 				<p>¿Está seguro que desea salir de la aplicación?</p>
