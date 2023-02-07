@@ -39,11 +39,11 @@ $verify = mokaru_verify_order($current_user->ID);
                             </div>
                             <?php }elseif($line->id_mem_lin == 2){ ?>
                             <div class="tags">
-                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="">Retirar</a>
+                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="/transacciones">Retirar</a>
                             </div>
                             <?php }else{ ?>
                             <div class="tags">
-                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="">Retirar</a>
+                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="/transacciones">Retirar</a>
                             </div>
                             <?php } ?>
                         </div>
