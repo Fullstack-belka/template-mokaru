@@ -8,15 +8,8 @@
  * @since Twenty Twenty 1.0
  */
 
-
-
-
-?>
-
-<?php
 get_header('dashboard');
 $verify = mokaru_verify_order($current_user->ID);
-
 ?>
 
 <div class="grid">
@@ -27,35 +20,38 @@ $verify = mokaru_verify_order($current_user->ID);
             <h3>Bienvenido <?= $current_user->user_firstname ?></h3> <!--Insertar nombre-->
             <?php if(count($memberLines) > 0){ ?>
                 <p class="bienvenidos-txt-p">Estos son tus activos</p>
-                    <?php  foreach($memberLines as $key => $line){  ?>
-                    <div class="line">
-                        <span class="icon-<?= $line->name ?>"></span> 
-                        <div class="info-line">
-                            <?php $today = date("Y-m-d H:m:s"); ?> 
-                            <h4 data="<?= $line->dat_fin ?>"><?= $line->name ?></h4>
-                            <?php if(  $today <= $line->dat_fin ){ ?>
-                            <div class="time">
-                                <time class="fecha"><?= clean_date($line->dat_fin,'day_y') ?></time>  <!--fecha-->
-                            </div>
-                            <?php }elseif($line->id_mem_lin == 2){ ?>
-                            <div class="tags">
-                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="/mi-billetera">Retirar</a>
-                            </div>
-                            <?php }else{ ?>
-                            <div class="tags">
-                                <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="/transacciones">Retirar</a>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <?php if($line->interest > 0){  ?>
-                            <div class="container-row interest">
-                                <div class="val">
-                                    +$ <?= $line->interest ?>
+                    <?php  foreach($memberLines as $key => $line){  
+                        if($line->status == 1){
+                        ?>
+                        <div class="line">
+                            <span class="icon-<?= $line->name ?>"></span> 
+                            <div class="info-line">
+                                <?php $today = date("Y-m-d H:m:s"); ?> 
+                                <h4 data="<?= $line->dat_fin ?>"><?= $line->name ?></h4>
+                                <?php if(  $today <= $line->dat_fin ){ ?>
+                                <div class="time">
+                                    <time class="fecha"><?= clean_date($line->dat_fin,'day_y') ?></time>  <!--fecha-->
                                 </div>
+                                <?php }elseif($line->id_mem_lin == 2){ ?>
+                                <div class="tags">
+                                    <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="/mi-billetera">Retirar</a>
+                                </div>
+                                <?php }else{ ?>
+                                <div class="tags">
+                                    <a class="tag-link" data-id-line="<?= $line->id_mem_lin ?>" href="/transacciones">Retirar</a>
+                                </div>
+                                <?php } ?>
                             </div>
-                        <?php } ?>       
-                    </div>                
-                    <?php } ?>
+                            <?php if($line->interest > 0){  ?>
+                                <div class="container-row interest">
+                                    <div class="val">
+                                        +$ <?= $line->interest ?>
+                                    </div>
+                                </div>
+                            <?php } ?>       
+                        </div>                
+                        <?php } 
+                    } ?>
             <?php } ?> 
         </div>
     </div>
@@ -131,9 +127,6 @@ $verify = mokaru_verify_order($current_user->ID);
                         $ <?= $line->interest ?>
                     </div>
                     <div class="text">Intereses hasta la fecha</div>
-                </div>
-                <div class="container-row actions">
-                    <a href="<?= get_admin_url(get_current_blog_id(), 'admin.php?page=mokaru-users&template=view&user_id='.$_REQUEST['user_id'].'&line_id='.$line->line_id);?>"><i class="fa-regular fa-eye"></i></a>                                         
                 </div>
             </div>
             <?php } ?>
