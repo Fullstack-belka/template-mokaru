@@ -30,10 +30,12 @@ if ( ! wp_doing_ajax() ) {
 				<img src="http://mokaru.com.co/wp-content/uploads/2022/10/USDT-1.png" alt="Usdt">
 				<p>Pagar con mis USDT</p>
 			</button>
+			<?php /*?>
 			<button class="btn-payment btn-bancolombia" data-payment="payment_method_bacs">
 				<img src="http://mokaru.com.co/wp-content/uploads/2022/10/LogoBancolombia-1.png" alt="Usdt">
 				<p>Comprar mis USDT a prooverdor autorizado</p>
 			</button>
+			<?php */ ?>
 		</div>
 
 	<?php if ( WC()->cart->needs_payment() ) : ?>

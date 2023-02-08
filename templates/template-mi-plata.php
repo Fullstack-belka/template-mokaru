@@ -137,8 +137,8 @@ if($member->mokaru_id > 0){
                         <td><?=$request->req_amount?></td>
                         <td>
                             <?php if($request->status == 'active'){ echo 'Pendiente'; }  ?>
-                            <?php if($request->status == 'completed'){ echo 'Completada'; }  ?>
-                            <?php if($request->status == 'denied'){ echo 'Rechazado'; }  ?>
+                            <?php if($request->status == 'complete'){ echo 'Completada'; }  ?>
+                            <?php if($request->status == 'refuse'){ echo 'Rechazado'; }  ?>
                         </td>
                     </tr>
             <?php } ?>
@@ -262,7 +262,7 @@ if($member->mokaru_id > 0){
                 <p>Te da un <?= $percentage->percentage *3000 ?>% de retorno mensual de acuerdo a tu membresia</p>
             </div>
 
-            <button class="depositar-servicios btn ">Depositar</button>
+            <button class="depositar-servicios btn " data-line-to-id="3" data-line-from-id="1">Depositar</button>
         </div>
     </div>
 
