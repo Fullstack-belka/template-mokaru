@@ -80,7 +80,7 @@ const transactions = function(){
                 $m('#alertModal .modal-footer').show();
                 $m('#alertModal .message').html('');
                 $m('#alertModal .name-line').html('Transacciones');
-                $m('#alertModal .amount-send').html($m(form).find('#alg_open_price_424').val());
+                $m('#alertModal .amount-send').html($m(form).find('.alg_open_price').val());
                 var myModal = new bootstrap.Modal(document.getElementById('alertModal'))
                 myModal.show()
                
