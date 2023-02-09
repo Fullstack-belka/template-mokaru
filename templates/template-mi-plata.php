@@ -74,7 +74,7 @@ if($member->mokaru_id > 0){
             <h3>Movimientos</h3>
             <?php
             $transactionsClass = new MemberTransaction();
-            $transactions = $transactionsClass->get_transactions($current_user->ID, 15,1,1);
+            $transactions = $transactionsClass->get_transactions($current_user->ID, 15,1);
             ?>
 
             <?php if(count($transactions)< 1){?>
@@ -137,8 +137,8 @@ if($member->mokaru_id > 0){
                         <td><?=$request->req_amount?></td>
                         <td>
                             <?php if($request->status == 'active'){ echo 'Pendiente'; }  ?>
-                            <?php if($request->status == 'completed'){ echo 'Completada'; }  ?>
-                            <?php if($request->status == 'denied'){ echo 'Rechazado'; }  ?>
+                            <?php if($request->status == 'complete'){ echo 'Completada'; }  ?>
+                            <?php if($request->status == 'refuse'){ echo 'Rechazado'; }  ?>
                         </td>
                     </tr>
             <?php } ?>
@@ -158,10 +158,10 @@ if($member->mokaru_id > 0){
         </div>
         <div class="grid-retirar-info deposit-rectangle primary-block-retiro">     
             <h2 class="titulo-rectangulo">¿Cuanto deseas depositar?</h2>
-            <form class="form-retiro" action="/?add-to-cart=424" id="deposit_form">
-                <label for="alg_open_price_424">Ingresa un monto</label> 
-                <input type="number" data-product_id="424" class="alg_open_price recarga-usdt-retiro clean_number" name="alg_open_price" id="alg_open_price_424" value="" pattern="" step="1">
-                <button type="submit" name="add-to-cart" value="424" class="single_add_to_cart_button button alt recarga-retiro-btn">Continuar</button>
+            <form class="form-retiro" action="/?add-to-cart=<?=PRODUCT_ID_RECARGA?>" id="deposit_form">
+                <label for="alg_open_price_<?=PRODUCT_ID_RECARGA?>">Ingresa un monto</label> 
+                <input type="number" data-product_id="<?=PRODUCT_ID_RECARGA?>" class="alg_open_price recarga-usdt-retiro clean_number" name="alg_open_price" id="alg_open_price_<?=PRODUCT_ID_RECARGA?>" value="" pattern="" step="1">
+                <button type="submit" name="add-to-cart" value="<?=PRODUCT_ID_RECARGA?>" class="single_add_to_cart_button button alt recarga-retiro-btn">Continuar</button>
             </form>  
         </div>
 
@@ -259,10 +259,16 @@ if($member->mokaru_id > 0){
         <div class="service-items">
             <div>
                 <h4>Billetera Mokaru</h4>
-                <p>Te da un <?= $percentage->percentage *3000 ?>% de retorno mensual de acuerdo a tu membresia</p>
+                <?php 
+                    $por = $percentage->percentage * 3000;
+                    if( $por == 24.9){
+                        $por =  $por / 10;
+                    }
+                ?>
+                <p>Te da un <?= $por ?>% de retorno mensual de acuerdo a tu membresia</p>
             </div>
 
-            <button class="depositar-servicios btn ">Depositar</button>
+            <button class="depositar-servicios btn " data-line-to-id="3" data-line-from-id="1">Depositar</button>
         </div>
     </div>
 
