@@ -259,7 +259,13 @@ if($member->mokaru_id > 0){
         <div class="service-items">
             <div>
                 <h4>Billetera Mokaru</h4>
-                <p>Te da un <?= $percentage->percentage *3000 ?>% de retorno mensual de acuerdo a tu membresia</p>
+                <?php 
+                    $por = $percentage->percentage * 3000;
+                    if( $por == 24.9){
+                        $por =  $por / 10;
+                    }
+                ?>
+                <p>Te da un <?= $por ?>% de retorno mensual de acuerdo a tu membresia</p>
             </div>
 
             <button class="depositar-servicios btn " data-line-to-id="3" data-line-from-id="1">Depositar</button>

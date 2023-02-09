@@ -112,7 +112,13 @@ $verify = mokaru_verify_order($current_user->ID);
                 </div>
                 <div class="container-row percentage">
                     <div class="val">
-                        % <?= $line->percentage * 3000?>
+                        <?php 
+                            $per = $line->percentage * 3000;
+                            if( $per == 24.9){
+                                $per =  $per / 10;
+                            }
+                        ?>
+                        % <?= $per ?>
                     </div>
                     <div class="text">Mensual</div>
                 </div>

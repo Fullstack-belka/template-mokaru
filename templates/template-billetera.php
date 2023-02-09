@@ -26,7 +26,13 @@ if($member->mokaru_id > 0){
                 <h3>Mokaru <?= $member->level->name ?> </h3> <!--Insertar nombre-->
                 <p class="bienvenidos-txt-t">Modulo Mi Billetera</p>
                 <p>Aqui podras recargar tus servicios mokaru o retirar tu ganancias</p>
-                <p>Este módulo te brinda un <?= $percentage->percentage *3000 ?>% mensual</p>
+                <?php 
+                    $por = $percentage->percentage * 3000;
+                    if( $por == 24.9){
+                        $por =  $por / 10;
+                    }
+                ?>
+                <p>Este módulo te brinda un <?= $por ?>% mensual</p>
                 <?php /*
                 <div class="time">
                     <time class="fecha"><?= clean_date($memberLine->dat_ini,'day_y') ?> - <?= clean_date($memberLine->dat_fin,'day_y') ?></time>  <!--fecha-->
