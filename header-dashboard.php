@@ -156,36 +156,38 @@ if(!is_user_logged_in()) {
 			<div class="header-movil">
 				<ul class="movil-nav">
 					<li class="movil-nav-li">
-						<p  class="movil-nav-li-a" >
+						<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="movil-nav-li-a" >
 							<i class='bx bx-log-out icon bx-sm' id="usersAdmin" ></i>
-					
-						</p>
+							<p class="linkname">salir</p>
+						</a>
 					</li>
 		
 					<li  class="movil-nav-li" id="movil-billetera">
-						<a href="#" class="movil-nav-li-a">
-							<i class='bx bx-wallet icon bx-sm'></i>
-					
+						<a href="/mi-billetera" class="movil-nav-li-a">
+							<i class='bx bx-wallet icon bx-sm linknavicon'></i>
+							<p class="linkname">billetera</p>
 						</a>
 					</li>
 		
 					<li class="movil-nav-li">
-						<a href="#" class="movil-nav-li-a">
+						<a href="/dashboard" class="movil-nav-li-a">
 							<i class='bx bx-home-alt icon bx-sm' ></i>
-					
+							<p class="linkname">dashboard</p>
+							
 						</a>
 					</li>
 
 					<li class="movil-nav-li">
-						<a href="#" class="movil-nav-li-a">
+						<a href="/transacciones" class="movil-nav-li-a">
 							<i class='bx bx-money-withdraw icon bx-sm' ></i>
-					
+							<p class="linkname">transacciones</p>
 						</a>
 					</li>
 
 					<li class="movil-nav-li">
 						<a href="<?= get_permalink(325)?>" class="movil-nav-li-a">
 							<i class='bx bx-help-circle icon bx-sm' ></i>
+							<p class="linkname">ayuda</p>
 					
 						</a>
 					</li>
