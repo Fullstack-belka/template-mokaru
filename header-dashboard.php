@@ -156,7 +156,7 @@ if(!is_user_logged_in()) {
 			<div class="header-movil">
 				<ul class="movil-nav">
 					<li class="movil-nav-li">
-						<a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="movil-nav-li-a" >
+						<a class="movil-nav-li-a link-logout" >
 							<i class='bx bx-log-out icon bx-sm' id="usersAdmin" ></i>
 							<p class="linkname">salir</p>
 						</a>
@@ -204,22 +204,17 @@ if(!is_user_logged_in()) {
     <div class="modal-content">
       <div class="modal-body ">
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <figure id="deposit_icon" class="content-image alert-icon">
-            <lottie-player id="" src="https://assets3.lottiefiles.com/packages/lf20_qxemgrnw.json" autoplay loop class="m-auto "  background="transparent"  speed="1"  style="width: 150px; height: 150px;"></lottie-player>
+        <figure id="logout_icon" class="content-image alert-icon">
+            <lottie-player id="" src="https://assets7.lottiefiles.com/packages/lf20_vmlm0zew.json" autoplay loop class="m-auto "  background="transparent"  speed="1"  style="width: 150px; height: 150px;"></lottie-player>
         </figure>
-		<div class="initial-message">
+		<div class="initial-message text-center">
 			<p>¿Está seguro que desea salir de la aplicación?</p>
 		</div>
       </div>
       <div class="modal-footer border-top-0 justify-content-center">
 		<button type="button" data-bs-dismiss="modal" class="btn btn-secondary">No, deseo volver</button>
-        <a  href="<?php echo wp_logout_url( get_permalink() ); ?>" class="btn btn-primary" data-bs-dismiss="modal">Si, deseo salir</a>
+        <a  href="<?php echo wp_logout_url( get_permalink() ); ?>" class="btn btn-primary">Si, deseo salir</a>
       </div>
     </div>
   </div>
 </div>
-
-
-
-	
-			

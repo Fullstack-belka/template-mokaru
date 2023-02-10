@@ -63,10 +63,10 @@ const transactions = function(){
         /*VALIDACIÓN FORMULARIO DE FORMULARIO*/
         $m("#deposit_form").validate({
             rules: {
-                alg_open_price:{required:true,digits: true, min:50,number:true}
+                alg_open_price:{required:true,digits: true, min:10,number:true}
             },
             messages:{
-                alg_open_price:{required:"Por favor digite un monto",number:"Solo puedes ingresar números", min: "Solo puedes recargar de 50 USDT en adelante"}
+                alg_open_price:{required:"Por favor digite un monto",number:"Solo puedes ingresar números", min: "Solo puedes recargar de 10 USDT en adelante"}
             },            
             errorElement: 'div',
             onfocusout: function(e) {
@@ -369,12 +369,18 @@ const transactions = function(){
         });
 
     };
+    function modalLogout(){
+        $m('.link-logout').click(function(){
+            $m('#logoutModal').modal('toggle');
+        });
+    }
 
     return{
         init: function() {
             deposit_form();
             retirar_form();
             validateInputs();
+            modalLogout();
             desposit_services();
             ocultar();
         }

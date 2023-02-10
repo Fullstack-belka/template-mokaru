@@ -4,7 +4,6 @@ $memberClass = new MemberLines();
 $memberLine = $memberClass->get_line_member($member->mokaru_id,3);
 
 ?>
-<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <div class="depositarModulo-view noShow">
     <div class="grid-retirar">    
         <div class="grid-retirar-titulo">
